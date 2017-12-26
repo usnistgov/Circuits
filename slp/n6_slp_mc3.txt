@@ -1,0 +1,167 @@
+f33337 = x1x3x4+x1x2x5
+T = (A0 L : L) (A1 L : L) (A2 L : 0 1)
+a0 = (x5+x2) * (x5)                      # a0 = x5+x2x5
+a1 = (x4) * (x3)                         # a1 = x3x4
+a2 = (x1) * (a0+a1+x5)                   # a2 = x1x3x4+x1x2x5
+f  = a2
+
+f87383 = x1x6+x1x3x4+x1x2x5
+T = (A0 L : L) (A1 L : L) (A2 L : 0 1)
+a0 = (x2) * (x5)                         # a0 = x2x5
+a1 = (x4) * (x3)                         # a1 = x3x4
+a2 = (x1) * (a0+a1+x6)                   # a2 = x1x6+x1x3x4+x1x2x5
+f  = a2
+
+f10218 = x1x2+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4+x1) * (x4)                      # a0 = x4+x1x4
+a1 = (x4+x3) * (a0+x4)                   # a1 = x1x4+x1x3x4
+a2 = (x2) * (a0+a1+x4+x1)                # a2 = x1x2+x1x2x3x4
+f  = a2
+
+f33336 = x1x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4+x2) * (x4)                      # a0 = x4+x2x4
+a1 = (x4+x3) * (a0+x4)                   # a1 = x2x4+x2x3x4
+a2 = (x1) * (a0+a1+x5+x4)                # a2 = x1x5+x1x2x3x4
+f  = a2
+
+f117194 = x2x3+x1x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x3+x2) * (x3)                      # a0 = x3+x2x3
+a1 = (x4+x3) * (a0+x3)                   # a1 = x2x3+x2x3x4
+a2 = (x1) * (a0+a1+x5+x3)                # a2 = x1x5+x1x2x3x4
+f  = a0+a2+x3
+
+f140064 = x1x5+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4+x3) * (x4)                      # a0 = x4+x3x4
+a1 = (x2+x1) * (a0+x5+x4)                # a1 = x2x5+x2x3x4+x1x5+x1x3x4
+a2 = (x1) * (a0+a1+x4)                   # a2 = x1x5+x1x2x5+x1x2x3x4
+f  = a2
+
+f2 = x3x4+x1x5+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4+x3) * (x4)                      # a0 = x4+x3x4
+a1 = (x2+x1) * (a0+x5+x4)                # a1 = x2x5+x2x3x4+x1x5+x1x3x4
+a2 = (x1) * (a0+a1+x4)                   # a2 = x1x5+x1x2x5+x1x2x3x4
+f  = a0+a2+x4
+
+f117196 = x1x3+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4) * (x3)                         # a0 = x3x4
+a1 = (x2+x1) * (a0+x5)                   # a1 = x2x5+x2x3x4+x1x5+x1x3x4
+a2 = (x1) * (a0+a1+x5+x3)                # a2 = x1x3+x1x2x5+x1x2x3x4
+f  = a2
+
+f140367 = x3x5+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 0 : 1)
+a0 = (x2+x1) * (x2)                      # a0 = x2+x1x2
+a1 = (x4) * (a0+x2)                      # a1 = x1x2x4
+a2 = (a0+1+x3+x2) * (a1+x5)              # a2 = x5+x3x5+x1x2x5+x1x2x3x4
+f  = a2+x5
+
+f121211 = x3x4+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x4+x3+x2) * (x4)                   # a0 = x4+x3x4+x2x4
+a1 = (x2+x1) * (a0+x5)                   # a1 = x2x5+x2x3x4+x1x5+x1x4+x1x3x4+x1x2x4
+a2 = (x2) * (a0+a1+x5+x4)                # a2 = x2x4+x1x2x5+x1x2x3x4
+f  = a0+a2+x4
+
+f87385 = x1x6+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x3) * (x4)                         # a0 = x3x4
+a1 = (x2+x1) * (a0+x5)                   # a1 = x2x5+x2x3x4+x1x5+x1x3x4
+a2 = (x1) * (a0+a1+x6+x5)                # a2 = x1x6+x1x2x5+x1x2x3x4
+f  = a2
+
+f59835 = x3x4+x1x6+x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x3) * (x4)                         # a0 = x3x4
+a1 = (x2+x1) * (a0+x5)                   # a1 = x2x5+x2x3x4+x1x5+x1x3x4
+a2 = (x1) * (a0+a1+x6+x5)                # a2 = x1x6+x1x2x5+x1x2x3x4
+f  = a0+a2
+
+f140054 = x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 0 : 1)
+a0 = (x4+x1) * (x2)                      # a0 = x2x4+x1x2
+a1 = (x4) * (a0+x3)                      # a1 = x3x4+x2x4+x1x2x4
+a2 = (a0+x2) * (a1+x4+x1)                # a2 = x1x2x3x4
+f  = a2
+
+f87384 = x3x4+x2x5+x1x6
+T = (A0 L : L) (A1 L : L) (A2 L : L)
+a0 = (x1) * (x6)                         # a0 = x1x6
+a1 = (x4) * (x3)                         # a1 = x3x4
+a2 = (x5) * (x2)                         # a2 = x2x5
+f  = a0+a1+a2
+
+f121207 = x3x4+x1x3x4+x1x2x5
+T = (A0 L : L) (A1 L : L) (A2 0 : 1)
+a0 = (x3+x2) * (x1)                      # a0 = x1x3+x1x2
+a1 = (x1) * (x5+x4)                      # a1 = x1x5+x1x4
+a2 = (a0+x3) * (a1+x4)                   # a2 = x3x4+x1x3x4+x1x2x5
+f  = a2
+
+f147544 = x2x3x5+x1x4x5+x1x2x3x4
+T = (A0 L : L) (A1 L : L) (A2 0 : 1)
+a0 = (x4+x1) * (x4)                      # a0 = x4+x1x4
+a1 = (x3) * (x2)                         # a1 = x2x3
+a2 = (a0+x5+x4) * (a1+x5)                # a2 = x5+x2x3x5+x1x4x5+x1x2x3x4
+f  = a2+x5
+
+f11035 = x5x6+x3x4x5+x1x2x6+x1x2x3x4
+T = (A0 L : L) (A1 L : L) (A2 0 : 1)
+a0 = (x1) * (x2)                         # a0 = x1x2
+a1 = (x4) * (x3)                         # a1 = x3x4
+a2 = (a0+x5) * (a1+x6)                   # a2 = x5x6+x3x4x5+x1x2x6+x1x2x3x4
+f  = a2
+
+f36047 = x4x5+x1x2x3
+T = (A0 L : L) (A1 L : 0) (A2 L : 0)
+a0 = (x3+x1) * (x2)                      # a0 = x2x3+x1x2
+a1 = (x5+x3) * (a0+x2)                   # a1 = x2x5+x2x3x5+x1x2x5+x1x2x3
+a2 = (x5) * (a0+x4+x2)                   # a2 = x4x5+x2x5+x2x3x5+x1x2x5
+f  = a1+a2
+
+f86843 = x4x5+x1x6+x1x2x3
+T = (A0 L : L) (A1 L : 0) (A2 L : 0)
+a0 = (x2) * (x3)                         # a0 = x2x3
+a1 = (x5) * (a0+x6+x4)                   # a1 = x5x6+x4x5+x2x3x5
+a2 = (x5+x1) * (a0+x6)                   # a2 = x5x6+x2x3x5+x1x6+x1x2x3
+f  = a1+a2
+
+f33328 = x1x2x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 0 1)
+a0 = (x3) * (x4)                         # a0 = x3x4
+a1 = (x2+x1) * (a0+x5+x2)                # a1 = x2+x2x5+x2x3x4+x1x5+x1x3x4+x1x2
+a2 = (x2) * (a0+a1+x5+x1)                # a2 = x2+x1x2x5+x1x2x3x4
+f  = a2+x2
+
+f3005 = x2x3+x2x3x5+x1x4x5+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 0 : 1)
+a0 = (x4+x3+x1) * (1+x3+x2)              # a0 = x4+x3x4+x2x4+x2x3+x1+x1x3+x1x2
+a1 = (x4+x3+x2) * (a0+x5)                # a1 = x4+x4x5+x3x5+x3x4+x2x5+x2x4+x2x3x4+x1x4+x1x3x4+x1x2x4
+a2 = (a0+x5+x4+x1) * (a1+1+x5+x3+x2)     # a2 = x2x3+x2x3x5+x1x4x5+x1x2x3x4
+f  = a2
+
+f150296 = x2x3+x1x4+x1x2x3x4
+T = (A0 L : L) (A1 L : 0) (A2 L : 1)
+a0 = (x4+x3) * (x2)                      # a0 = x2x4+x2x3
+a1 = (x3) * (a0+x2)                      # a1 = x2x3x4
+a2 = (x4+x2+x1) * (a1+x4)                # a2 = x4+x2x4+x1x4+x1x2x3x4
+f  = a0+a2+x4
+
+f59836 = x3x4+x1x6+x1x3x4+x1x2x5
+T = (A0 L : L) (A1 L : L) (A2 L : 0 1)
+a0 = (x3) * (x4)                         # a0 = x3x4
+a1 = (x5) * (x2)                         # a1 = x2x5
+a2 = (x1) * (a0+a1+x6)                   # a2 = x1x6+x1x3x4+x1x2x5
+f  = a0+a2
+
+f116967 = x2x4+x1x5+x1x2x3
+T = (A0 L : L) (A1 L : L) (A2 L : 0)
+a0 = (x3) * (x2)                         # a0 = x2x3
+a1 = (x2) * (x4)                         # a1 = x2x4
+a2 = (x1) * (a0+x5)                      # a2 = x1x5+x1x2x3
+f  = a1+a2
