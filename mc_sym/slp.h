@@ -95,6 +95,8 @@ std::vector<circuit_data<N>> load_circuit_data(const std::string &fileName)
 
 	LOG_INFO << circdata.size() << " circuits loaded" << LOG_ENDL;
 
+	LOG_ERROR_IF(circdata.empty()) << "no circuits loaded" << LOG_ENDL;
+
 	return circdata;
 }
 
