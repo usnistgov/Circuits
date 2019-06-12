@@ -1,0 +1,7 @@
+x3x4+x2x5+x1x6
+x3x4+x1x3x4+x1x2x5+x1x6
+x1x3x4+x1x2x5+x1x6
+x1x2x3x4+x3x4x5+x1x2x6+x5x6
+x1x2x3+x4x5+x1x6
+x3x4+x1x2x3x4+x1x2x5+x1x6
+x1x2x3x4+x1x2x5+x1x6

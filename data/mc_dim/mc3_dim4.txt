@@ -1,0 +1,3 @@
+x1x2+x1x2x3x4
+x2x3+x1x4+x1x2x3x4
+x1x2x3x4
