@@ -1,0 +1,8 @@
+(A0 L : L) (A1 L : L) (A2 L : L)
+(A0 L : L) (A1 L : L) (A2 L : 0)
+(A0 L : L) (A1 L : L) (A2 L : 0 1)
+(A0 L : L) (A1 L : L) (A2 0 : 1)
+(A0 L : L) (A1 L : 0) (A2 L : 0)
+(A0 L : L) (A1 L : 0) (A2 L : 1)
+(A0 L : L) (A1 L : 0) (A2 L : 0 1)
+(A0 L : L) (A1 L : 0) (A2 0 : 1)
