@@ -38,9 +38,9 @@ eed2b47896aacc00
 
 For groups having more than one Boolean functions, a hint to a class identification method is provided. We want to find in the most efficient way which of the three functions a given function is affine equivalent to, since we cannot distinguish it based on the signaure; there are more than one candidates. This hint is calculated based on the benchmarks of different identification methods and parameters and the fastest one is chosen.
 
-`group 4' has` three functions, so  an identification hint is required, which is `ind 2`, meaning that the *indicators* of all three functions up to distance 2 will be computed and used in the identification process.
+`group 4 has` three functions, so  an identification hint is required, which is `ind 2`, meaning that the *indicators* of all three functions up to distance 2 will be computed and used in the identification process.
 
-`group 5' has` two functions. Similar to the previous case, but a *local connections* distinguisher (`lc 2`) is used this time.
+`group 5 has` two functions. Similar to the previous case, but a *local connections* distinguisher (`lc 2`) is used this time.
 
 The details of those two methods can be found in the following thesis:
 
