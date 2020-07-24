@@ -1,0 +1,210 @@
+# File compiled by the NIST circuit complexity team:
+# https://csrc.nist.gov/projects/circuit-complexity
+# File timestamp (UTC): 2020-06-26T15:29:51.222Z
+# Repository: https://github.com/usnistgov/Circuits/
+
+begin circuit Mult-Binary-Poly-11-terms
+
+# Description: Multiplication of two Binary Polynomials with 11 terms (degree 10)
+# References: doi:10.1109/TC.2018.2874662
+# Tally: 22 inputs, 21 outputs, 186 gates, 78 AND, 108 XOR
+# Depth(Gate): 7; Depth(AND): 1
+
+# Input polynomials are A = f0 + f1*X + f2*X^2 + ... + f10*X^10 and B = g0 + g1*X + g2*X^2 + ... + g10*X^10
+# Output polynomial is the product A*B = h0 + h1*X + h2*X^2 + ... + h20*X^20
+# Coefficients are over GF2
+
+Inputs: f0:f10 g0:g10
+Outputs: h0:h20
+Internal: t1:t165
+GateSyntax: GateName Output Inputs
+
+begin SLP
+AND t1 f2 g2
+AND t2 f2 g0
+AND t3 f2 g1
+AND t4 f0 g2
+AND t5 f1 g2
+AND t6 f1 g1
+AND t7 f1 g0
+AND t8 f0 g1
+AND h0 f0 g0
+AND t9 f5 g5
+AND t10 f5 g3
+AND t11 f5 g4
+AND t12 f3 g5
+AND t13 f4 g5
+AND t14 f4 g4
+AND t15 f4 g3
+AND t16 f3 g4
+AND t17 f3 g3
+XOR t18 g0 g3
+XOR t19 g1 g4
+XOR t20 g2 g5
+XOR t21 f0 f3
+XOR t22 f1 f4
+XOR t23 f2 f5
+AND t24 t23 t20
+AND t25 t23 t18
+AND t26 t23 t19
+AND t27 t21 t20
+AND t28 t22 t20
+AND t29 t22 t19
+AND t30 t22 t18
+AND t31 t21 t19
+AND t32 t21 t18
+AND h20 f10 g10
+AND t33 f10 g6
+AND t34 f10 g7
+AND t35 f10 g8
+AND t36 f10 g9
+AND t37 f6 g10
+AND t38 f7 g10
+AND t39 f8 g10
+AND t40 f9 g10
+AND t41 f9 g9
+AND t42 f9 g6
+AND t43 f9 g7
+AND t44 f9 g8
+AND t45 f6 g9
+AND t46 f7 g9
+AND t47 f8 g9
+AND t48 f8 g8
+AND t49 f8 g6
+AND t50 f8 g7
+AND t51 f6 g8
+AND t52 f7 g8
+AND t53 f7 g7
+AND t54 f7 g6
+AND t55 f6 g7
+AND t56 f6 g6
+XOR t57 g0 g6
+XOR t58 g1 g7
+XOR t59 g2 g8
+XOR t60 g3 g9
+XOR t61 g4 g10
+XOR t62 f0 f6
+XOR t63 f1 f7
+XOR t64 f2 f8
+XOR t65 f3 f9
+XOR t66 f4 f10
+AND t67 t64 t59
+AND t68 t64 t57
+AND t69 t64 t58
+AND t70 t62 t59
+AND t71 t63 t59
+AND t72 t63 t58
+AND t73 t63 t57
+AND t74 t62 t58
+AND t75 t62 t57
+AND t76 f5 t60
+AND t77 f5 t61
+AND t78 t65 g5
+AND t79 t66 g5
+AND t80 t66 t61
+AND t81 t66 t60
+AND t82 t65 t61
+AND t83 t65 t60
+XOR t84 t57 t60
+XOR t85 t58 t61
+XOR t86 t59 g5
+XOR t87 t62 t65
+XOR t88 t63 t66
+XOR t89 t64 f5
+AND t90 t89 t86
+AND t91 t89 t84
+AND t92 t89 t85
+AND t93 t87 t86
+AND t94 t88 t86
+AND t95 t88 t85
+AND t96 t88 t84
+AND t97 t87 t85
+AND t98 t87 t84
+XOR h1 t7 t8
+XOR t99 t1 t15
+XOR t100 t16 t99
+XOR t101 h1 t100
+XOR h19 t36 t40
+XOR t102 t55 t54
+XOR t103 t24 t102
+XOR t104 t30 t31
+XOR h4 t101 t104
+XOR t105 t73 t74
+XOR t106 t9 t105
+XOR t107 t33 t37
+XOR t108 t43 t46
+XOR t109 t48 t107
+XOR h16 t108 t109
+XOR t110 t67 t81
+XOR t111 t82 t110
+XOR t112 t101 t103
+XOR h7 t106 t112
+XOR t113 t90 h1
+XOR t114 h19 t111
+XOR t115 t112 t113
+XOR h13 t114 t115
+XOR t116 t96 t97
+XOR t117 t116 t106
+XOR t118 h16 t111
+XOR t119 h4 t117
+XOR h10 t118 t119
+XOR t120 t2 t4
+XOR h2 t6 t120
+XOR t121 t10 t12
+XOR t122 t14 t121
+XOR t123 h2 t122
+XOR t124 t49 t51
+XOR t125 t53 t124
+XOR t126 t25 t27
+XOR t127 t29 t126
+XOR h5 t123 t127
+XOR t128 t34 t38
+XOR t129 t44 t47
+XOR h17 t128 t129
+XOR t130 t68 t70
+XOR t131 t72 t130
+XOR t132 t76 t78
+XOR t133 t80 t132
+XOR t134 t123 t125
+XOR h8 t131 t134
+XOR t135 h20 h2
+XOR t136 t133 t135
+XOR h14 t134 t136
+XOR t137 t91 t93
+XOR t138 t95 h5
+XOR t139 h17 t131
+XOR t140 t133 t137
+XOR t141 t140 t139
+XOR h11 t138 t141
+XOR t142 t17 t3
+XOR t143 t5 t142
+XOR t144 t11 t13
+XOR t145 h0 t143
+XOR h3 t32 t145
+XOR t146 t75 t144
+XOR t147 t42 t45
+XOR t148 t50 t52
+XOR t149 t147 t148
+XOR t150 t35 t39
+XOR h18 t41 t150
+XOR t151 t77 t79
+XOR t152 t144 t151
+XOR t153 t26 t28
+XOR t154 t56 t153
+XOR t155 t69 t71
+XOR t156 t83 t155
+XOR h15 t149 t152
+XOR t157 t145 t146
+XOR h6 t154 t157
+XOR t158 t98 t32
+XOR t159 t149 t156
+XOR t160 t157 t158
+XOR h9 t159 t160
+XOR t161 t92 t94
+XOR t162 t143 h18
+XOR t163 t152 t154
+XOR t164 t156 t161
+XOR t165 t162 t163
+XOR h12 t164 t165
+end SLP
+end circuit

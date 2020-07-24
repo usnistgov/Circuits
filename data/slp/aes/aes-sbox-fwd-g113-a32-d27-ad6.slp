@@ -1,0 +1,133 @@
+# File compiled by the NIST circuit complexity team:
+# https://csrc.nist.gov/projects/circuit-complexity
+# File timestamp (UTC): 2020-06-26T15:29:42.707Z
+# Repository: https://github.com/usnistgov/Circuits/
+
+begin circuit AES-SBOX-FWD-G113-A32-D27-AD6
+
+# Description: AES Sbox Forward
+# References: Based on doi:10.1007/s00145-012-9124-7 and then improved by 2 XORs
+# Tally: 8 inputs, 8 outputs, 113 gates, 32 AND, 77 XOR, 4 XNOR
+# Depth(Gate): 27; Depth(AND): 6
+
+Inputs: U0:U7
+Outputs: S0:S7
+Internal: t1:t105
+GateSyntax: GateName Output Inputs
+
+begin SLP
+XOR t1 U3 U5
+XOR t2 U0 U6
+XOR t3 U0 U3
+XOR t4 U0 U5
+XOR t5 U1 U2
+XOR t6 t5 U7
+XOR t7 t6 U3
+XOR t8 t2 t1
+XOR t9 t6 U0
+XOR t10 t6 U6
+XOR t11 t10 t4
+XOR t12 U4 t8
+XOR t13 t12 U5
+XOR t14 t12 U1
+XOR t15 t13 U7
+XOR t16 t13 t5
+XOR t17 t14 t3
+XOR t18 U7 t17
+XOR t19 t16 t17
+XOR t20 t16 t4
+XOR t21 t5 t17
+XOR t22 t2 t21
+XOR t23 U0 t21
+AND t24 t8 t13
+AND t25 t11 t15
+XOR t26 t25 t24
+AND t27 t7 U7
+XOR t28 t27 t24
+AND t29 t2 t21
+AND t30 t10 t6
+XOR t31 t30 t29
+AND t32 t9 t18
+XOR t33 t32 t29
+AND t34 t3 t17
+AND t35 t1 t19
+XOR t36 t35 t34
+AND t37 t4 t16
+XOR t38 t37 t34
+XOR t39 t26 t14
+XOR t40 t28 t38
+XOR t41 t31 t36
+XOR t42 t33 t38
+XOR t43 t39 t36
+XOR t44 t40 t20
+XOR t45 t41 t22
+XOR t46 t42 t23
+XOR t47 t43 t44
+AND t48 t43 t45
+XOR t49 t46 t48
+AND t50 t47 t49
+XOR t51 t50 t44
+XOR t52 t45 t46
+XOR t53 t44 t48
+AND t54 t53 t52
+XOR t55 t54 t46
+XOR t56 t45 t55
+XOR t57 t49 t55
+AND t58 t46 t57
+XOR t59 t58 t56
+XOR t60 t49 t58
+AND t61 t51 t60
+XOR t62 t47 t61
+XOR t63 t62 t59
+XOR t64 t51 t55
+XOR t65 t51 t62
+XOR t66 t55 t59
+XOR t67 t64 t63
+AND t68 t66 t13
+AND t69 t59 t15
+AND t70 t55 U7
+AND t71 t65 t21
+AND t72 t62 t6
+AND t73 t51 t18
+AND t74 t64 t17
+AND t75 t67 t19
+AND t76 t63 t16
+AND t77 t66 t8
+AND t78 t59 t11
+AND t79 t55 t7
+AND t80 t65 t2
+AND t81 t62 t10
+AND t82 t51 t9
+AND t83 t64 t3
+AND t84 t67 t1
+AND t85 t63 t4
+XOR t86 t83 t84
+XOR t87 t78 t86
+XOR t88 t77 t87
+XOR t89 t68 t70
+XOR t90 t69 t68
+XOR t91 t71 t72
+XOR t92 t80 t89
+XOR t93 t75 t91
+XOR t94 t76 t92
+XOR t95 t93 t94
+XOR t96 t91 t90
+XOR t97 t71 t73
+XOR t98 t81 t86
+XOR t99 t89 t97
+XOR S3 t88 t96
+XOR t100 t74 t93
+XOR t101 t82 t95
+XOR t102 t98 t99
+XNOR S7 t80 t102
+XOR t103 t83 t100
+XOR t104 t87 t79
+XOR S0 t88 t100
+XNOR S6 t95 t102
+XOR S4 t99 S3
+XNOR S1 S3 t100
+XOR t105 t101 t103
+XNOR S2 t105 t85
+XOR S5 t104 t101
+end SLP
+end circuit
