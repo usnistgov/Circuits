@@ -1,0 +1,67 @@
+# File timestamp (UTC): 2021-01-15T14:45:01.328
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit FSE_LiWang16_4x4_4--rs=109
+
+# Boolean Circuit for a linear system defined by a 16x16 bit-matrix
+# Matrix represented as 16 columns: UInt16[0x1841, 0x2192, 0x4234, 0x8c28, 0x8411, 0x1922, 0x2344, 0xc288, 0x4118, 0x9221, 0x3442, 0x288c, 0x1184, 0x2219, 0x4423, 0x88c2]
+# Matrix obtained from: https://github.com/rub-hgi/shorter_linear_slps_for_mds_matrices
+# Tally: 16 inputs, 16 outputs, 44 gates (44 XOR)
+# Depth: 4
+
+Inputs: x1:x16
+Outputs: y1:y16
+Internal: t1:t28
+GateSyntax: GateName Output Inputs
+
+# Regex find gate in new format: XOR\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+# Regex replacing to old format: \1 = XOR\(\2,\3\)
+
+begin SLP
+XOR t1 x4 x12
+XOR t2 x4 x5
+XOR t3 x8 x9
+XOR t4 x11 x15
+XOR y11 t2 t4
+XOR t5 x3 x14
+XOR t6 x7 x13
+XOR t7 x8 x16
+XOR t8 x2 x12
+XOR t9 x3 x15
+XOR y15 t3 t9
+XOR t10 x6 x16
+XOR t11 x10 t9
+XOR t12 x5 t5
+XOR t13 x7 x11
+XOR t14 x1 t13
+XOR y7 x16 t14
+XOR t15 x6 t6
+XOR t16 x2 x9
+XOR y5 t12 t16
+XOR y9 t15 t16
+XOR t17 t1 t10
+XOR y12 x1 t17
+XOR t18 x10 t14
+XOR y13 t15 t18
+XOR t19 x3 x12
+XOR y3 t6 t19
+XOR t20 x13 t8
+XOR y8 t7 t20
+XOR t21 x6 t11
+XOR y6 x4 t21
+XOR t22 x7 x10
+XOR t23 x14 t3
+XOR y4 t1 t23
+XOR t24 x10 t2
+XOR y16 t7 t24
+XOR t25 x8 t22
+XOR y10 t5 t25
+XOR t26 x1 t11
+XOR y1 t12 t26
+XOR t27 x2 t10
+XOR y2 t4 t27
+XOR t28 t8 t13
+XOR y14 x14 t28
+end SLP
+end circuit

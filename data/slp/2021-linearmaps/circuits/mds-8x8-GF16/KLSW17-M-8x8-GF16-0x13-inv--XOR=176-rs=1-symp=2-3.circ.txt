@@ -1,0 +1,203 @@
+# File timestamp (UTC): 2021-02-25T00:55:17.294
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit M-8x8-GF16-0x13-inv--rs=1
+
+# Boolean Circuit for a linear system y = A.x defined by a 32x32 bit-matrix A
+# Matrix A weights (W): totalW=572, adjW=540, minWInRow=15, maxWInRow=21, minWInCol=15, maxWICol=21
+# Matrix represented as 32 rows: vecRows=UInt32[0xacbe179d, 0x7b5f2e19, 0xe5ad4f21, 0xfa798d42, 0xe2c96cb9, 0xf4b1cb51, 0xd852b5a2, 0x93a45a74, 0xa61645c7, 0x7c2c8abe, 0xeb4b375f, 0xf5856ead, 0x6c7a5461, 0xcbe7a8c2, 0xb5fe73b4, 0x5adfe658, 0xdea3a69e, 0x9f767c1f, 0x1deceb2d, 0x29fbf549, 0xe9da71cb, 0xf197e2b5, 0xd21ef45a, 0x942fd8a7, 0x9b9ec62c, 0x151fbc4b, 0x2a2d5b85, 0x4749a53a, 0x39ed6aea, 0x61f9c7f7, 0xc2d1bede, 0xb4925f9f]
+# Matrix represented as 32 columns: vecCols=UInt32[0xa6be1d37, 0xfad32748, 0xe5a74f81, 0xdb5f8e13, 0xe863c6b3, 0x39a45ad4, 0x7258b5a8, 0xf4b16b51, 0xac1c456d, 0xf525cea7, 0xeb4b9d5f, 0xd6862abe, 0xc6da54c1, 0x5a7fec52, 0xb5fed9b4, 0x6beda268, 0x7ea9ac3e, 0x83fbf543, 0x17e6eb87, 0x3fdcd61f, 0xe37ad16b, 0x348f72ad, 0x781ef45a, 0xf13de8b5, 0x3b3e6c86, 0x4d43a59a, 0x8a875b25, 0x151fb64b, 0x93e7caea, 0xb4385f3f, 0x6871be7e, 0xc1f36dfd]
+# The element in the i-th row and j-th col of A is A[i,j] = 1 & (vecRows[i]>>(j-1)) = 1 & (vecCols[j]>>(i-1))
+
+# Matrix obtained from: https://github.com/rub-hgi/shorter_linear_slps_for_mds_matrices
+# Tally: 32 inputs, 32 outputs, 176 gates (176 XOR)
+# Depth: 12
+
+Inputs: x1:x32
+Outputs: y1:y32
+Internal: t1:t144
+GateSyntax: GateName Output Inputs
+
+# Regex find gate in new format: XOR\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+# Regex replacing to old format: \1 = XOR\(\2,\3\)
+
+begin SLP
+XOR t1 x11 x21
+XOR t2 x1 x15
+XOR t3 x12 x22
+XOR t4 x2 x16
+XOR t5 x17 x31
+XOR t6 x19 x29
+XOR t7 x18 x32
+XOR t8 x20 x30
+XOR t9 x23 x26
+XOR t10 x3 x6
+XOR t11 x4 x14
+XOR t12 x10 x24
+XOR t13 x5 x28
+XOR t14 x8 x25
+XOR t15 x7 t1
+XOR t16 t4 t13
+XOR t17 x27 t2
+XOR t18 t3 t14
+XOR t19 x9 t7
+XOR t20 x13 t8
+XOR t21 x11 t5
+XOR t22 t6 t18
+XOR t23 t17 t19
+XOR t24 t10 t23
+XOR t25 x30 t15
+XOR t26 t9 t20
+XOR t27 t12 t22
+XOR t28 t24 t27
+XOR t29 x5 t28
+XOR t30 x10 x23
+XOR t31 t19 t21
+XOR t32 x8 x9
+XOR t33 t14 t29
+XOR t34 t16 t31
+XOR t35 x25 t26
+XOR t36 x22 t2
+XOR t37 t34 t36
+XOR t38 t5 t11
+XOR t39 x31 t32
+XOR t40 x4 t35
+XOR t41 t25 t38
+XOR t42 x18 t41
+XOR t43 x32 t28
+XOR t44 x2 t1
+XOR t45 t37 t40
+XOR t46 x17 t13
+XOR t47 x4 x19
+XOR t48 x13 t16
+XOR t49 x15 t48
+XOR t50 t42 t49
+XOR t51 x6 t4
+XOR t52 x28 t8
+XOR t53 t9 t51
+XOR t54 t44 t52
+XOR t55 t45 t46
+XOR t56 x14 t43
+XOR y19 t53 t56
+XOR t57 x30 t31
+XOR t58 x29 t17
+XOR t59 x27 t34
+XOR t60 t30 t41
+XOR t61 x26 t58
+XOR t62 x24 t23
+XOR t63 t26 t39
+XOR t64 t27 t57
+XOR y3 t58 t64
+XOR t65 t33 t47
+XOR t66 t33 t36
+XOR t67 x3 x7
+XOR t68 t3 t10
+XOR t69 t61 t62
+XOR t70 t11 t59
+XOR t71 t3 t45
+XOR t72 x29 t44
+XOR t73 x18 t24
+XOR t74 x13 t61
+XOR t75 t46 t74
+XOR y27 t66 t75
+XOR t76 t40 t50
+XOR t77 t49 t64
+XOR t78 t12 t54
+XOR t79 t56 t78
+XOR y24 t59 t79
+XOR t80 x15 t73
+XOR t81 t38 y19
+XOR t82 t51 t63
+XOR t83 x28 t60
+XOR y2 t69 t83
+XOR t84 t11 t82
+XOR y7 t72 t84
+XOR t85 t62 t63
+XOR y13 t25 t85
+XOR t86 x6 t55
+XOR y21 t15 t86
+XOR t87 x21 x31
+XOR t88 x8 t76
+XOR y14 t22 t88
+XOR t89 t48 t68
+XOR y31 t60 t89
+XOR t90 t67 t71
+XOR y11 x15 t90
+XOR t91 x4 t81
+XOR t92 t15 t47
+XOR t93 t52 t92
+XOR y9 t73 t93
+XOR t94 t84 t91
+XOR y22 t18 t94
+XOR t95 x24 t4
+XOR t96 t43 t95
+XOR y10 t57 t96
+XOR t97 t68 t69
+XOR t98 t70 t97
+XOR y17 t8 t98
+XOR t99 x32 t14
+XOR t100 x23 t99
+XOR y26 t70 t100
+XOR t101 t41 t55
+XOR t102 x11 t101
+XOR y18 x24 t102
+XOR t103 t67 t77
+XOR t104 t31 t103
+XOR y6 t4 t104
+XOR t105 t80 t81
+XOR t106 x7 t105
+XOR y29 x31 t106
+XOR t107 x11 t65
+XOR t108 t10 t107
+XOR y8 t42 t108
+XOR t109 x20 t50
+XOR t110 t6 t109
+XOR y23 x17 t110
+XOR t111 x15 t26
+XOR t112 t33 t111
+XOR t113 t72 t112
+XOR y1 t30 t113
+XOR t114 t36 t63
+XOR t115 t77 t114
+XOR t116 x24 t115
+XOR y4 t87 t116
+XOR t117 x18 t65
+XOR t118 t20 t117
+XOR t119 t44 t118
+XOR y30 x24 t119
+XOR t120 x22 x25
+XOR t121 t79 t120
+XOR t122 t91 t92
+XOR y16 t121 t122
+XOR t123 t47 t76
+XOR t124 t30 t75
+XOR t125 t5 t123
+XOR y28 t124 t125
+XOR t126 x3 x26
+XOR t127 x32 t79
+XOR t128 t126 t127
+XOR y25 t80 t128
+XOR t129 x26 t39
+XOR t130 t66 t129
+XOR t131 x2 t11
+XOR y12 t130 t131
+XOR t132 x30 t30
+XOR t133 t37 t132
+XOR t134 x6 t32
+XOR y5 t133 t134
+XOR t135 t3 t66
+XOR t136 x28 t86
+XOR t137 t135 t136
+XOR y20 t87 t137
+XOR t138 x30 t29
+XOR t139 t6 t138
+XOR t140 t60 t139
+XOR y32 x27 t140
+XOR t141 x1 t30
+XOR t142 x21 t141
+XOR t143 t20 t29
+XOR t144 x16 t142
+XOR y15 t143 t144
+end SLP
+end circuit

@@ -1,0 +1,63 @@
+# File timestamp (UTC): 2021-02-25T00:07:28.441
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit M-4x4-GF16--rs=1
+
+# Boolean Circuit for a linear system y = A.x defined by a 16x16 bit-matrix A
+# Matrix A weights (W): totalW=108, adjW=92, minWInRow=4, maxWInRow=8, minWInCol=4, maxWICol=8
+# Matrix represented as 16 rows: vecRows=UInt16[0x5368, 0x37c4, 0x4812, 0xe531, 0x3586, 0x734c, 0x8421, 0x5e13, 0x6853, 0xc437, 0x1248, 0x31e5, 0x8635, 0x4c73, 0x2184, 0x135e]
+# Matrix represented as 16 columns: vecCols=UInt16[0x3bc8, 0xa394, 0xda32, 0x8421, 0xb38c, 0x3a49, 0xad23, 0x4812, 0xc83b, 0x94a3, 0x32da, 0x2184, 0x8cb3, 0x493a, 0x23ad, 0x1248]
+# The element in the i-th row and j-th col of A is A[i,j] = 1 & (vecRows[i]>>(j-1)) = 1 & (vecCols[j]>>(i-1))
+
+# Matrix obtained from: https://github.com/rub-hgi/shorter_linear_slps_for_mds_matrices
+# Tally: 16 inputs, 16 outputs, 36 gates (36 XOR)
+# Depth: 8
+
+Inputs: x1:x16
+Outputs: y1:y16
+Internal: t1:t20
+GateSyntax: GateName Output Inputs
+
+# Regex find gate in new format: XOR\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+# Regex replacing to old format: \1 = XOR\(\2,\3\)
+
+begin SLP
+XOR t1 x10 x13
+XOR t2 x8 x14
+XOR t3 x2 x5
+XOR t4 x6 x16
+XOR t5 x12 t3
+XOR y8 x15 t5
+XOR t6 x1 t4
+XOR y4 x11 t6
+XOR t7 x4 t1
+XOR y16 x7 t7
+XOR t8 x9 t2
+XOR y12 x3 t8
+XOR t9 x8 y4
+XOR y13 t5 t9
+XOR t10 x16 y12
+XOR y5 t7 t10
+XOR t11 x12 y16
+XOR y1 t8 t11
+XOR t12 x4 y8
+XOR y9 t6 t12
+XOR t13 x9 t5
+XOR y11 y1 t13
+XOR t14 t4 t7
+XOR y3 t12 t14
+XOR t15 x9 t12
+XOR y14 x6 t15
+XOR t16 x14 t11
+XOR y6 x1 t16
+XOR t17 x5 y13
+XOR y7 t8 t17
+XOR t18 x5 x10
+XOR y2 t10 t18
+XOR t19 x13 t17
+XOR y10 x12 t19
+XOR t20 x13 y5
+XOR y15 t6 t20
+end SLP
+end circuit

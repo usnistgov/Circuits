@@ -1,0 +1,71 @@
+# File timestamp (UTC): 2021-01-15T14:53:31.374
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit QARMA128--rs=-1
+
+# Boolean Circuit for a linear system defined by a 32x32 bit-matrix
+# Matrix represented as 32 columns: UInt32[0x02102000, 0x04204000, 0x08408000, 0x10800100, 0x20010200, 0x40020400, 0x80040800, 0x01081000, 0x10200002, 0x20400004, 0x40800008, 0x80010010, 0x01020020, 0x02040040, 0x04080080, 0x08100001, 0x20000210, 0x40000420, 0x80000840, 0x01001080, 0x02002001, 0x04004002, 0x08008004, 0x10000108, 0x00021020, 0x00042040, 0x00084080, 0x00108001, 0x00200102, 0x00400204, 0x00800408, 0x00010810]
+# Matrix obtained from: https://github.com/rub-hgi/shorter_linear_slps_for_mds_matrices
+# Tally: 32 inputs, 32 outputs, 48 gates (48 XOR)
+# Depth: 6
+
+Inputs: x1:x32
+Outputs: y1:y32
+Internal: t1:t16
+GateSyntax: GateName Output Inputs
+
+# Regex find gate in new format: XOR\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+# Regex replacing to old format: \1 = XOR\(\2,\3\)
+
+begin SLP
+XOR t1 x6 x18
+XOR y11 x31 t1
+XOR y31 x11 t1
+XOR t2 y11 y31
+XOR y4 x24 t2
+XOR y24 x4 t2
+XOR t3 x5 x17
+XOR y10 x30 t3
+XOR y30 x10 t3
+XOR t4 x16 x28
+XOR y1 x21 t4
+XOR y21 x1 t4
+XOR t5 x7 x19
+XOR y12 x32 t5
+XOR y32 x12 t5
+XOR t6 y1 y21
+XOR y14 x26 t6
+XOR y26 x14 t6
+XOR t7 x9 x29
+XOR y2 x22 t7
+XOR y22 x2 t7
+XOR t8 y2 y22
+XOR y15 x27 t8
+XOR y27 x15 t8
+XOR t9 y15 y27
+XOR y8 x20 t9
+XOR y20 x8 t9
+XOR t10 x8 x20
+XOR y13 x25 t10
+XOR y25 x13 t10
+XOR t11 y13 y25
+XOR y6 x18 t11
+XOR y18 x6 t11
+XOR t12 x4 x24
+XOR y9 x29 t12
+XOR y29 x9 t12
+XOR t13 x14 x26
+XOR y7 x19 t13
+XOR y19 x7 t13
+XOR t14 x10 x30
+XOR y3 x23 t14
+XOR y23 x3 t14
+XOR t15 y12 y32
+XOR y5 x17 t15
+XOR y17 x5 t15
+XOR t16 x3 x23
+XOR y16 x28 t16
+XOR y28 x16 t16
+end SLP
+end circuit

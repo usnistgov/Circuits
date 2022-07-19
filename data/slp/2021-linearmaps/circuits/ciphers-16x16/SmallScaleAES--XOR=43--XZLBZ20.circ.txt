@@ -1,0 +1,70 @@
+# File timestamp (UTC): 2021-03-21T12:20:35.692
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit SmallScaleAES--XOR=43--XZLBZ20
+
+# SLP Source: https://doi.org/10.13154/tosc.v2020.i2.120-145 --- https://github.com/xiangzejun/Optimizing_Implementations_of_Linear_Layers
+# The preamble, metadata, SLP syntax and variable names have been adjusted here to the NIST format
+
+# Boolean Circuit for a linear system y = A.x defined by a 16x16 bit-matrix A
+# Matrix A weights (W): totalW=88, adjW=72, minWInRow=5, maxWInRow=7, minWInCol=7, maxWICol=5
+# Matrix represented as 16 rows: vecRows=UInt16[0x3112, 0x6224, 0xc448, 0xb883, 0x1123, 0x2246, 0x448c, 0x883b, 0x1231, 0x2462, 0x48c4, 0x83b8, 0x2311, 0x4622, 0x8c44, 0x3b88]
+# Matrix represented as 16 columns: vecCols=UInt16[0x1198, 0x22b9, 0x4462, 0x88c4, 0x1981, 0x2b92, 0x4624, 0x8c48, 0x9811, 0xb922, 0x6244, 0xc488, 0x8119, 0x922b, 0x2446, 0x488c]
+# The element in the i-th row and j-th col of A is A[i,j] = 1 & (vecRows[i]>>(j-1)) = 1 & (vecCols[j]>>(i-1))
+
+# Tally: 16 inputs, 16 outputs, 43 gates (43 XOR)
+# Circuit depth: 5
+
+Inputs: x1:x16
+Outputs: y1:y16
+Internal: t1:t27
+GateSyntax: GateName Output Inputs
+
+# Regex to obtain gate (\1), output var (\2) and input vars (\3, \4): (XOR)\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+begin SLP
+XOR t1 x13 x9
+XOR t2 x14 x10
+XOR t3 x10 x6
+XOR t4 x4 x8
+XOR t5 x8 x12
+XOR t6 x11 x3
+XOR t7 x3 x15
+XOR t8 x9 x5
+XOR t9 t8 t5
+XOR t10 x12 x16
+XOR t11 x16 t7
+XOR t12 t7 x7
+XOR t13 x7 x15
+XOR t14 x15 t6
+XOR y11 t12 t2
+XOR y7 t14 t3
+XOR t15 t2 x2
+XOR t16 x6 t15
+XOR y6 t15 t9
+XOR t17 t3 t1
+XOR t18 t9 t10
+XOR t19 t1 x1
+XOR t20 x1 t4
+XOR t21 t4 t11
+XOR y16 t10 t21
+XOR y12 t21 t6
+XOR t22 x5 t20
+XOR t23 x2 t22
+XOR t24 t6 t16
+XOR y1 t22 t19
+XOR y5 t19 t5
+XOR t25 t5 t13
+XOR t26 t13 t16
+XOR y2 t16 t23
+XOR y4 t11 t25
+XOR t27 t17 t18
+XOR y15 t26 y7
+XOR y3 t24 y11
+XOR y14 t23 t27
+XOR y8 t25 y12
+XOR y10 t27 y6
+XOR y13 t20 t18
+XOR y9 t18 y5
+end SLP
+end circuit

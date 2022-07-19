@@ -1,0 +1,68 @@
+# File timestamp (UTC): 2021-03-21T12:20:35.71
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit JPST17-4x4-GF16-inv--XOR=41--XZLBZ20
+
+# SLP Source: https://doi.org/10.13154/tosc.v2020.i2.120-145 --- https://github.com/xiangzejun/Optimizing_Implementations_of_Linear_Layers
+# The preamble, metadata, SLP syntax and variable names have been adjusted here to the NIST format
+
+# Boolean Circuit for a linear system y = A.x defined by a 16x16 bit-matrix A
+# Matrix A weights (W): totalW=84, adjW=68, minWInRow=4, maxWInRow=7, minWInCol=7, maxWICol=4
+# Matrix represented as 16 rows: vecRows=UInt16[0x1d12, 0x2924, 0x4148, 0x8283, 0xd941, 0x9182, 0x1234, 0x2468, 0x14f1, 0x28d2, 0x4394, 0x8618, 0x2119, 0x4221, 0x8442, 0x3884]
+# Matrix represented as 16 columns: vecCols=UInt16[0x3118, 0x4229, 0x8442, 0x1884, 0x1f41, 0x21c2, 0x4394, 0x8728, 0x1437, 0x2c48, 0x4981, 0x8213, 0x8171, 0x9282, 0x2414, 0x4838]
+# The element in the i-th row and j-th col of A is A[i,j] = 1 & (vecRows[i]>>(j-1)) = 1 & (vecCols[j]>>(i-1))
+
+# Tally: 16 inputs, 16 outputs, 41 gates (41 XOR)
+# Circuit depth: 6
+
+Inputs: x1:x16
+Outputs: y1:y16
+Internal: t1:t25
+GateSyntax: GateName Output Inputs
+
+# Regex to obtain gate (\1), output var (\2) and input vars (\3, \4): (XOR)\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+begin SLP
+XOR t1 x8 x9
+XOR t2 x13 x9
+XOR t3 x6 x10
+XOR t4 x7 x2
+XOR t5 x2 x16
+XOR t6 x16 x11
+XOR t7 x10 x5
+XOR t8 x5 t2
+XOR t9 t2 x3
+XOR t10 x11 t9
+XOR t11 x9 t6
+XOR t12 x3 x15
+XOR y3 t6 t4
+XOR t13 t4 x14
+XOR t14 x14 t8
+XOR y15 t10 t14
+XOR y6 t13 t1
+XOR y1 t14 x4
+XOR t15 t8 t5
+XOR t16 t11 t3
+XOR t17 x15 x1
+XOR t18 t3 x4
+XOR t19 x1 t7
+XOR t20 t7 t1
+XOR t21 t1 x12
+XOR y7 t12 t20
+XOR y14 t20 t15
+XOR t22 t15 y3
+XOR y2 t18 t17
+XOR y11 t17 t21
+XOR y4 t21 t9
+XOR y12 t5 t19
+XOR y8 x4 t16
+XOR t23 t19 x12
+XOR t24 x12 t22
+XOR y10 t24 y1
+XOR t25 t16 y12
+XOR y9 t9 t25
+XOR y13 t25 y3
+XOR y5 t22 t23
+XOR y16 t23 y2
+end SLP
+end circuit

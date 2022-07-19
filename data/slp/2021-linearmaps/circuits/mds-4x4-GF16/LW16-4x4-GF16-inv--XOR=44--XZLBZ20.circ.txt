@@ -1,0 +1,71 @@
+# File timestamp (UTC): 2021-03-21T12:20:35.709
+# NIST Circuit Complexity Project
+# https://csrc.nist.gov/projects/circuit-complexity
+
+begin circuit LW16-4x4-GF16-inv--XOR=44--XZLBZ20
+
+# SLP Source: https://doi.org/10.13154/tosc.v2020.i2.120-145 --- https://github.com/xiangzejun/Optimizing_Implementations_of_Linear_Layers
+# The preamble, metadata, SLP syntax and variable names have been adjusted here to the NIST format
+
+# Boolean Circuit for a linear system y = A.x defined by a 16x16 bit-matrix A
+# Matrix A weights (W): totalW=88, adjW=72, minWInRow=5, maxWInRow=7, minWInCol=7, maxWICol=5
+# Matrix represented as 16 rows: vecRows=UInt16[0x5721, 0x8192, 0x28a4, 0x1548, 0x7512, 0x1829, 0x824a, 0x5184, 0x2157, 0x9281, 0xa428, 0x4815, 0x1275, 0x2918, 0x4a82, 0x8451]
+# Matrix represented as 16 columns: vecCols=UInt16[0x9b21, 0x4152, 0x1984, 0x2468, 0xb912, 0x1425, 0x9148, 0x4286, 0x219b, 0x5241, 0x8419, 0x6824, 0x12b9, 0x2514, 0x4891, 0x8642]
+# The element in the i-th row and j-th col of A is A[i,j] = 1 & (vecRows[i]>>(j-1)) = 1 & (vecCols[j]>>(i-1))
+
+# Tally: 16 inputs, 16 outputs, 44 gates (44 XOR)
+# Circuit depth: 6
+
+Inputs: x1:x16
+Outputs: y1:y16
+Internal: t1:t28
+GateSyntax: GateName Output Inputs
+
+# Regex to obtain gate (\1), output var (\2) and input vars (\3, \4): (XOR)\s([ty]\d+)\s([tyx]\d+)\s([tyx]\d+).*$
+begin SLP
+XOR t1 x5 x9
+XOR t2 x1 x13
+XOR t3 x9 x8
+XOR t4 x8 x16
+XOR t5 x16 x2
+XOR t6 x13 x12
+XOR t7 x12 t4
+XOR t8 t4 x15
+XOR t9 x15 x7
+XOR t10 t8 x3
+XOR t11 x7 x11
+XOR t12 x11 x3
+XOR t13 x3 t6
+XOR y3 t13 t3
+XOR t14 t6 t5
+XOR t15 t5 x10
+XOR t16 x10 t2
+XOR t17 x4 t7
+XOR t18 t7 x6
+XOR t19 t3 t18
+XOR t20 t18 x14
+XOR t21 x14 t1
+XOR y5 t14 t21
+XOR y14 t21 t12
+XOR t22 t12 t2
+XOR y1 t19 t16
+XOR y10 t16 t9
+XOR t23 t2 t17
+XOR t24 t9 t1
+XOR t25 t1 t17
+XOR y6 x6 t22
+XOR t26 t22 y3
+XOR t27 t17 t11
+XOR y4 t27 t20
+XOR y12 t20 t10
+XOR y8 t10 t15
+XOR y16 t15 t11
+XOR t28 t11 t26
+XOR y2 x2 t24
+XOR y15 t24 t28
+XOR y7 t28 t23
+XOR y9 t23 y5
+XOR y11 t26 t25
+XOR y13 t25 y1
+end SLP
+end circuit
