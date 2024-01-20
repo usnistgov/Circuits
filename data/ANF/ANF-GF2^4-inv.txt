@@ -1,0 +1,40 @@
+Algebraic Normal Form (ANF) of Multiplicative Inversion in GF(2^4)=GF16
+File compiled on 2024-01-20T07:14:59.611 UTC
+Scope: NIST Circuit Complexity Project: https://csrc.nist.gov/projects/circuit-complexity
+
+GF16mult2: pOut = pIn1^14 (mod pMod), where:
+pIn1 = a0 + (a1) x^1 + (a2) x^2 + (a3) x^3
+pMod = 1 + x^1 + x^4
+pOut = b0 + (b1) x^1 + (b2) x^2 + (b3) x^3
+
+
+# monomials across degrees: [8, 6, 6, 7]
+
+Boolean functions across degrees:
+
+b0 = a0 + a1 + a2 + a0 a2 + a1 a2 + a0 a1 a2 + a3 + a1 a2 a3
+
+b1 = a0 a1 + a0 a2 + a1 a2 + a3 + a1 a3 + a0 a1 a3
+
+b2 = a0 a1 + a2 + a0 a2 + a3 + a0 a3 + a0 a2 a3
+
+b3 = a1 + a2 + a3 + a0 a3 + a1 a3 + a2 a3 + a1 a2 a3
+
+
+Algebraic Normal Form (ANF) across degrees:
+
+Order of coefficients (variables) considered in each Algebraic Normal Form (ANF) encoding: a0 a1 a2 a3
+
+ANF(b0), with length 16, is 1 in 8 positions: [2, 3, 5, 6, 7, 8, 9, 15]
+ANF(b0) [bitVector encoding]: 0110111110000010
+
+ANF(b1), with length 16, is 1 in 6 positions: [4, 6, 7, 9, 11, 12]
+ANF(b1) [bitVector encoding]: 0001011010110000
+
+ANF(b2), with length 16, is 1 in 6 positions: [4, 5, 6, 9, 10, 14]
+ANF(b2) [bitVector encoding]: 0001110011000100
+
+ANF(b3), with length 16, is 1 in 7 positions: [3, 5, 9, 10, 11, 13, 15]
+ANF(b3) [bitVector encoding]: 0010100011101010
+
+The ANF of d-ary (# input bits) Boolean function is a sequence of 2^d bits. The i^th bit indicates whether the monomial with coefficients corresponding to digits(i-1,base=2,pad=d) appears in the corresponding Boolean function.For example, for a Boolean function on 8 variables (e.g., a0 ... a7), the 18th bit in the ANF encoding (in little endian ordering), counting from the left, corresponds to the binary encoding 10001000 on integer 17, which in turn corresponds to monomial a0 a4.

@@ -1,0 +1,40 @@
+Algebraic Normal Form (ANF) for taking an element GF2^8=GF256 Modulo a Fixed Irreducible Polynomial over GF(2^4)=GF16
+File compiled on 2024-01-20T07:14:59.664 UTC
+Scope: NIST Circuit Complexity Project: https://csrc.nist.gov/projects/circuit-complexity
+
+GF256modGF16: pOut = pIn1 (mod pMod), where:
+pIn1 = a0 + (a1) x^1 + (a2) x^2 + (a3) x^3 + (a4) x^4 + (a5) x^5 + (a6) x^6 + (a7) x^7
+pMod = 1 + x^1 + x^4
+pOut = b0 + (b1) x^1 + (b2) x^2 + (b3) x^3
+
+
+# monomials across degrees: [3, 4, 3, 3]
+
+Boolean functions across degrees:
+
+b0 = a0 + a4 + a7
+
+b1 = a1 + a4 + a5 + a7
+
+b2 = a2 + a5 + a6
+
+b3 = a3 + a6 + a7
+
+
+Algebraic Normal Form (ANF) across degrees:
+
+Order of coefficients (variables) considered in each Algebraic Normal Form (ANF) encoding: a0 a1 a2 a3 a4 a5 a6 a7
+
+ANF(b0), with length 256, is 1 in 3 positions: [2, 17, 129]
+ANF(b0) [bitVector encoding]: 0100000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+ANF(b1), with length 256, is 1 in 4 positions: [3, 17, 33, 129]
+ANF(b1) [bitVector encoding]: 0010000000000000100000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+ANF(b2), with length 256, is 1 in 3 positions: [5, 33, 65]
+ANF(b2) [bitVector encoding]: 0000100000000000000000000000000010000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+ANF(b3), with length 256, is 1 in 3 positions: [9, 65, 129]
+ANF(b3) [bitVector encoding]: 0000000010000000000000000000000000000000000000000000000000000000100000000000000000000000000000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+The ANF of d-ary (# input bits) Boolean function is a sequence of 2^d bits. The i^th bit indicates whether the monomial with coefficients corresponding to digits(i-1,base=2,pad=d) appears in the corresponding Boolean function.For example, for a Boolean function on 8 variables (e.g., a0 ... a7), the 18th bit in the ANF encoding (in little endian ordering), counting from the left, corresponds to the binary encoding 10001000 on integer 17, which in turn corresponds to monomial a0 a4.
