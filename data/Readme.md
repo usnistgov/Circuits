@@ -4,7 +4,7 @@ This folder contains data that has been used and produced in the circuit complex
 ## Descriptions of folders
 
 ---
-
+- `ANF' Files with Algebraic Normal Form (ANF) of various polynomials over GF(2)
 - `circuits` List of circuits for producing the representatives of Boolean functions with up to 6-variables.
 - `classes` The representatives of affine equivalence classes.
 - `mc_dim` The representatives of affine equivalence classes grouped w.r.t. the multiplicative complexity and dimension.
