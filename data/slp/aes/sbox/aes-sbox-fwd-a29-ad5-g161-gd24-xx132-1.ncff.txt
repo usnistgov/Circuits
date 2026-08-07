@@ -1,0 +1,198 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-08-06T00:56:42.845Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits in this file
+  % aes-sbox-fwd-a29-ad5-g161-gd24-xx132-1  % AES Sbox Forward, compatible with NIST-FIPS 197
+
+## Circuit-name syntax in this file
+  % <basename>-aA-adE-gG-gdD-xxX-Y[-nN]
+  % A = #AND; E = AND-depth; G = #Gates; D = Gate-depth; X = #XOR + #XNOR; Y = #XNOR; N = #NOT (if >0)
+
+## Acknowledgment note
+  % The circuit in this file follows from transformations applied to the @umizame circuit in 
+  % https://github.com/umizame/S-box_29-AND/blob/master/circuits/aes-sbox-fwd-g228-a29-d35-ad6.slp
+  % with 29-AND, 195-XOR, 4-NOT, depth-35, and AND-depth-6.
+
+## Circuit
+
+begin circuit aes-sbox-fwd-a29-ad5-g161-gd24-xx132-1
+  
+  % Description: AES Sbox Forward, compatible with NIST-FIPS 197
+  % Tally of variables (169): 8 inputs; 8 outputs; 153 intermediates
+  % Tally of gates (161): 29 AND; 131 XOR; 1 XNOR
+  % Depths: Gate-depth 24; AND-depth 5
+  % AND gates per AND-depth: 9 1 2 2 15
+
+Inputs: U0:U7
+Outputs: S0:S7
+Internal: a1:a29 t1:t124
+GateSyntax: GateName Output Inputs
+begin SLP
+XOR t1 U0 U6
+XOR t2 U5 U6
+XOR t3 U2 U7
+XOR t4 U3 t1
+XOR t5 U1 t3
+XOR t6 U4 t4
+XOR t7 U5 t4
+XOR t8 U0 t5
+XOR t9 U3 t5
+XOR t10 U6 t5
+XOR t11 t4 t5
+XOR t12 U1 t2
+XOR t13 t12 t4
+XOR t14 t2 t11
+XOR t15 U7 t6
+XOR t16 U4 t11
+XOR t17 t2 t8
+XOR t18 U7 t7
+AND a1 t5 t10
+AND a2 t6 t7
+AND a3 U7 t9
+XOR t19 t13 t15
+XOR t20 t13 t16
+XOR t21 U0 a2
+AND a4 t15 t17
+AND a5 t16 t14
+AND a6 t13 t2
+XOR t22 U7 t13
+XOR t23 t22 t16
+XOR t24 U6 t19
+XOR t25 a3 a5
+XOR t26 a4 a5
+AND a7 t19 t8
+AND a8 t20 t11
+XOR t27 a4 t23
+XOR t28 t9 t21
+XOR t29 t28 t25
+XOR t30 a1 a6
+XOR t31 t30 t20
+AND a9 t23 t1
+XOR t32 t1 a6
+XOR t33 t32 t25
+XOR t34 t27 t33
+XOR t35 t21 a8
+XOR t36 t27 t35
+XOR t37 a5 t36
+XOR t38 t3 a7
+XOR t39 t31 t38
+XOR t40 t39 t36
+XOR t41 a9 t31
+XOR t42 t41 t29
+XOR t43 t34 t37
+XOR t44 t42 t40
+AND a10 t42 t34
+XOR t45 a10 t37
+XOR t46 a10 t44
+AND a11 t40 t45
+AND a12 t46 t43
+XOR t47 t44 a11
+XOR t48 t37 a12
+XOR t49 a10 a12
+XOR t50 U0 t47
+XOR t51 t18 t48
+AND a13 t37 t49
+XOR t52 t19 t50
+XOR t53 t10 t50
+XOR t54 t24 t50
+XOR t55 t6 t51
+XOR t56 t34 a13
+XOR t57 t8 t54
+XOR t58 t18 t56
+XOR t59 t55 t56
+XOR t60 t46 t47
+AND a14 t44 t60
+XOR t61 a11 a14
+XOR t62 t9 t58
+XOR t63 t6 t58
+XOR t64 t17 t59
+XOR t65 t57 t59
+XOR t66 t24 t40
+XOR t67 t66 t61
+XOR t68 t48 t62
+XOR t69 U7 t64
+XOR t70 t18 t64
+XOR t71 U4 t57
+XOR t72 t71 t59
+XOR t73 t2 t57
+XOR t74 t73 t59
+XOR t75 t5 t67
+XOR t76 t1 t67
+XOR t77 t40 t57
+XOR t78 t61 t77
+XOR t79 t47 t67
+XOR t80 t58 t67
+AND a15 t62 t59
+AND a16 t58 t64
+AND a17 t67 t54
+XOR t81 t3 t72
+XOR t82 t13 t72
+XOR t83 t51 t79
+XOR t84 t55 t78
+XOR t85 t11 t80
+XOR t86 t16 t80
+AND a18 t78 t52
+AND a19 t51 t70
+AND a20 t63 t69
+AND a21 t55 t68
+AND a22 t76 t57
+AND a23 t79 t50
+AND a24 t75 t53
+AND a25 t80 t74
+XOR t87 t21 a9
+XOR t88 t87 t40
+XOR t89 t88 a17
+XOR t90 t89 a24
+XOR t91 t6 t26
+XOR t92 t91 a25
+AND a26 t84 t72
+AND a27 t85 t65
+AND a28 t83 t82
+AND a29 t86 t81
+XOR t93 t65 t90
+XOR t94 t3 a29
+XOR t95 a26 t92
+XOR t96 U1 t43
+XOR t97 t96 a19
+XOR t98 t97 t93
+XOR t99 t59 a28
+XOR t100 t99 t95
+XOR t101 a15 a20
+XOR t102 t101 t95
+XOR t103 t29 t74
+XNOR t104 t103 a16
+XOR t105 t26 a17
+XOR t106 t105 a23
+XOR t107 a22 t93
+XOR t108 t107 t102
+XOR t109 a21 t104
+XOR t110 t109 t100
+XOR t111 a26 t106
+XOR S5 t111 t100
+XOR t112 a27 t104
+XOR t113 t112 t100
+XOR S2 t98 t113
+XOR t114 t102 t110
+XOR t115 a18 a29
+XOR t116 t106 t115
+XOR t117 t116 t100
+XOR t118 t117 t108
+XOR S0 a24 t108
+XOR S4 t59 t118
+XOR S6 t92 t114
+XOR t119 t47 a21
+XOR t120 t119 t98
+XOR S3 t120 t118
+XOR t121 t90 t94
+XOR S7 t121 t114
+XOR t122 a20 t94
+XOR t123 t122 t98
+XOR t124 t123 t110
+XOR S1 t124 t118
+end SLP
+end circuit
