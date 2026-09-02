@@ -1,0 +1,444 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-09-02T09:06:16Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Scope: AES-192 Cipher
+
+## Index of circuits (circuitName numOutputs numInputs % Description)
+  % aes192-cip-fold1 128 320 % AES-192 Cipher (cip) using aes-sbox and aes-mixcols
+
+## Implicit subcircuits (i.e, not defined in this file)
+  % aes-sbox       8   8 % AES SubBytes: inversion in GF(256), then its affine map; modulus x^8+x^4+x^3+x+1
+  % aes-mixcols      32  32 % AES MixColumns: [02 03 01 01; 01 02 03 01; 01 01 02 03; 03 01 01 02] times one column over GF(256)
+
+## KAT examples for implicit subcircuits:
+  % aes-sbox: 0x53 -> 0xed
+  % aes-mixcols: 0xd4bf5d30 -> 0x046681e5
+
+## Circuit
+
+begin circuit aes192-cip-fold1
+  % Description: AES-192 Cipher (cip) using aes-sbox, aes-mixcols, and XOR-family operations
+  % Interface: p0/k0/c0 are the MSB of the first serialized AES byte
+  % VXOR/VXNOR: bitwise XOR/XNOR of two equal-width input bitstrings into an equal-width disjoint output bitstring
+  % Tally of variables (6656): 320 inputs; 128 outputs; 6208 intermediates
+  % Tally of operations (344): 224 aes-sbox; 44 aes-mixcols; 68 VXOR (= 3128 XOR); 8 XNOR
+  % Depths: determined when the abstract aes-sbox and aes-mixcols circuits are instantiated.
+  % Example KAT from NIST SP 800-38A, F.1.3, ECB-AES192.Encrypt, Block #1
+  % Input: p0:p127=0x6bc1bee22e409f96e93d7e117393172a; k0:k191=0x8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b
+  % Output: c0:c127=0xbd334f1d6e45f25ff712a214571fa5cc
+Inputs: p0:p127 k0:k191
+Outputs: c0:c127
+Internal: w[6:51][0:31] keysub[1:8][0:31] state[0:11][0:127] sb[1:12][0:127] mixed[1:11][0:127]
+GateSyntax: GateName Outputs Inputs
+begin SLP
+%%%%%%%%%%%% Initial round-key addition
+VXOR state[0][0:127] p[0:127] k[0:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 1
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[1][0:7] state[0][0:7]
+aes-sbox sb[1][8:15] state[0][40:47]
+aes-sbox sb[1][16:23] state[0][80:87]
+aes-sbox sb[1][24:31] state[0][120:127]
+aes-sbox sb[1][32:39] state[0][32:39]
+aes-sbox sb[1][40:47] state[0][72:79]
+aes-sbox sb[1][48:55] state[0][112:119]
+aes-sbox sb[1][56:63] state[0][24:31]
+aes-sbox sb[1][64:71] state[0][64:71]
+aes-sbox sb[1][72:79] state[0][104:111]
+aes-sbox sb[1][80:87] state[0][16:23]
+aes-sbox sb[1][88:95] state[0][56:63]
+aes-sbox sb[1][96:103] state[0][96:103]
+aes-sbox sb[1][104:111] state[0][8:15]
+aes-sbox sb[1][112:119] state[0][48:55]
+aes-sbox sb[1][120:127] state[0][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[1][0:31] sb[1][0:31]
+aes-mixcols mixed[1][32:63] sb[1][32:63]
+aes-mixcols mixed[1][64:95] sb[1][64:95]
+aes-mixcols mixed[1][96:127] sb[1][96:127]
+%%%%%%%%%%%% Key-expansion
+aes-sbox keysub[1][0:7] k[168:175]
+aes-sbox keysub[1][8:15] k[176:183]
+aes-sbox keysub[1][16:23] k[184:191]
+aes-sbox keysub[1][24:31] k[160:167]
+VXOR w[6][0:6] k[0:6] keysub[1][0:6]
+XNOR w[6][7] k[7] keysub[1][7]
+VXOR w[6][8:31] k[8:31] keysub[1][8:31]
+VXOR w[7][0:31] k[32:63] w[6][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[1][0:63] mixed[1][0:63] k[128:191]
+VXOR state[1][64:127] mixed[1][64:127] w[6:7][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 2
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[2][0:7] state[1][0:7]
+aes-sbox sb[2][8:15] state[1][40:47]
+aes-sbox sb[2][16:23] state[1][80:87]
+aes-sbox sb[2][24:31] state[1][120:127]
+aes-sbox sb[2][32:39] state[1][32:39]
+aes-sbox sb[2][40:47] state[1][72:79]
+aes-sbox sb[2][48:55] state[1][112:119]
+aes-sbox sb[2][56:63] state[1][24:31]
+aes-sbox sb[2][64:71] state[1][64:71]
+aes-sbox sb[2][72:79] state[1][104:111]
+aes-sbox sb[2][80:87] state[1][16:23]
+aes-sbox sb[2][88:95] state[1][56:63]
+aes-sbox sb[2][96:103] state[1][96:103]
+aes-sbox sb[2][104:111] state[1][8:15]
+aes-sbox sb[2][112:119] state[1][48:55]
+aes-sbox sb[2][120:127] state[1][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[2][0:31] sb[2][0:31]
+aes-mixcols mixed[2][32:63] sb[2][32:63]
+aes-mixcols mixed[2][64:95] sb[2][64:95]
+aes-mixcols mixed[2][96:127] sb[2][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[8][0:31] k[64:95] w[7][0:31]
+VXOR w[9][0:31] k[96:127] w[8][0:31]
+VXOR w[10][0:31] k[128:159] w[9][0:31]
+VXOR w[11][0:31] k[160:191] w[10][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[2][0:127] mixed[2][0:127] w[8:11][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 3
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[3][0:7] state[2][0:7]
+aes-sbox sb[3][8:15] state[2][40:47]
+aes-sbox sb[3][16:23] state[2][80:87]
+aes-sbox sb[3][24:31] state[2][120:127]
+aes-sbox sb[3][32:39] state[2][32:39]
+aes-sbox sb[3][40:47] state[2][72:79]
+aes-sbox sb[3][48:55] state[2][112:119]
+aes-sbox sb[3][56:63] state[2][24:31]
+aes-sbox sb[3][64:71] state[2][64:71]
+aes-sbox sb[3][72:79] state[2][104:111]
+aes-sbox sb[3][80:87] state[2][16:23]
+aes-sbox sb[3][88:95] state[2][56:63]
+aes-sbox sb[3][96:103] state[2][96:103]
+aes-sbox sb[3][104:111] state[2][8:15]
+aes-sbox sb[3][112:119] state[2][48:55]
+aes-sbox sb[3][120:127] state[2][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[3][0:31] sb[3][0:31]
+aes-mixcols mixed[3][32:63] sb[3][32:63]
+aes-mixcols mixed[3][64:95] sb[3][64:95]
+aes-mixcols mixed[3][96:127] sb[3][96:127]
+%%%%%%%%%%%% Key-expansion
+aes-sbox keysub[2][0:7] w[11][8:15]
+aes-sbox keysub[2][8:15] w[11][16:23]
+aes-sbox keysub[2][16:23] w[11][24:31]
+aes-sbox keysub[2][24:31] w[11][0:7]
+VXOR w[12][0:5 7] w[6][0:5 7] keysub[2][0:5 7]
+XNOR w[12][6] w[6][6] keysub[2][6]
+VXOR w[12][8:31] w[6][8:31] keysub[2][8:31]
+VXOR w[13][0:31] w[7][0:31] w[12][0:31]
+VXOR w[14][0:31] w[8][0:31] w[13][0:31]
+VXOR w[15][0:31] w[9][0:31] w[14][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[3][0:127] mixed[3][0:127] w[12:15][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 4
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[4][0:7] state[3][0:7]
+aes-sbox sb[4][8:15] state[3][40:47]
+aes-sbox sb[4][16:23] state[3][80:87]
+aes-sbox sb[4][24:31] state[3][120:127]
+aes-sbox sb[4][32:39] state[3][32:39]
+aes-sbox sb[4][40:47] state[3][72:79]
+aes-sbox sb[4][48:55] state[3][112:119]
+aes-sbox sb[4][56:63] state[3][24:31]
+aes-sbox sb[4][64:71] state[3][64:71]
+aes-sbox sb[4][72:79] state[3][104:111]
+aes-sbox sb[4][80:87] state[3][16:23]
+aes-sbox sb[4][88:95] state[3][56:63]
+aes-sbox sb[4][96:103] state[3][96:103]
+aes-sbox sb[4][104:111] state[3][8:15]
+aes-sbox sb[4][112:119] state[3][48:55]
+aes-sbox sb[4][120:127] state[3][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[4][0:31] sb[4][0:31]
+aes-mixcols mixed[4][32:63] sb[4][32:63]
+aes-mixcols mixed[4][64:95] sb[4][64:95]
+aes-mixcols mixed[4][96:127] sb[4][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[16][0:31] w[10][0:31] w[15][0:31]
+VXOR w[17][0:31] w[11][0:31] w[16][0:31]
+aes-sbox keysub[3][0:7] w[17][8:15]
+aes-sbox keysub[3][8:15] w[17][16:23]
+aes-sbox keysub[3][16:23] w[17][24:31]
+aes-sbox keysub[3][24:31] w[17][0:7]
+VXOR w[18][0:4 6:7] w[12][0:4 6:7] keysub[3][0:4 6:7]
+XNOR w[18][5] w[12][5] keysub[3][5]
+VXOR w[18][8:31] w[12][8:31] keysub[3][8:31]
+VXOR w[19][0:31] w[13][0:31] w[18][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[4][0:127] mixed[4][0:127] w[16:19][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 5
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[5][0:7] state[4][0:7]
+aes-sbox sb[5][8:15] state[4][40:47]
+aes-sbox sb[5][16:23] state[4][80:87]
+aes-sbox sb[5][24:31] state[4][120:127]
+aes-sbox sb[5][32:39] state[4][32:39]
+aes-sbox sb[5][40:47] state[4][72:79]
+aes-sbox sb[5][48:55] state[4][112:119]
+aes-sbox sb[5][56:63] state[4][24:31]
+aes-sbox sb[5][64:71] state[4][64:71]
+aes-sbox sb[5][72:79] state[4][104:111]
+aes-sbox sb[5][80:87] state[4][16:23]
+aes-sbox sb[5][88:95] state[4][56:63]
+aes-sbox sb[5][96:103] state[4][96:103]
+aes-sbox sb[5][104:111] state[4][8:15]
+aes-sbox sb[5][112:119] state[4][48:55]
+aes-sbox sb[5][120:127] state[4][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[5][0:31] sb[5][0:31]
+aes-mixcols mixed[5][32:63] sb[5][32:63]
+aes-mixcols mixed[5][64:95] sb[5][64:95]
+aes-mixcols mixed[5][96:127] sb[5][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[20][0:31] w[14][0:31] w[19][0:31]
+VXOR w[21][0:31] w[15][0:31] w[20][0:31]
+VXOR w[22][0:31] w[16][0:31] w[21][0:31]
+VXOR w[23][0:31] w[17][0:31] w[22][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[5][0:127] mixed[5][0:127] w[20:23][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 6
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[6][0:7] state[5][0:7]
+aes-sbox sb[6][8:15] state[5][40:47]
+aes-sbox sb[6][16:23] state[5][80:87]
+aes-sbox sb[6][24:31] state[5][120:127]
+aes-sbox sb[6][32:39] state[5][32:39]
+aes-sbox sb[6][40:47] state[5][72:79]
+aes-sbox sb[6][48:55] state[5][112:119]
+aes-sbox sb[6][56:63] state[5][24:31]
+aes-sbox sb[6][64:71] state[5][64:71]
+aes-sbox sb[6][72:79] state[5][104:111]
+aes-sbox sb[6][80:87] state[5][16:23]
+aes-sbox sb[6][88:95] state[5][56:63]
+aes-sbox sb[6][96:103] state[5][96:103]
+aes-sbox sb[6][104:111] state[5][8:15]
+aes-sbox sb[6][112:119] state[5][48:55]
+aes-sbox sb[6][120:127] state[5][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[6][0:31] sb[6][0:31]
+aes-mixcols mixed[6][32:63] sb[6][32:63]
+aes-mixcols mixed[6][64:95] sb[6][64:95]
+aes-mixcols mixed[6][96:127] sb[6][96:127]
+%%%%%%%%%%%% Key-expansion
+aes-sbox keysub[4][0:7] w[23][8:15]
+aes-sbox keysub[4][8:15] w[23][16:23]
+aes-sbox keysub[4][16:23] w[23][24:31]
+aes-sbox keysub[4][24:31] w[23][0:7]
+VXOR w[24][0:3 5:7] w[18][0:3 5:7] keysub[4][0:3 5:7]
+XNOR w[24][4] w[18][4] keysub[4][4]
+VXOR w[24][8:31] w[18][8:31] keysub[4][8:31]
+VXOR w[25][0:31] w[19][0:31] w[24][0:31]
+VXOR w[26][0:31] w[20][0:31] w[25][0:31]
+VXOR w[27][0:31] w[21][0:31] w[26][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[6][0:127] mixed[6][0:127] w[24:27][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 7
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[7][0:7] state[6][0:7]
+aes-sbox sb[7][8:15] state[6][40:47]
+aes-sbox sb[7][16:23] state[6][80:87]
+aes-sbox sb[7][24:31] state[6][120:127]
+aes-sbox sb[7][32:39] state[6][32:39]
+aes-sbox sb[7][40:47] state[6][72:79]
+aes-sbox sb[7][48:55] state[6][112:119]
+aes-sbox sb[7][56:63] state[6][24:31]
+aes-sbox sb[7][64:71] state[6][64:71]
+aes-sbox sb[7][72:79] state[6][104:111]
+aes-sbox sb[7][80:87] state[6][16:23]
+aes-sbox sb[7][88:95] state[6][56:63]
+aes-sbox sb[7][96:103] state[6][96:103]
+aes-sbox sb[7][104:111] state[6][8:15]
+aes-sbox sb[7][112:119] state[6][48:55]
+aes-sbox sb[7][120:127] state[6][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[7][0:31] sb[7][0:31]
+aes-mixcols mixed[7][32:63] sb[7][32:63]
+aes-mixcols mixed[7][64:95] sb[7][64:95]
+aes-mixcols mixed[7][96:127] sb[7][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[28][0:31] w[22][0:31] w[27][0:31]
+VXOR w[29][0:31] w[23][0:31] w[28][0:31]
+aes-sbox keysub[5][0:7] w[29][8:15]
+aes-sbox keysub[5][8:15] w[29][16:23]
+aes-sbox keysub[5][16:23] w[29][24:31]
+aes-sbox keysub[5][24:31] w[29][0:7]
+VXOR w[30][0:2 4:7] w[24][0:2 4:7] keysub[5][0:2 4:7]
+XNOR w[30][3] w[24][3] keysub[5][3]
+VXOR w[30][8:31] w[24][8:31] keysub[5][8:31]
+VXOR w[31][0:31] w[25][0:31] w[30][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[7][0:127] mixed[7][0:127] w[28:31][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 8
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[8][0:7] state[7][0:7]
+aes-sbox sb[8][8:15] state[7][40:47]
+aes-sbox sb[8][16:23] state[7][80:87]
+aes-sbox sb[8][24:31] state[7][120:127]
+aes-sbox sb[8][32:39] state[7][32:39]
+aes-sbox sb[8][40:47] state[7][72:79]
+aes-sbox sb[8][48:55] state[7][112:119]
+aes-sbox sb[8][56:63] state[7][24:31]
+aes-sbox sb[8][64:71] state[7][64:71]
+aes-sbox sb[8][72:79] state[7][104:111]
+aes-sbox sb[8][80:87] state[7][16:23]
+aes-sbox sb[8][88:95] state[7][56:63]
+aes-sbox sb[8][96:103] state[7][96:103]
+aes-sbox sb[8][104:111] state[7][8:15]
+aes-sbox sb[8][112:119] state[7][48:55]
+aes-sbox sb[8][120:127] state[7][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[8][0:31] sb[8][0:31]
+aes-mixcols mixed[8][32:63] sb[8][32:63]
+aes-mixcols mixed[8][64:95] sb[8][64:95]
+aes-mixcols mixed[8][96:127] sb[8][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[32][0:31] w[26][0:31] w[31][0:31]
+VXOR w[33][0:31] w[27][0:31] w[32][0:31]
+VXOR w[34][0:31] w[28][0:31] w[33][0:31]
+VXOR w[35][0:31] w[29][0:31] w[34][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[8][0:127] mixed[8][0:127] w[32:35][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 9
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[9][0:7] state[8][0:7]
+aes-sbox sb[9][8:15] state[8][40:47]
+aes-sbox sb[9][16:23] state[8][80:87]
+aes-sbox sb[9][24:31] state[8][120:127]
+aes-sbox sb[9][32:39] state[8][32:39]
+aes-sbox sb[9][40:47] state[8][72:79]
+aes-sbox sb[9][48:55] state[8][112:119]
+aes-sbox sb[9][56:63] state[8][24:31]
+aes-sbox sb[9][64:71] state[8][64:71]
+aes-sbox sb[9][72:79] state[8][104:111]
+aes-sbox sb[9][80:87] state[8][16:23]
+aes-sbox sb[9][88:95] state[8][56:63]
+aes-sbox sb[9][96:103] state[8][96:103]
+aes-sbox sb[9][104:111] state[8][8:15]
+aes-sbox sb[9][112:119] state[8][48:55]
+aes-sbox sb[9][120:127] state[8][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[9][0:31] sb[9][0:31]
+aes-mixcols mixed[9][32:63] sb[9][32:63]
+aes-mixcols mixed[9][64:95] sb[9][64:95]
+aes-mixcols mixed[9][96:127] sb[9][96:127]
+%%%%%%%%%%%% Key-expansion
+aes-sbox keysub[6][0:7] w[35][8:15]
+aes-sbox keysub[6][8:15] w[35][16:23]
+aes-sbox keysub[6][16:23] w[35][24:31]
+aes-sbox keysub[6][24:31] w[35][0:7]
+VXOR w[36][0:1 3:7] w[30][0:1 3:7] keysub[6][0:1 3:7]
+XNOR w[36][2] w[30][2] keysub[6][2]
+VXOR w[36][8:31] w[30][8:31] keysub[6][8:31]
+VXOR w[37][0:31] w[31][0:31] w[36][0:31]
+VXOR w[38][0:31] w[32][0:31] w[37][0:31]
+VXOR w[39][0:31] w[33][0:31] w[38][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[9][0:127] mixed[9][0:127] w[36:39][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 10
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[10][0:7] state[9][0:7]
+aes-sbox sb[10][8:15] state[9][40:47]
+aes-sbox sb[10][16:23] state[9][80:87]
+aes-sbox sb[10][24:31] state[9][120:127]
+aes-sbox sb[10][32:39] state[9][32:39]
+aes-sbox sb[10][40:47] state[9][72:79]
+aes-sbox sb[10][48:55] state[9][112:119]
+aes-sbox sb[10][56:63] state[9][24:31]
+aes-sbox sb[10][64:71] state[9][64:71]
+aes-sbox sb[10][72:79] state[9][104:111]
+aes-sbox sb[10][80:87] state[9][16:23]
+aes-sbox sb[10][88:95] state[9][56:63]
+aes-sbox sb[10][96:103] state[9][96:103]
+aes-sbox sb[10][104:111] state[9][8:15]
+aes-sbox sb[10][112:119] state[9][48:55]
+aes-sbox sb[10][120:127] state[9][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[10][0:31] sb[10][0:31]
+aes-mixcols mixed[10][32:63] sb[10][32:63]
+aes-mixcols mixed[10][64:95] sb[10][64:95]
+aes-mixcols mixed[10][96:127] sb[10][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[40][0:31] w[34][0:31] w[39][0:31]
+VXOR w[41][0:31] w[35][0:31] w[40][0:31]
+aes-sbox keysub[7][0:7] w[41][8:15]
+aes-sbox keysub[7][8:15] w[41][16:23]
+aes-sbox keysub[7][16:23] w[41][24:31]
+aes-sbox keysub[7][24:31] w[41][0:7]
+VXOR w[42][0 2:7] w[36][0 2:7] keysub[7][0 2:7]
+XNOR w[42][1] w[36][1] keysub[7][1]
+VXOR w[42][8:31] w[36][8:31] keysub[7][8:31]
+VXOR w[43][0:31] w[37][0:31] w[42][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[10][0:127] mixed[10][0:127] w[40:43][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 11
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[11][0:7] state[10][0:7]
+aes-sbox sb[11][8:15] state[10][40:47]
+aes-sbox sb[11][16:23] state[10][80:87]
+aes-sbox sb[11][24:31] state[10][120:127]
+aes-sbox sb[11][32:39] state[10][32:39]
+aes-sbox sb[11][40:47] state[10][72:79]
+aes-sbox sb[11][48:55] state[10][112:119]
+aes-sbox sb[11][56:63] state[10][24:31]
+aes-sbox sb[11][64:71] state[10][64:71]
+aes-sbox sb[11][72:79] state[10][104:111]
+aes-sbox sb[11][80:87] state[10][16:23]
+aes-sbox sb[11][88:95] state[10][56:63]
+aes-sbox sb[11][96:103] state[10][96:103]
+aes-sbox sb[11][104:111] state[10][8:15]
+aes-sbox sb[11][112:119] state[10][48:55]
+aes-sbox sb[11][120:127] state[10][88:95]
+%%%%%%%%%%%% MixColumns
+aes-mixcols mixed[11][0:31] sb[11][0:31]
+aes-mixcols mixed[11][32:63] sb[11][32:63]
+aes-mixcols mixed[11][64:95] sb[11][64:95]
+aes-mixcols mixed[11][96:127] sb[11][96:127]
+%%%%%%%%%%%% Key-expansion
+VXOR w[44][0:31] w[38][0:31] w[43][0:31]
+VXOR w[45][0:31] w[39][0:31] w[44][0:31]
+VXOR w[46][0:31] w[40][0:31] w[45][0:31]
+VXOR w[47][0:31] w[41][0:31] w[46][0:31]
+%%%%%%%%%%%% Round-key addition
+VXOR state[11][0:127] mixed[11][0:127] w[44:47][0:31]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 12
+%%%%%%%%%%%% S-box application and ShiftRows
+aes-sbox sb[12][0:7] state[11][0:7]
+aes-sbox sb[12][8:15] state[11][40:47]
+aes-sbox sb[12][16:23] state[11][80:87]
+aes-sbox sb[12][24:31] state[11][120:127]
+aes-sbox sb[12][32:39] state[11][32:39]
+aes-sbox sb[12][40:47] state[11][72:79]
+aes-sbox sb[12][48:55] state[11][112:119]
+aes-sbox sb[12][56:63] state[11][24:31]
+aes-sbox sb[12][64:71] state[11][64:71]
+aes-sbox sb[12][72:79] state[11][104:111]
+aes-sbox sb[12][80:87] state[11][16:23]
+aes-sbox sb[12][88:95] state[11][56:63]
+aes-sbox sb[12][96:103] state[11][96:103]
+aes-sbox sb[12][104:111] state[11][8:15]
+aes-sbox sb[12][112:119] state[11][48:55]
+aes-sbox sb[12][120:127] state[11][88:95]
+%%%%%%%%%%%% Key-expansion
+aes-sbox keysub[8][0:7] w[47][8:15]
+aes-sbox keysub[8][8:15] w[47][16:23]
+aes-sbox keysub[8][16:23] w[47][24:31]
+aes-sbox keysub[8][24:31] w[47][0:7]
+VXOR w[48][1:7] w[42][1:7] keysub[8][1:7]
+XNOR w[48][0] w[42][0] keysub[8][0]
+VXOR w[48][8:31] w[42][8:31] keysub[8][8:31]
+VXOR w[49][0:31] w[43][0:31] w[48][0:31]
+VXOR w[50][0:31] w[44][0:31] w[49][0:31]
+VXOR w[51][0:31] w[45][0:31] w[50][0:31]
+%%%%%%%%%%%% Final round-key addition
+VXOR c[0:127] sb[12][0:127] w[48:51][0:31]
+end SLP
+end circuit
