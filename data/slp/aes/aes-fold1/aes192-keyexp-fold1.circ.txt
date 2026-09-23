@@ -1,0 +1,152 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-09-04T08:46:53Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Scope: AES-192 KeyExpansion (KeyExpansion() of AES-192 defined in NIST FIPS 197-upd1)
+
+## Index of circuits (circuitName numOutputs numInputs % Description)
+  % aes192-keyexp-fold1  1472  192  % AES-192 KeyExpansion
+
+## Implicit subcircuits (i.e., not defined in this file)
+  % aes-sbox  8  8  % AES SubBytes: inversion in GF(256), then an affine map mod x^8+x^4+x^3+x+1
+
+## KAT examples for implicit subcircuits:
+  % aes-sbox: 0x53 -> 0xed
+
+## Circuit
+begin circuit aes192-keyexp-fold1
+
+  % Description: AES-192 KeyExpansion (from a 192-bit key to 1472 = 128 * 11.5 new key-schedule bits)
+  % Note: NIST FIPS 197-upd1 KeyExpansion() differs by also outputting the original key.
+  % Building blocks (beyond gates): aes-sbox, VXOR
+  % VXOR: bitwise XOR of two equal-width input bitstrings into an equal-width disjoint output bitstring
+  % Tally of variables (1920): 192 inputs; 1472 outputs; 256 intermediates
+  % Tally of operations (86): 32 aes-sbox; 46 VXOR (= 1464 XOR); 8 XNOR
+  % Example KAT from NIST FIPS 197-upd1, Appendix A.2, Expansion of a 192-bit Key
+  % Bit order: hexadecimal bytes ordered as in FIPS 197; in a byte, wire indices go from MSB to LSB.
+  % Note: FIPS 197's w[0:51] would be our key[0:191] ekey[1][64:127] ekey[2:12][0:127].
+  % key0:key191=0x8e73b0f7da0e6452c810f32b809079e562f8ead2522c6b7b
+  % ekey[1][64:127]=0xfe0c91f72402f5a5
+  % ekey[2][0:127]=0xec12068e6c827f6b0e7a95b95c56fec2
+  % ekey[3][0:127]=0x4db7b4bd69b5411885a74796e92538fd
+  % ekey[4][0:127]=0xe75fad44bb095386485af05721efb14f
+  % ekey[5][0:127]=0xa448f6d94d6dce24aa326360113b30e6
+  % ekey[6][0:127]=0xa25e7ed583b1cf9a27f939436a94f767
+  % ekey[7][0:127]=0xc0a69407d19da4e1ec1786eb6fa64971
+  % ekey[8][0:127]=0x485f703222cb8755e26d135233f0b7b3
+  % ekey[9][0:127]=0x40beeb282f18a2596747d26b458c553e
+  % ekey[10][0:127]=0xa7e1466c9411f1df821f750aad07d753
+  % ekey[11][0:127]=0xca4005388fcc5006282d166abc3ce7b5
+  % ekey[12][0:127]=0xe98ba06f448c773c8ecc720401002202
+
+Inputs: key0:key191
+Outputs: ekey[1][64:127] ekey[2:12][0:127]
+Internal: keysub[1:8][0:31]
+GateSyntax: GateName Outputs Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Key expansion
+%%%%%%%%%%%% Round key 1
+aes-sbox keysub[1][0:7] key[168:175]
+aes-sbox keysub[1][8:15] key[176:183]
+aes-sbox keysub[1][16:23] key[184:191]
+aes-sbox keysub[1][24:31] key[160:167]
+VXOR ekey[1][64:70 72:95] key[0:6 8:31] keysub[1][0:6 8:31]
+XNOR ekey[1][71] key[7] keysub[1][7]
+VXOR ekey[1][96:127] key[32:63] ekey[1][64:95]
+%%%%%%%%%%%% Round key 2
+VXOR ekey[2][0:31] key[64:95] ekey[1][96:127]
+VXOR ekey[2][32:63] key[96:127] ekey[2][0:31]
+VXOR ekey[2][64:95] key[128:159] ekey[2][32:63]
+VXOR ekey[2][96:127] key[160:191] ekey[2][64:95]
+%%%%%%%%%%%% Round key 3
+aes-sbox keysub[2][0:7] ekey[2][104:111]
+aes-sbox keysub[2][8:15] ekey[2][112:119]
+aes-sbox keysub[2][16:23] ekey[2][120:127]
+aes-sbox keysub[2][24:31] ekey[2][96:103]
+VXOR ekey[3][0:5 7 8:31] ekey[1][64:69 71 72:95] keysub[2][0:5 7 8:31]
+XNOR ekey[3][6] ekey[1][70] keysub[2][6]
+VXOR ekey[3][32:63] ekey[1][96:127] ekey[3][0:31]
+VXOR ekey[3][64:95] ekey[2][0:31] ekey[3][32:63]
+VXOR ekey[3][96:127] ekey[2][32:63] ekey[3][64:95]
+%%%%%%%%%%%% Round key 4
+VXOR ekey[4][0:31] ekey[2][64:95] ekey[3][96:127]
+VXOR ekey[4][32:63] ekey[2][96:127] ekey[4][0:31]
+aes-sbox keysub[3][0:7] ekey[4][40:47]
+aes-sbox keysub[3][8:15] ekey[4][48:55]
+aes-sbox keysub[3][16:23] ekey[4][56:63]
+aes-sbox keysub[3][24:31] ekey[4][32:39]
+VXOR ekey[4][64:68 70:71 72:95] ekey[3][0:4 6:7 8:31] keysub[3][0:4 6:7 8:31]
+XNOR ekey[4][69] ekey[3][5] keysub[3][5]
+VXOR ekey[4][96:127] ekey[3][32:63] ekey[4][64:95]
+%%%%%%%%%%%% Round key 5
+VXOR ekey[5][0:31] ekey[3][64:95] ekey[4][96:127]
+VXOR ekey[5][32:63] ekey[3][96:127] ekey[5][0:31]
+VXOR ekey[5][64:95] ekey[4][0:31] ekey[5][32:63]
+VXOR ekey[5][96:127] ekey[4][32:63] ekey[5][64:95]
+%%%%%%%%%%%% Round key 6
+aes-sbox keysub[4][0:7] ekey[5][104:111]
+aes-sbox keysub[4][8:15] ekey[5][112:119]
+aes-sbox keysub[4][16:23] ekey[5][120:127]
+aes-sbox keysub[4][24:31] ekey[5][96:103]
+VXOR ekey[6][0:3 5:7 8:31] ekey[4][64:67 69:71 72:95] keysub[4][0:3 5:7 8:31]
+XNOR ekey[6][4] ekey[4][68] keysub[4][4]
+VXOR ekey[6][32:63] ekey[4][96:127] ekey[6][0:31]
+VXOR ekey[6][64:95] ekey[5][0:31] ekey[6][32:63]
+VXOR ekey[6][96:127] ekey[5][32:63] ekey[6][64:95]
+%%%%%%%%%%%% Round key 7
+VXOR ekey[7][0:31] ekey[5][64:95] ekey[6][96:127]
+VXOR ekey[7][32:63] ekey[5][96:127] ekey[7][0:31]
+aes-sbox keysub[5][0:7] ekey[7][40:47]
+aes-sbox keysub[5][8:15] ekey[7][48:55]
+aes-sbox keysub[5][16:23] ekey[7][56:63]
+aes-sbox keysub[5][24:31] ekey[7][32:39]
+VXOR ekey[7][64:66 68:71 72:95] ekey[6][0:2 4:7 8:31] keysub[5][0:2 4:7 8:31]
+XNOR ekey[7][67] ekey[6][3] keysub[5][3]
+VXOR ekey[7][96:127] ekey[6][32:63] ekey[7][64:95]
+%%%%%%%%%%%% Round key 8
+VXOR ekey[8][0:31] ekey[6][64:95] ekey[7][96:127]
+VXOR ekey[8][32:63] ekey[6][96:127] ekey[8][0:31]
+VXOR ekey[8][64:95] ekey[7][0:31] ekey[8][32:63]
+VXOR ekey[8][96:127] ekey[7][32:63] ekey[8][64:95]
+%%%%%%%%%%%% Round key 9
+aes-sbox keysub[6][0:7] ekey[8][104:111]
+aes-sbox keysub[6][8:15] ekey[8][112:119]
+aes-sbox keysub[6][16:23] ekey[8][120:127]
+aes-sbox keysub[6][24:31] ekey[8][96:103]
+VXOR ekey[9][0:1 3:7 8:31] ekey[7][64:65 67:71 72:95] keysub[6][0:1 3:7 8:31]
+XNOR ekey[9][2] ekey[7][66] keysub[6][2]
+VXOR ekey[9][32:63] ekey[7][96:127] ekey[9][0:31]
+VXOR ekey[9][64:95] ekey[8][0:31] ekey[9][32:63]
+VXOR ekey[9][96:127] ekey[8][32:63] ekey[9][64:95]
+%%%%%%%%%%%% Round key 10
+VXOR ekey[10][0:31] ekey[8][64:95] ekey[9][96:127]
+VXOR ekey[10][32:63] ekey[8][96:127] ekey[10][0:31]
+aes-sbox keysub[7][0:7] ekey[10][40:47]
+aes-sbox keysub[7][8:15] ekey[10][48:55]
+aes-sbox keysub[7][16:23] ekey[10][56:63]
+aes-sbox keysub[7][24:31] ekey[10][32:39]
+VXOR ekey[10][64 66:71 72:95] ekey[9][0 2:7 8:31] keysub[7][0 2:7 8:31]
+XNOR ekey[10][65] ekey[9][1] keysub[7][1]
+VXOR ekey[10][96:127] ekey[9][32:63] ekey[10][64:95]
+%%%%%%%%%%%% Round key 11
+VXOR ekey[11][0:31] ekey[9][64:95] ekey[10][96:127]
+VXOR ekey[11][32:63] ekey[9][96:127] ekey[11][0:31]
+VXOR ekey[11][64:95] ekey[10][0:31] ekey[11][32:63]
+VXOR ekey[11][96:127] ekey[10][32:63] ekey[11][64:95]
+%%%%%%%%%%%% Round key 12
+aes-sbox keysub[8][0:7] ekey[11][104:111]
+aes-sbox keysub[8][8:15] ekey[11][112:119]
+aes-sbox keysub[8][16:23] ekey[11][120:127]
+aes-sbox keysub[8][24:31] ekey[11][96:103]
+VXOR ekey[12][1:7 8:31] ekey[10][65:71 72:95] keysub[8][1:7 8:31]
+XNOR ekey[12][0] ekey[10][64] keysub[8][0]
+VXOR ekey[12][32:63] ekey[10][96:127] ekey[12][0:31]
+VXOR ekey[12][64:95] ekey[11][0:31] ekey[12][32:63]
+VXOR ekey[12][96:127] ekey[11][32:63] ekey[12][64:95]
+end SLP
+end circuit

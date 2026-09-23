@@ -1,0 +1,301 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-09-04T07:51:34Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Scope: AES-128 InvCipher (InvCipher() of AES-128 defined in NIST FIPS 197-upd1)
+
+## Index of circuits (circuitName numOutputs numInputs % Description)
+  % aes128-invcipher-fold1  128  1536  % AES-128 InvCipher using an externally supplied key schedule
+
+## Implicit subcircuits (i.e., not defined in this file)
+  % aes-invmixcols  32  32  % AES InvMixColumns: [0e 0b 0d 09; 09 0e 0b 0d; 0d 09 0e 0b; 0b 0d 09 0e] times one column over GF(256)
+  % aes-invsbox      8   8  % AES InvSubBytes: inverse affine map, then inversion in the same GF(256)
+
+## KAT examples for implicit subcircuits:
+  % aes-invmixcols: 0x046681e5 -> 0xd4bf5d30
+  % aes-invsbox: 0xed -> 0x53
+
+## Circuit
+begin circuit aes128-invcipher-fold1
+
+  % Description: AES-128 InvCipher (from a 128-bit ciphertext and a 1408-bit key schedule, represented as a 128-bit key followed by a 1280-bit expanded-key suffix, to a 128-bit plaintext)
+  % Building blocks (beyond gates): aes-invmixcols, aes-invsbox, VXOR
+  % VXOR: bitwise XOR of two equal-width input bitstrings into an equal-width disjoint output bitstring
+  % Tally of variables (5376): 1536 inputs; 128 outputs; 3712 intermediates
+  % Tally of operations (207): 160 aes-invsbox; 36 aes-invmixcols; 11 VXOR (= 1408 XOR)
+  % Example KAT from NIST FIPS 197-upd1, Appendix B, Cipher Example
+  % Bit order: hexadecimal bytes ordered as in FIPS 197; in a byte, wire indices go from MSB to LSB.
+  % Note: FIPS 197's w[0:43] would be our key[0:127] ekey[1:10][0:127].
+  % ctx0:ctx127=0x3925841d02dc09fbdc118597196a0b32
+  % key0:key127=0x2b7e151628aed2a6abf7158809cf4f3c
+  % ekey[1][0:127]=0xa0fafe1788542cb123a339392a6c7605
+  % ekey[2][0:127]=0xf2c295f27a96b9435935807a7359f67f
+  % ekey[3][0:127]=0x3d80477d4716fe3e1e237e446d7a883b
+  % ekey[4][0:127]=0xef44a541a8525b7fb671253bdb0bad00
+  % ekey[5][0:127]=0xd4d1c6f87c839d87caf2b8bc11f915bc
+  % ekey[6][0:127]=0x6d88a37a110b3efddbf98641ca0093fd
+  % ekey[7][0:127]=0x4e54f70e5f5fc9f384a64fb24ea6dc4f
+  % ekey[8][0:127]=0xead27321b58dbad2312bf5607f8d292f
+  % ekey[9][0:127]=0xac7766f319fadc2128d12941575c006e
+  % ekey[10][0:127]=0xd014f9a8c9ee2589e13f0cc8b6630ca6
+  % ptx0:ptx127=0x3243f6a8885a308d313198a2e0370734
+
+Inputs: ctx0:ctx127 key0:key127 ekey[1:10][0:127]
+Outputs: ptx0:ptx127
+Internal: state[0:9][0:127] invsb[1:10][0:127] added[1:9][0:127]
+GateSyntax: GateName Outputs Inputs
+
+begin SLP
+%%%%%%%%%%%% Initial round-key addition
+VXOR state[0][0:127] ctx[0:127] ekey[10][0:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 1
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[1][0:7] state[0][0:7]
+aes-invsbox invsb[1][8:15] state[0][104:111]
+aes-invsbox invsb[1][16:23] state[0][80:87]
+aes-invsbox invsb[1][24:31] state[0][56:63]
+aes-invsbox invsb[1][32:39] state[0][32:39]
+aes-invsbox invsb[1][40:47] state[0][8:15]
+aes-invsbox invsb[1][48:55] state[0][112:119]
+aes-invsbox invsb[1][56:63] state[0][88:95]
+aes-invsbox invsb[1][64:71] state[0][64:71]
+aes-invsbox invsb[1][72:79] state[0][40:47]
+aes-invsbox invsb[1][80:87] state[0][16:23]
+aes-invsbox invsb[1][88:95] state[0][120:127]
+aes-invsbox invsb[1][96:103] state[0][96:103]
+aes-invsbox invsb[1][104:111] state[0][72:79]
+aes-invsbox invsb[1][112:119] state[0][48:55]
+aes-invsbox invsb[1][120:127] state[0][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[1][0:127] invsb[1][0:127] ekey[9][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[1][0:31] added[1][0:31]
+aes-invmixcols state[1][32:63] added[1][32:63]
+aes-invmixcols state[1][64:95] added[1][64:95]
+aes-invmixcols state[1][96:127] added[1][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 2
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[2][0:7] state[1][0:7]
+aes-invsbox invsb[2][8:15] state[1][104:111]
+aes-invsbox invsb[2][16:23] state[1][80:87]
+aes-invsbox invsb[2][24:31] state[1][56:63]
+aes-invsbox invsb[2][32:39] state[1][32:39]
+aes-invsbox invsb[2][40:47] state[1][8:15]
+aes-invsbox invsb[2][48:55] state[1][112:119]
+aes-invsbox invsb[2][56:63] state[1][88:95]
+aes-invsbox invsb[2][64:71] state[1][64:71]
+aes-invsbox invsb[2][72:79] state[1][40:47]
+aes-invsbox invsb[2][80:87] state[1][16:23]
+aes-invsbox invsb[2][88:95] state[1][120:127]
+aes-invsbox invsb[2][96:103] state[1][96:103]
+aes-invsbox invsb[2][104:111] state[1][72:79]
+aes-invsbox invsb[2][112:119] state[1][48:55]
+aes-invsbox invsb[2][120:127] state[1][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[2][0:127] invsb[2][0:127] ekey[8][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[2][0:31] added[2][0:31]
+aes-invmixcols state[2][32:63] added[2][32:63]
+aes-invmixcols state[2][64:95] added[2][64:95]
+aes-invmixcols state[2][96:127] added[2][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 3
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[3][0:7] state[2][0:7]
+aes-invsbox invsb[3][8:15] state[2][104:111]
+aes-invsbox invsb[3][16:23] state[2][80:87]
+aes-invsbox invsb[3][24:31] state[2][56:63]
+aes-invsbox invsb[3][32:39] state[2][32:39]
+aes-invsbox invsb[3][40:47] state[2][8:15]
+aes-invsbox invsb[3][48:55] state[2][112:119]
+aes-invsbox invsb[3][56:63] state[2][88:95]
+aes-invsbox invsb[3][64:71] state[2][64:71]
+aes-invsbox invsb[3][72:79] state[2][40:47]
+aes-invsbox invsb[3][80:87] state[2][16:23]
+aes-invsbox invsb[3][88:95] state[2][120:127]
+aes-invsbox invsb[3][96:103] state[2][96:103]
+aes-invsbox invsb[3][104:111] state[2][72:79]
+aes-invsbox invsb[3][112:119] state[2][48:55]
+aes-invsbox invsb[3][120:127] state[2][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[3][0:127] invsb[3][0:127] ekey[7][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[3][0:31] added[3][0:31]
+aes-invmixcols state[3][32:63] added[3][32:63]
+aes-invmixcols state[3][64:95] added[3][64:95]
+aes-invmixcols state[3][96:127] added[3][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 4
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[4][0:7] state[3][0:7]
+aes-invsbox invsb[4][8:15] state[3][104:111]
+aes-invsbox invsb[4][16:23] state[3][80:87]
+aes-invsbox invsb[4][24:31] state[3][56:63]
+aes-invsbox invsb[4][32:39] state[3][32:39]
+aes-invsbox invsb[4][40:47] state[3][8:15]
+aes-invsbox invsb[4][48:55] state[3][112:119]
+aes-invsbox invsb[4][56:63] state[3][88:95]
+aes-invsbox invsb[4][64:71] state[3][64:71]
+aes-invsbox invsb[4][72:79] state[3][40:47]
+aes-invsbox invsb[4][80:87] state[3][16:23]
+aes-invsbox invsb[4][88:95] state[3][120:127]
+aes-invsbox invsb[4][96:103] state[3][96:103]
+aes-invsbox invsb[4][104:111] state[3][72:79]
+aes-invsbox invsb[4][112:119] state[3][48:55]
+aes-invsbox invsb[4][120:127] state[3][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[4][0:127] invsb[4][0:127] ekey[6][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[4][0:31] added[4][0:31]
+aes-invmixcols state[4][32:63] added[4][32:63]
+aes-invmixcols state[4][64:95] added[4][64:95]
+aes-invmixcols state[4][96:127] added[4][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 5
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[5][0:7] state[4][0:7]
+aes-invsbox invsb[5][8:15] state[4][104:111]
+aes-invsbox invsb[5][16:23] state[4][80:87]
+aes-invsbox invsb[5][24:31] state[4][56:63]
+aes-invsbox invsb[5][32:39] state[4][32:39]
+aes-invsbox invsb[5][40:47] state[4][8:15]
+aes-invsbox invsb[5][48:55] state[4][112:119]
+aes-invsbox invsb[5][56:63] state[4][88:95]
+aes-invsbox invsb[5][64:71] state[4][64:71]
+aes-invsbox invsb[5][72:79] state[4][40:47]
+aes-invsbox invsb[5][80:87] state[4][16:23]
+aes-invsbox invsb[5][88:95] state[4][120:127]
+aes-invsbox invsb[5][96:103] state[4][96:103]
+aes-invsbox invsb[5][104:111] state[4][72:79]
+aes-invsbox invsb[5][112:119] state[4][48:55]
+aes-invsbox invsb[5][120:127] state[4][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[5][0:127] invsb[5][0:127] ekey[5][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[5][0:31] added[5][0:31]
+aes-invmixcols state[5][32:63] added[5][32:63]
+aes-invmixcols state[5][64:95] added[5][64:95]
+aes-invmixcols state[5][96:127] added[5][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 6
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[6][0:7] state[5][0:7]
+aes-invsbox invsb[6][8:15] state[5][104:111]
+aes-invsbox invsb[6][16:23] state[5][80:87]
+aes-invsbox invsb[6][24:31] state[5][56:63]
+aes-invsbox invsb[6][32:39] state[5][32:39]
+aes-invsbox invsb[6][40:47] state[5][8:15]
+aes-invsbox invsb[6][48:55] state[5][112:119]
+aes-invsbox invsb[6][56:63] state[5][88:95]
+aes-invsbox invsb[6][64:71] state[5][64:71]
+aes-invsbox invsb[6][72:79] state[5][40:47]
+aes-invsbox invsb[6][80:87] state[5][16:23]
+aes-invsbox invsb[6][88:95] state[5][120:127]
+aes-invsbox invsb[6][96:103] state[5][96:103]
+aes-invsbox invsb[6][104:111] state[5][72:79]
+aes-invsbox invsb[6][112:119] state[5][48:55]
+aes-invsbox invsb[6][120:127] state[5][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[6][0:127] invsb[6][0:127] ekey[4][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[6][0:31] added[6][0:31]
+aes-invmixcols state[6][32:63] added[6][32:63]
+aes-invmixcols state[6][64:95] added[6][64:95]
+aes-invmixcols state[6][96:127] added[6][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 7
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[7][0:7] state[6][0:7]
+aes-invsbox invsb[7][8:15] state[6][104:111]
+aes-invsbox invsb[7][16:23] state[6][80:87]
+aes-invsbox invsb[7][24:31] state[6][56:63]
+aes-invsbox invsb[7][32:39] state[6][32:39]
+aes-invsbox invsb[7][40:47] state[6][8:15]
+aes-invsbox invsb[7][48:55] state[6][112:119]
+aes-invsbox invsb[7][56:63] state[6][88:95]
+aes-invsbox invsb[7][64:71] state[6][64:71]
+aes-invsbox invsb[7][72:79] state[6][40:47]
+aes-invsbox invsb[7][80:87] state[6][16:23]
+aes-invsbox invsb[7][88:95] state[6][120:127]
+aes-invsbox invsb[7][96:103] state[6][96:103]
+aes-invsbox invsb[7][104:111] state[6][72:79]
+aes-invsbox invsb[7][112:119] state[6][48:55]
+aes-invsbox invsb[7][120:127] state[6][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[7][0:127] invsb[7][0:127] ekey[3][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[7][0:31] added[7][0:31]
+aes-invmixcols state[7][32:63] added[7][32:63]
+aes-invmixcols state[7][64:95] added[7][64:95]
+aes-invmixcols state[7][96:127] added[7][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 8
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[8][0:7] state[7][0:7]
+aes-invsbox invsb[8][8:15] state[7][104:111]
+aes-invsbox invsb[8][16:23] state[7][80:87]
+aes-invsbox invsb[8][24:31] state[7][56:63]
+aes-invsbox invsb[8][32:39] state[7][32:39]
+aes-invsbox invsb[8][40:47] state[7][8:15]
+aes-invsbox invsb[8][48:55] state[7][112:119]
+aes-invsbox invsb[8][56:63] state[7][88:95]
+aes-invsbox invsb[8][64:71] state[7][64:71]
+aes-invsbox invsb[8][72:79] state[7][40:47]
+aes-invsbox invsb[8][80:87] state[7][16:23]
+aes-invsbox invsb[8][88:95] state[7][120:127]
+aes-invsbox invsb[8][96:103] state[7][96:103]
+aes-invsbox invsb[8][104:111] state[7][72:79]
+aes-invsbox invsb[8][112:119] state[7][48:55]
+aes-invsbox invsb[8][120:127] state[7][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[8][0:127] invsb[8][0:127] ekey[2][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[8][0:31] added[8][0:31]
+aes-invmixcols state[8][32:63] added[8][32:63]
+aes-invmixcols state[8][64:95] added[8][64:95]
+aes-invmixcols state[8][96:127] added[8][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 9
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[9][0:7] state[8][0:7]
+aes-invsbox invsb[9][8:15] state[8][104:111]
+aes-invsbox invsb[9][16:23] state[8][80:87]
+aes-invsbox invsb[9][24:31] state[8][56:63]
+aes-invsbox invsb[9][32:39] state[8][32:39]
+aes-invsbox invsb[9][40:47] state[8][8:15]
+aes-invsbox invsb[9][48:55] state[8][112:119]
+aes-invsbox invsb[9][56:63] state[8][88:95]
+aes-invsbox invsb[9][64:71] state[8][64:71]
+aes-invsbox invsb[9][72:79] state[8][40:47]
+aes-invsbox invsb[9][80:87] state[8][16:23]
+aes-invsbox invsb[9][88:95] state[8][120:127]
+aes-invsbox invsb[9][96:103] state[8][96:103]
+aes-invsbox invsb[9][104:111] state[8][72:79]
+aes-invsbox invsb[9][112:119] state[8][48:55]
+aes-invsbox invsb[9][120:127] state[8][24:31]
+%%%%%%%%%%%% Round-key addition
+VXOR added[9][0:127] invsb[9][0:127] ekey[1][0:127]
+%%%%%%%%%%%% Inverse MixColumns
+aes-invmixcols state[9][0:31] added[9][0:31]
+aes-invmixcols state[9][32:63] added[9][32:63]
+aes-invmixcols state[9][64:95] added[9][64:95]
+aes-invmixcols state[9][96:127] added[9][96:127]
+%%%%%%%%%%%%%%%%%%%%%%%% Round 10
+%%%%%%%%%%%% Inverse ShiftRows and inverse S-box application
+aes-invsbox invsb[10][0:7] state[9][0:7]
+aes-invsbox invsb[10][8:15] state[9][104:111]
+aes-invsbox invsb[10][16:23] state[9][80:87]
+aes-invsbox invsb[10][24:31] state[9][56:63]
+aes-invsbox invsb[10][32:39] state[9][32:39]
+aes-invsbox invsb[10][40:47] state[9][8:15]
+aes-invsbox invsb[10][48:55] state[9][112:119]
+aes-invsbox invsb[10][56:63] state[9][88:95]
+aes-invsbox invsb[10][64:71] state[9][64:71]
+aes-invsbox invsb[10][72:79] state[9][40:47]
+aes-invsbox invsb[10][80:87] state[9][16:23]
+aes-invsbox invsb[10][88:95] state[9][120:127]
+aes-invsbox invsb[10][96:103] state[9][96:103]
+aes-invsbox invsb[10][104:111] state[9][72:79]
+aes-invsbox invsb[10][112:119] state[9][48:55]
+aes-invsbox invsb[10][120:127] state[9][24:31]
+%%%%%%%%%%%% Final round-key addition
+VXOR ptx[0:127] invsb[10][0:127] key[0:127]
+end SLP
+end circuit
