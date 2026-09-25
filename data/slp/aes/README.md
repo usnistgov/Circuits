@@ -109,10 +109,12 @@ Note: For each direction, dark-blue, bold, underlined values indicate the lowest
 | [circ.txt](./aes-mixcols/aes-mixcols-xor97-depth3.circ.txt) | Forward | [<ins><strong>3</strong></ins>](./aes-mixcols/aes-mixcols-xor97-depth3.circ.txt) | 97 |
 | [circ.txt](./aes-mixcols/aes-mixcols-xor90-depth4.circ.txt) | Forward | 4 | 90 |
 | [circ.txt](./aes-mixcols/aes-mixcols-xor88-depth5.circ.txt) | Forward | 5 | [<ins><strong>88</strong></ins>](./aes-mixcols/aes-mixcols-xor88-depth5.circ.txt) |
-| [circ.txt](./aes-invmixcols/aes-invmixcols-xor146-depth5.circ.txt) | Inverse | [<ins><strong>5</strong></ins>](./aes-invmixcols/aes-invmixcols-xor146-depth5.circ.txt) | 146 |
-| [circ.txt](./aes-invmixcols/aes-invmixcols-xor135-depth6.circ.txt) | Inverse | 6 | 135 |
-| [circ.txt](./aes-invmixcols/aes-invmixcols-xor124-depth7.circ.txt) | Inverse | 7 | 124 |
-| [circ.txt](./aes-invmixcols/aes-invmixcols-xor114-depth8.circ.txt) | Inverse | 8 | [<ins><strong>114</strong></ins>](./aes-invmixcols/aes-invmixcols-xor114-depth8.circ.txt) |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor127-depth5.circ.txt) | Inverse | [<ins><strong>5</strong></ins>](./aes-invmixcols/aes-invmixcols-xor127-depth5.circ.txt) | 127 |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor115-depth6.circ.txt) | Inverse | 6 | 115 |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor110-depth7.circ.txt) | Inverse | 7 | 110 |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor101-depth8.circ.txt) | Inverse | 8 | 101 |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor99-depth9.circ.txt) | Inverse | 9 | 99 |
+| [circ.txt](./aes-invmixcols/aes-invmixcols-xor97-depth10.circ.txt) | Inverse | 10 | [<ins><strong>97</strong></ins>](./aes-invmixcols/aes-invmixcols-xor97-depth10.circ.txt) |
 
 
 
@@ -162,7 +164,9 @@ The table counts top-level operations as written in each folded circuit; #XOR an
 <details open>
 <summary><h2>AES flat circuits</h2></summary>
 
-Example circuits, flattened to the level of basic Boolean gates (AND, XOR, XNOR).
+This section contains "flat circuits", built by flattening the intermediate components (\[inv\]sbox and \[inv\]mixcols, VX\[N\]OR) of folded circuits, so that the entire circuit uses only basic Boolean gates (AND, XOR, XNOR).
+
+The exemplified compilations may be using components that are no longer optimal, since new optimized components may be posted more frequently than flat circuits.
 
 There are up to 4! = 24 tuple metrics corresponding to the possible orderings of (A, AD, G, GD). For succinctness, the tables consider only four tuple metrics (TM): (1) A-AD-G-GD, (2) AD-GD-G-A, (3) GD-G-AD-A, and (4) G-A-GD-AD.
 
