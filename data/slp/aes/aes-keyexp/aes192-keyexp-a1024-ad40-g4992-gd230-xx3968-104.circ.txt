@@ -9,7 +9,7 @@
 ## Scope: AES-192 KeyExpansion
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-keyexp-a1024-ad40-g4992-gd230-xx3968-104 1472 192   % AES-192 KeyExpansion flat circuit over AND, XOR, XNOR gates
+  % aes192-keyexp-a1024-ad40-g4992-gd230-xx3968-104 1472 192   % AES-192 KeyExpansion flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-keyexp-a1024-ad40-g4992-gd230-xx3968-104

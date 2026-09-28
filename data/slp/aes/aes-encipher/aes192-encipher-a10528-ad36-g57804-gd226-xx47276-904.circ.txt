@@ -9,7 +9,7 @@
 ## Scope: AES-192 Encipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-encipher-a10528-ad36-g57804-gd226-xx47276-904 128 320   % AES-192 Encipher flat circuit over AND, XOR, XNOR gates
+  % aes192-encipher-a10528-ad36-g57804-gd226-xx47276-904 128 320   % AES-192 Encipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-encipher-a10528-ad36-g57804-gd226-xx47276-904

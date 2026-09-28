@@ -9,7 +9,7 @@
 ## Scope: AES-128 Decipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes128-decipher-a7200-ad80-g35832-gd403-xx28632-4736 128 256   % AES-128 Decipher flat circuit over AND, XOR, XNOR gates
+  % aes128-decipher-a7200-ad80-g35832-gd403-xx28632-4736 128 256   % AES-128 Decipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes128-decipher-a7200-ad80-g35832-gd403-xx28632-4736

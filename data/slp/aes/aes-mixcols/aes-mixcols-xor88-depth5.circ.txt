@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-mixcols-xor88-depth5 32 32   % AES MixColumns; 32-bit column; 2-input XOR basis
+  % aes-mixcols-xor88-depth5 32 32   % AES MixColumns; 32-bit column; 2-input XOR basis
 
 ## Circuit
 begin circuit aes-mixcols-xor88-depth5

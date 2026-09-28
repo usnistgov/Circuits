@@ -9,7 +9,7 @@
 ## Scope: AES-192 InvCipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-invcipher-a6528-ad48-g33816-gd248-xx27288-3456 128 1792   % AES-192 InvCipher flat circuit over AND, XOR, XNOR gates
+  % aes192-invcipher-a6528-ad48-g33816-gd248-xx27288-3456 128 1792   % AES-192 InvCipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-invcipher-a6528-ad48-g33816-gd248-xx27288-3456

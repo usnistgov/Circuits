@@ -9,7 +9,7 @@
 ## Scope: AES-128 Encipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes128-encipher-a6400-ad50-g27856-gd286-xx21456-616 128 256   % AES-128 Encipher flat circuit over AND, XOR, XNOR gates
+  % aes128-encipher-a6400-ad50-g27856-gd286-xx21456-616 128 256   % AES-128 Encipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes128-encipher-a6400-ad50-g27856-gd286-xx21456-616

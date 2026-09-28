@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-invsbox-a32-ad5-g112-gd27-xx80-9 8 8   % AES InvSBox, compatible with NIST FIPS 197
+  % aes-invsbox-a32-ad5-g112-gd27-xx80-9 8 8   % AES InvSBox, compatible with NIST FIPS 197
 
 ## Circuit
 begin circuit aes-invsbox-a32-ad5-g112-gd27-xx80-9

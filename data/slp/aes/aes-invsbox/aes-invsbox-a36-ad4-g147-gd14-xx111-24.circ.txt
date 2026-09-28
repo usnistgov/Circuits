@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-invsbox-a36-ad4-g147-gd14-xx111-24 8 8
+  % aes-invsbox-a36-ad4-g147-gd14-xx111-24 8 8
 
 ## Circuit
 begin circuit aes-invsbox-a36-ad4-g147-gd14-xx111-24

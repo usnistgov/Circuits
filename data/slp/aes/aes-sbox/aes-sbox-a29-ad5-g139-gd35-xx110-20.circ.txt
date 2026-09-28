@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-sbox-a29-ad5-g139-gd35-xx110-20 8 8   % AES Sbox Forward, compatible with NIST-FIPS 197
+  % aes-sbox-a29-ad5-g139-gd35-xx110-20 8 8   % AES Sbox Forward, compatible with NIST-FIPS 197
 
 ## Acknowledgment note
   % The circuit in this file follows from transformations applied to the @umizame circuit in

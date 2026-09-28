@@ -1,0 +1,272 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-09-27T11:59:26Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invsbox-a47-ad3-g201-gd25-xx154-3 8 8
+
+## Circuit
+begin circuit aes-invsbox-a47-ad3-g201-gd25-xx154-3
+
+  % Description: AES InvSBox, compatible with NIST FIPS 197
+  % Circuit-name syntax: <basename>-aA-adE-gG-gdD-xxX-Y
+  % A = #AND; E = AND-depth; G = #Gates; D = Gate-depth; X = #XOR + #XNOR; Y = #XNOR
+  % Tally of variables (209): 8 inputs; 8 outputs; 193 intermediates
+  % Tally of gates (201): 47 AND; 151 XOR; 3 XNOR
+  % Gate depth 25; AND depth 3
+  % Gates per gate level: 6 9 10 17 10 6 3 8 12 14 10 10 13 12 12 11 9 8 5 5 4 2 1 2 2
+  % AND gates per AND level: 9 22 16
+
+Inputs: x0:x7
+Outputs: W0:W7
+Internal: t1:t193
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XOR t1 x1 x5
+XNOR t2 x7 x4
+XOR t3 x6 x5
+XOR t4 x7 x3
+XOR t5 x0 x2
+XOR t6 x6 x2
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XOR t7 x0 t1
+XOR t8 x0 t2
+XOR t9 x2 t3
+XOR t10 x6 t1
+XOR t11 x2 t4
+XOR t12 x7 t2
+XOR t13 x7 t1
+XOR t14 t2 t3
+XOR t15 x5 t4
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XOR t16 x4 t7
+XOR t17 t11 t7
+XOR t18 t9 t13
+XNOR t19 x5 t9
+XOR t20 t8 t11
+XOR t21 t12 t7
+XOR t22 t12 t10
+XOR t23 x6 t12
+XOR t24 x4 t10
+%%%%%%%%%%%% AND level 1 (subset 1 of 4)
+AND t25 t7 t8
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XOR t26 t10 t16
+XOR t27 t14 t18
+XOR t28 t15 t16
+XOR t29 t8 t18
+XOR t30 x6 t19
+XOR t31 x6 t16
+XOR t32 t12 t19
+XOR t33 x1 t17
+XOR t34 x0 t25
+XOR t35 t10 t21
+XOR t36 t4 t22
+XOR t37 t20 t24
+XOR t38 t12 t16
+XOR t39 t19 t22
+%%%%%%%%%%%% AND level 1 (subset 2 of 4)
+AND t40 t16 t9
+AND t41 t12 t18
+AND t42 t20 t22
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XOR t43 t20 t28
+XOR t44 t40 t31
+XOR t45 t16 t27
+XOR t46 t17 t26
+XOR t47 t25 t40
+XOR t48 t18 t30
+%%%%%%%%%%%% AND level 1 (subset 3 of 4)
+AND t49 t26 t17
+AND t50 t27 t28
+AND t51 t30 t23
+AND t52 t5 t36
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XNOR t53 t41 t50
+XOR t54 t42 t44
+XOR t55 t34 t51
+XOR t56 t52 t50
+XOR t57 t49 t47
+%%%%%%%%%%%% AND level 1 (subset 4 of 4)
+AND t58 t19 t43
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 7
+XOR t59 t49 t58
+XOR t60 t55 t54
+XOR t61 t57 t56
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 8
+XOR t62 t53 t59
+XOR t63 t54 t59
+XOR t64 t32 t60
+XOR t65 t46 t60
+XOR t66 t60 t61
+XOR t67 t19 t61
+XOR t68 t27 t60
+%%%%%%%%%%%% AND level 2 (subset 1 of 6)
+AND t69 t33 t60
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 9
+XOR t70 t23 t63
+XOR t71 t60 t62
+XOR t72 x2 t62
+XOR t73 t67 t62
+XOR t74 t19 t66
+%%%%%%%%%%%% AND level 2 (subset 2 of 6)
+AND t75 t21 t62
+AND t76 t29 t62
+AND t77 t30 t63
+AND t78 t6 t66
+AND t79 t24 t67
+AND t80 t37 t67
+AND t81 t39 t68
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 10
+XOR t82 t63 t72
+XOR t83 t64 t70
+XOR t84 t65 t72
+XOR t85 t69 t76
+XOR t86 t75 t78
+XOR t87 t76 t77
+XOR t88 t62 t74
+XOR t89 t75 t79
+XOR t90 t69 t77
+XOR t91 t78 t81
+%%%%%%%%%%%% AND level 2 (subset 3 of 6)
+AND t92 t32 t70
+AND t93 t45 t71
+AND t94 t73 t62
+AND t95 t48 t74
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 11
+XOR t96 t60 t82
+XOR t97 t62 t83
+XOR t98 t67 t82
+XOR t99 t77 t95
+XOR t100 t79 t86
+XOR t101 t80 t85
+XOR t102 t75 t93
+XOR t103 t89 t92
+%%%%%%%%%%%% AND level 2 (subset 4 of 6)
+AND t104 t82 t83
+AND t105 t36 t84
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 12
+XOR t106 t83 t98
+XOR t107 t67 t96
+XOR t108 t85 t99
+XOR t109 t62 t104
+XOR t110 t71 t98
+XOR t111 t87 t105
+XOR t112 t92 t102
+%%%%%%%%%%%% AND level 2 (subset 5 of 6)
+AND t113 t35 t96
+AND t114 t46 t96
+AND t115 t97 t98
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 13
+XOR t116 t105 t108
+XOR t117 t109 t115
+XOR t118 t100 t113
+XOR t119 t94 t107
+XOR t120 t114 t111
+XOR t121 t113 t112
+XOR t122 t96 t109
+XOR t123 t91 t112
+%%%%%%%%%%%% AND level 2 (subset 6 of 6)
+AND t124 t106 t107
+AND t125 t18 t110
+AND t126 x4 t110
+AND t127 t38 t107
+AND t128 t8 t107
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 14
+XOR t129 t115 t119
+XOR t130 t125 t120
+XOR t131 t88 t124
+XOR t132 t109 t119
+XOR t133 t101 t120
+XOR t134 t121 t126
+XOR t135 t103 t127
+XOR t136 t90 t128
+XOR t137 t123 t118
+XOR t138 t89 t123
+%%%%%%%%%%%% AND level 3 (subset 1 of 5)
+AND t139 t116 t117
+AND t140 t123 t117
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 15
+XOR t141 t131 t129
+XOR t142 t116 t130
+XOR t143 t132 t131
+XOR t144 t122 t129
+XOR t145 t125 t136
+XOR t146 t101 t136
+XOR t147 t116 t133
+XOR t148 t135 t137
+XOR t149 t123 t134
+%%%%%%%%%%%% AND level 3 (subset 2 of 5)
+AND t150 t118 t129
+AND t151 t132 t133
+AND t152 t132 t137
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 16
+XOR t153 t122 t143
+XOR t154 t146 t142
+XOR t155 t134 t148
+XOR t156 t139 t152
+XOR t157 t140 t151
+%%%%%%%%%%%% AND level 3 (subset 3 of 5)
+AND t158 t130 t141
+AND t159 t134 t141
+AND t160 t142 t143
+AND t161 t144 t145
+AND t162 t147 t129
+AND t163 t149 t143
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 17
+XOR t164 t118 t155
+XOR t165 t151 t161
+XOR t166 t155 t138
+XOR t167 t140 t158
+XOR t168 t157 t159
+%%%%%%%%%%%% AND level 3 (subset 4 of 5)
+AND t169 t153 t135
+AND t170 t122 t154
+AND t171 t153 t146
+AND t172 t144 t155
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 18
+XOR t173 t169 t154
+XOR t174 t158 t171
+XOR t175 t159 t166
+XOR t176 t162 t167
+XOR t177 t165 t166
+XOR t178 t156 t171
+XOR t179 t166 t172
+%%%%%%%%%%%% AND level 3 (subset 5 of 5)
+AND t180 t122 t164
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 19
+XOR t181 t150 t173
+XOR W1 t150 t175
+XOR t182 t162 t174
+XOR t183 t160 t174
+XOR t184 t169 t177
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 20
+XOR t185 t120 t181
+XOR t186 t170 t183
+XOR W0 t176 t184
+XOR t187 t156 t182
+XOR t188 t139 W1
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 21
+XOR t189 t69 t185
+XOR t190 t168 t186
+XOR W5 t161 t186
+XOR W7 t182 t188
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 22
+XOR t191 t163 t189
+XOR W2 t189 t190
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 23
+XOR t192 t180 t191
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 24
+XOR t193 t165 t192
+XOR W4 t178 t192
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 25
+XOR W3 t187 t193
+XOR W6 t179 t193
+end SLP
+end circuit

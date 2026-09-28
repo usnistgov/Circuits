@@ -9,7 +9,7 @@
 ## Scope: AES-192 Cipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-cipher-a5568-ad60-g32224-gd466-xx26656-3840 128 1792   % AES-192 Cipher flat circuit over AND, XOR, XNOR gates
+  % aes192-cipher-a5568-ad60-g32224-gd466-xx26656-3840 128 1792   % AES-192 Cipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-cipher-a5568-ad60-g32224-gd466-xx26656-3840

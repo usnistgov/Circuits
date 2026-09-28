@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-sbox-a36-ad4-g138-gd14-xx102-22 8 8   % AES Sbox Forward, compatible with NIST-FIPS 197
+  % aes-sbox-a36-ad4-g138-gd14-xx102-22 8 8   % AES Sbox Forward, compatible with NIST-FIPS 197
 
 ## Circuit
 begin circuit aes-sbox-a36-ad4-g138-gd14-xx102-22

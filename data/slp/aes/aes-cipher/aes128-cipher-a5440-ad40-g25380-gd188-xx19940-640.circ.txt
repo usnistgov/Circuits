@@ -9,7 +9,7 @@
 ## Scope: AES-128 Cipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes128-cipher-a5440-ad40-g25380-gd188-xx19940-640 128 1536   % AES-128 Cipher flat circuit over AND, XOR, XNOR gates
+  % aes128-cipher-a5440-ad40-g25380-gd188-xx19940-640 128 1536   % AES-128 Cipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes128-cipher-a5440-ad40-g25380-gd188-xx19940-640

@@ -9,7 +9,7 @@
 ## Scope: AES-256 InvCipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes256-invcipher-a8064-ad56-g42440-gd276-xx34376-5376 128 2048   % AES-256 InvCipher flat circuit over AND, XOR, XNOR gates
+  % aes256-invcipher-a8064-ad56-g42440-gd276-xx34376-5376 128 2048   % AES-256 InvCipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes256-invcipher-a8064-ad56-g42440-gd276-xx34376-5376

@@ -9,7 +9,7 @@
 ## Scope: AES-256 Cipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes256-cipher-a10528-ad42-g57364-gd264-xx46836-896 128 2048   % AES-256 Cipher flat circuit over AND, XOR, XNOR gates
+  % aes256-cipher-a10528-ad42-g57364-gd264-xx46836-896 128 2048   % AES-256 Cipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes256-cipher-a10528-ad42-g57364-gd264-xx46836-896

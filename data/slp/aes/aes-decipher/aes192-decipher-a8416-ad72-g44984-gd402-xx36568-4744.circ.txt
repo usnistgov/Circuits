@@ -9,7 +9,7 @@
 ## Scope: AES-192 Decipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-decipher-a8416-ad72-g44984-gd402-xx36568-4744 128 320   % AES-192 Decipher flat circuit over AND, XOR, XNOR gates
+  % aes192-decipher-a8416-ad72-g44984-gd402-xx36568-4744 128 320   % AES-192 Decipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-decipher-a8416-ad72-g44984-gd402-xx36568-4744

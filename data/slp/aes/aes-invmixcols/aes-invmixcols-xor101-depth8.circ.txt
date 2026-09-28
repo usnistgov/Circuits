@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-invmixcols-xor101-depth8 32 32
+  % aes-invmixcols-xor101-depth8 32 32
 
 ## Circuit
 begin circuit aes-invmixcols-xor101-depth8

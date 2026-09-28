@@ -9,7 +9,7 @@
 ## Scope: AES-256 Decipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes256-decipher-a8004-ad135-g49220-gd1062-xx41216-7543 128 384   % AES-256 Decipher flat circuit over AND, XOR, XNOR gates
+  % aes256-decipher-a8004-ad135-g49220-gd1062-xx41216-7543 128 384   % AES-256 Decipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes256-decipher-a8004-ad135-g49220-gd1062-xx41216-7543

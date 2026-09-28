@@ -9,7 +9,7 @@
 ## Scope: AES-128 KeyExpansion
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes128-keyexp-a1280-ad50-g5680-gd270-xx4400-136 1280 128   % AES-128 KeyExpansion flat circuit over AND, XOR, XNOR gates
+  % aes128-keyexp-a1280-ad50-g5680-gd270-xx4400-136 1280 128   % AES-128 KeyExpansion flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes128-keyexp-a1280-ad50-g5680-gd270-xx4400-136

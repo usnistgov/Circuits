@@ -1,0 +1,150 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-09-25T11:21:55Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invmixcols-xor114-depth6 32 32
+
+## Circuit
+begin circuit aes-invmixcols-xor114-depth6
+
+  % Description: AES Inverse MixColumns, compatible with NIST-FIPS 197
+  % Interface: x_(8b+r) and y_(8b+r) are bit r (LSB=0) of byte b, b=0:3
+  % Byte matrix: [0e 0b 0d 09; 09 0e 0b 0d; 0d 09 0e 0b; 0b 0d 09 0e]
+  % Tally of variables (146): 32 inputs; 32 outputs; 82 intermediates
+  % Tally of gates (114): 114 XOR
+  % Gate depth 6
+  % Gates per gate level: 22 18 16 17 19 22
+
+Inputs: x0:x31
+Outputs: y0:y31
+Internal: t1:t82
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XOR t1 x8 x24
+XOR t2 x6 x22
+XOR t3 x7 x15
+XOR t4 x13 x21
+XOR t5 x5 x29
+XOR t6 x0 x24
+XOR t7 x9 x17
+XOR t8 x14 x30
+XOR t9 x7 x31
+XOR t10 x23 x31
+XOR t11 x2 x18
+XOR t12 x10 x26
+XOR t13 x1 x17
+XOR t14 x11 x27
+XOR t15 x2 x10
+XOR t16 x4 x28
+XOR t17 x3 x19
+XOR t18 x12 x20
+XOR t19 x9 x25
+XOR t20 x4 x20
+XOR t21 x22 x30
+XOR t22 x12 x28
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XOR t23 x16 t1
+XOR t24 t2 t3
+XOR t25 t4 t5
+XOR t26 x25 t6
+XOR t27 t1 t7
+XOR t28 t8 t9
+XOR t29 t2 t10
+XOR t30 t11 t12
+XOR t31 x19 t13
+XOR t32 t14 t16
+XOR t33 t17 t18
+XOR t34 x27 t11
+XOR t35 x5 t20
+XOR t36 x21 t22
+XOR t37 x14 t5
+XOR t38 t14 t17
+XOR t39 t2 t8
+XOR t40 t13 t19
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XOR t41 t24 t25
+XOR t42 t28 t29
+XOR t43 t13 t27
+XOR t44 t24 t28
+XOR t45 x0 t23
+XOR t46 t25 t29
+XOR t47 t30 t32
+XOR t48 t30 t33
+XOR t49 x4 t31
+XOR t50 t19 t34
+XOR t51 t35 t36
+XOR t52 t22 t37
+XOR t53 t29 t38
+XOR t54 t25 t28
+XOR t55 x10 t30
+XOR t56 t12 t40
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XOR y0 t23 t41
+XOR t57 t26 t41
+XOR t58 t27 t42
+XOR t59 x2 t43
+XOR t60 t44 t45
+XOR t61 t31 t46
+XOR t62 t15 t45
+XOR t63 t42 t47
+XOR t64 t41 t48
+XOR t65 t49 t50
+XOR t66 t21 t51
+XOR t67 t52 t53
+XOR t68 x23 t41
+XOR t69 x8 t46
+XOR t70 t50 t54
+XOR t71 t24 t53
+XOR t72 t45 t54
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XOR y1 t57 t58
+XOR t73 t59 t60
+XOR t74 t61 t62
+XOR y28 t64 t65
+XOR t75 t28 t64
+XOR t76 t41 t67
+XOR y31 t66 t68
+XOR y8 t60 t69
+XOR t77 t43 t60
+XOR y10 t55 t58
+XOR t78 t62 t70
+XOR t79 t22 t71
+XOR t80 x29 t63
+XOR y16 t6 t69
+XOR t81 t30 t71
+XOR t82 t49 t70
+XOR y30 t3 t67
+XOR y24 x24 t72
+XOR y25 t40 t57
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XOR y2 t30 t73
+XOR y3 t14 t74
+XOR y4 t63 y28
+XOR y5 t35 t75
+XOR y6 t66 t76
+XOR y7 t54 y31
+XOR y9 y1 t77
+XOR y11 t17 t78
+XOR y12 y28 t79
+XOR y13 t51 t80
+XOR y14 t39 t76
+XOR y15 t44 y31
+XOR y17 t57 t77
+XOR y18 t56 t73
+XOR y19 t74 t81
+XOR y20 t22 t82
+XOR y21 t36 t75
+XOR y22 t66 y30
+XOR y23 t46 y31
+XOR y26 t56 y10
+XOR y27 t78 t81
+XOR y29 t25 t80
+end SLP
+end circuit

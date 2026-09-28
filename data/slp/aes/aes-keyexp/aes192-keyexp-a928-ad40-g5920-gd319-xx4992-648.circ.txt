@@ -9,7 +9,7 @@
 ## Scope: AES-192 KeyExpansion
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes192-keyexp-a928-ad40-g5920-gd319-xx4992-648 1472 192   % AES-192 KeyExpansion flat circuit over AND, XOR, XNOR gates
+  % aes192-keyexp-a928-ad40-g5920-gd319-xx4992-648 1472 192   % AES-192 KeyExpansion flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes192-keyexp-a928-ad40-g5920-gd319-xx4992-648

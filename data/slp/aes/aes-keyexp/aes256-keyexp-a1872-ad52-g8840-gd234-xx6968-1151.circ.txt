@@ -9,7 +9,7 @@
 ## Scope: AES-256 KeyExpansion
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes256-keyexp-a1872-ad52-g8840-gd234-xx6968-1151 1664 256   % AES-256 KeyExpansion flat circuit over AND, XOR, XNOR gates
+  % aes256-keyexp-a1872-ad52-g8840-gd234-xx6968-1151 1664 256   % AES-256 KeyExpansion flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes256-keyexp-a1872-ad52-g8840-gd234-xx6968-1151

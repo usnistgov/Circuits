@@ -9,7 +9,7 @@
 ## Scope: AES-128 InvCipher
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes128-invcipher-a4640-ad50-g28712-gd403-xx24072-4640 128 1536   % AES-128 InvCipher flat circuit over AND, XOR, XNOR gates
+  % aes128-invcipher-a4640-ad50-g28712-gd403-xx24072-4640 128 1536   % AES-128 InvCipher flat circuit over AND, XOR, XNOR gates
 
 ## Circuit
 begin circuit aes128-invcipher-a4640-ad50-g28712-gd403-xx24072-4640

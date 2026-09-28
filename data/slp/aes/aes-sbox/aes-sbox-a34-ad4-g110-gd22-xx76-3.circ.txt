@@ -7,7 +7,7 @@
   % Repository: https://github.com/usnistgov/Circuits/
 
 ## Index of circuits (circuitName numOutputs numInputs)
-aes-sbox-a34-ad4-g110-gd22-xx76-3 8 8
+  % aes-sbox-a34-ad4-g110-gd22-xx76-3 8 8
 
 ## Circuit
 begin circuit aes-sbox-a34-ad4-g110-gd22-xx76-3
