@@ -106,23 +106,30 @@ The following historical table was retrieved/adapted from an old version of the 
 
 </details>
 <details open>
-<summary><h3>AES MixColumns and InvMixColumns</h3></summary>
+<summary><h3>AES MixColumns</h3></summary>
 
-Example circuits for AES MixColumns (32-bit to 32-bit linear functions), for both Forward and Inverse directions.
+Example circuits for AES MixColumns (32-bit to 32-bit linear function).
 
-Note: For each direction, bold, underlined values indicate the lowest depth and lowest #XOR within the displayed selection.
+| File | Depth | #XOR |
+|---|---:|---:|
+| [circ](./aes-mixcols/aes-mixcols-xor97-depth3.circ.txt) | <ins><strong>3</strong></ins> | 97 |
+| [circ](./aes-mixcols/aes-mixcols-xor90-depth4.circ.txt) | 4 | 90 |
+| [circ](./aes-mixcols/aes-mixcols-xor88-depth5.circ.txt) | 5 | <ins><strong>88</strong></ins> |
 
-| File | Direction | Depth | #XOR<br>(X) |
-|---|---|---:|---:|
-| [circ](./aes-mixcols/aes-mixcols-xor97-depth3.circ.txt) | Forward | <ins><strong>3</strong></ins> | 97 |
-| [circ](./aes-mixcols/aes-mixcols-xor90-depth4.circ.txt) | Forward | 4 | 90 |
-| [circ](./aes-mixcols/aes-mixcols-xor88-depth5.circ.txt) | Forward | 5 | <ins><strong>88</strong></ins> |
-| [circ](./aes-invmixcols/aes-invmixcols-xor127-depth5.circ.txt) | Inverse | <ins><strong>5</strong></ins> | 127 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor114-depth6.circ.txt) | Inverse | 6 | 114 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor110-depth7.circ.txt) | Inverse | 7 | 110 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor101-depth8.circ.txt) | Inverse | 8 | 101 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor99-depth9.circ.txt) | Inverse | 9 | 99 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor97-depth10.circ.txt) | Inverse | 10 | <ins><strong>97</strong></ins> |
+</details>
+<details open>
+<summary><h3>AES InvMixColumns</h3></summary>
+
+Example circuits for AES Inverse MixColumns (32-bit to 32-bit linear function).
+
+| File | Depth | #XOR |
+|---|---:|---:|
+| [circ](./aes-invmixcols/aes-invmixcols-xor127-depth5.circ.txt) | <ins><strong>5</strong></ins> | 127 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor114-depth6.circ.txt) | 6 | 114 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor110-depth7.circ.txt) | 7 | 110 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor101-depth8.circ.txt) | 8 | 101 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor99-depth9.circ.txt) | 9 | 99 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor97-depth10.circ.txt) | 10 | <ins><strong>97</strong></ins> |
 
 
 </details>
@@ -147,23 +154,23 @@ A circuit is "folded" when some components are not "flattened" to a sequence of 
 
 `VXOR` and `VXNOR` are succinct notation for parallel execution of `XOR` and `XNOR` gates, respectively.
 
-| Operation | File | Key<br>size | #sbox | #inv<br>sbox | #mixcols | #inv<br>mixcols | #VXOR | #VXNOR<br>(XNORs) | #XOR | #XNOR |
-|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| KeyExpansion | [aes128-keyexp](./aes-fold1/aes128-keyexp-fold1.circ.txt) | 128 | 40 | — | — | — | 40 | 2 (8) | 1264 | 8 |
-| KeyExpansion | [aes192-keyexp](./aes-fold1/aes192-keyexp-fold1.circ.txt) | 192 | 32 | — | — | — | 46 | — | 1464 | 8 |
-| KeyExpansion | [aes256-keyexp](./aes-fold1/aes256-keyexp-fold1.circ.txt) | 256 | 52 | — | — | — | 52 | — | 1657 | 7 |
-| Cipher | [aes128-cipher](./aes-fold1/aes128-cipher-fold1.circ.txt) | 128 | 160 | — | 36 | — | 11 | — | 1408 | — |
-| Cipher | [aes192-cipher](./aes-fold1/aes192-cipher-fold1.circ.txt) | 192 | 192 | — | 44 | — | 14 | — | 1664 | — |
-| Cipher | [aes256-cipher](./aes-fold1/aes256-cipher-fold1.circ.txt) | 256 | 224 | — | 52 | — | 15 | — | 1920 | — |
-| Encipher | [aes128-encipher](./aes-fold1/aes128-encipher-fold1.circ.txt) | 128 | 200 | — | 36 | — | 51 | 2 (8) | 2672 | 8 |
-| Encipher | [aes192-encipher](./aes-fold1/aes192-encipher-fold1.circ.txt) | 192 | 224 | — | 44 | — | 60 | — | 3128 | 8 |
-| Encipher | [aes256-encipher](./aes-fold1/aes256-encipher-fold1.circ.txt) | 256 | 276 | — | 52 | — | 67 | — | 3577 | 7 |
-| InvCipher | [aes128-invcipher](./aes-fold1/aes128-invcipher-fold1.circ.txt) | 128 | — | 160 | — | 36 | 11 | — | 1408 | — |
-| InvCipher | [aes192-invcipher](./aes-fold1/aes192-invcipher-fold1.circ.txt) | 192 | — | 192 | — | 44 | 14 | — | 1664 | — |
-| InvCipher | [aes256-invcipher](./aes-fold1/aes256-invcipher-fold1.circ.txt) | 256 | — | 224 | — | 52 | 15 | — | 1920 | — |
-| Decipher | [aes128-decipher](./aes-fold1/aes128-decipher-fold1.circ.txt) | 128 | 40 | 160 | — | 36 | 51 | 2 (8) | 2672 | 8 |
-| Decipher | [aes192-decipher](./aes-fold1/aes192-decipher-fold1.circ.txt) | 192 | 32 | 192 | — | 44 | 60 | — | 3128 | 8 |
-| Decipher | [aes256-decipher](./aes-fold1/aes256-decipher-fold1.circ.txt) | 256 | 52 | 224 | — | 52 | 67 | — | 3577 | 7 |
+| Operation | File | Key<br>size | #sbox | #inv<br>sbox | #mixcols | #inv<br>mixcols | #VXOR<br>(#XOR) | #VXNOR<br>(#XNOR) | #XNOR |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| KeyExpansion | [aes128-keyexp](./aes-fold1/aes128-keyexp-fold1.circ.txt) | 128 | 40 | — | — | — | 40 (1264) | 2 (8) | 8 |
+| KeyExpansion | [aes192-keyexp](./aes-fold1/aes192-keyexp-fold1.circ.txt) | 192 | 32 | — | — | — | 46 (1464) | — | 8 |
+| KeyExpansion | [aes256-keyexp](./aes-fold1/aes256-keyexp-fold1.circ.txt) | 256 | 52 | — | — | — | 52 (1657) | — | 7 |
+| Cipher | [aes128-cipher](./aes-fold1/aes128-cipher-fold1.circ.txt) | 128 | 160 | — | 36 | — | 11 (1408) | — | — |
+| Cipher | [aes192-cipher](./aes-fold1/aes192-cipher-fold1.circ.txt) | 192 | 192 | — | 44 | — | 14 (1664) | — | — |
+| Cipher | [aes256-cipher](./aes-fold1/aes256-cipher-fold1.circ.txt) | 256 | 224 | — | 52 | — | 15 (1920) | — | — |
+| Encipher | [aes128-encipher](./aes-fold1/aes128-encipher-fold1.circ.txt) | 128 | 200 | — | 36 | — | 51 (2672) | 2 (8) | 8 |
+| Encipher | [aes192-encipher](./aes-fold1/aes192-encipher-fold1.circ.txt) | 192 | 224 | — | 44 | — | 60 (3128) | — | 8 |
+| Encipher | [aes256-encipher](./aes-fold1/aes256-encipher-fold1.circ.txt) | 256 | 276 | — | 52 | — | 67 (3577) | — | 7 |
+| InvCipher | [aes128-invcipher](./aes-fold1/aes128-invcipher-fold1.circ.txt) | 128 | — | 160 | — | 36 | 11 (1408) | — | — |
+| InvCipher | [aes192-invcipher](./aes-fold1/aes192-invcipher-fold1.circ.txt) | 192 | — | 192 | — | 44 | 14 (1664) | — | — |
+| InvCipher | [aes256-invcipher](./aes-fold1/aes256-invcipher-fold1.circ.txt) | 256 | — | 224 | — | 52 | 15 (1920) | — | — |
+| Decipher | [aes128-decipher](./aes-fold1/aes128-decipher-fold1.circ.txt) | 128 | 40 | 160 | — | 36 | 51 (2672) | 2 (8) | 8 |
+| Decipher | [aes192-decipher](./aes-fold1/aes192-decipher-fold1.circ.txt) | 192 | 32 | 192 | — | 44 | 60 (3128) | — | 8 |
+| Decipher | [aes256-decipher](./aes-fold1/aes256-decipher-fold1.circ.txt) | 256 | 52 | 224 | — | 52 | 67 (3577) | — | 7 |
 
 
 </details>

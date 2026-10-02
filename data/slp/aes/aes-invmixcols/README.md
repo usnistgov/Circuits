@@ -2,7 +2,7 @@
 
 Circuits that implement the AES InvMixColumns() linear transformation.
 
-| File | Gate<br>depth | #XOR<br>X |
+| File | Depth | #XOR |
 |---|---:|---:|
 | [circ](aes-invmixcols-xor127-depth5.circ.txt) | <ins><strong>5</strong></ins> | 127 |
 | [circ](aes-invmixcols-xor114-depth6.circ.txt) | 6 | 114 |

@@ -2,7 +2,7 @@
 
 Circuits that implement the AES MixColumns() linear transformation.
 
-| File | Gate<br>depth | #XOR<br>X |
+| File | Depth | #XOR |
 |---|---:|---:|
 | [circ](aes-mixcols-xor97-depth3.circ.txt) | <ins><strong>3</strong></ins> | 97 |
 | [circ](aes-mixcols-xor90-depth4.circ.txt) | 4 | 90 |
