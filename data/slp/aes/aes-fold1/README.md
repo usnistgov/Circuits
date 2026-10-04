@@ -14,7 +14,7 @@ The circuit basenames relate to [FIPS 197-upd1](https://csrc.nist.gov/pubs/fips/
 
 ## Folded AES Circuits
 
-| Circuit | FIPS 197<br>operation | Key<br>size | aes-<br>sbox | aes-<br>invsbox | aes-<br>mixcols | aes-inv<br>mixcols | VXOR<br>(XORs) | VXNOR<br>(XNORs) | XNOR |
+| Circuit | FIPS 197<br>operation | Key<br>size | aes-<br>sbox | aes-<br>invsbox | aes-<br>mixcols | aes-inv<br>mixcols | #VXOR<br>(#XOR) | #VXNOR<br>(#XNOR) | XNOR |
 |---|---|---:|---:|---:|---:|---:|---:|---:|---:|
 | [aes128-keyexp](aes128-keyexp-fold1.circ.txt) | KeyExpansion() | 128 | 40 | — | — | — | 40 (1264) | 2 (8) | 8 |
 | [aes192-keyexp](aes192-keyexp-fold1.circ.txt) | KeyExpansion() | 192 | 32 | — | — | — | 46 (1464) | — | 8 |

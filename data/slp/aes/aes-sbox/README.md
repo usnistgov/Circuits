@@ -28,8 +28,9 @@ Note: The A28 sbox circuits listed in the table above are either (AD4/\{G154/GD1
 | [circ](aes-sbox-a35-ad3-g157-gd15-xx122-31.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 157 | 15 | 122 | 91 | 31 |
 | [circ](aes-sbox-a35-ad3-g183-gd13-xx148-29.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 183 | 13 | 148 | 119 | 29 |
 | [circ](aes-sbox-a36-ad4-g138-gd14-xx102-22.circ.txt) | 36 | 4 | <ins><strong>138</strong></ins> | 14 | 102 | 80 | 22 |
-| [circ](aes-sbox-a39-ad4-g148-gd13-xx109-24.circ.txt) | 39 | 4 | 148 | 13 | 109 | 85 | 24 |
+| [circ](aes-sbox-a38-ad4-g148-gd13-xx110-24.circ.txt) | 38 | 4 | 148 | 13 | 110 | 86 | 24 |
 | [circ](aes-sbox-a45-ad4-g151-gd12-xx106-26.circ.txt) | 45 | 4 | 151 | 12 | 106 | 80 | 26 |
-| [circ](aes-sbox-a53-ad4-g157-gd11-xx104-31.circ.txt) | 53 | 4 | 157 | <ins><strong>11</strong></ins> | 104 | 73 | 31 |
+| [circ](aes-sbox-a49-ad4-g164-gd11-xx115-32.circ.txt) | 49 | 4 | 164 | <ins><strong>11</strong></ins> | 115 | 83 | 32 |
+| [circ](aes-sbox-a51-ad4-g157-gd11-xx106-28.circ.txt) | 51 | 4 | 157 | <ins><strong>11</strong></ins> | 106 | 78 | 28 |
 
 Note: The A35/AD3 sbox circuits listed in the table above are either (G157/GD15, G183/GD13) contributions communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear optimization.
