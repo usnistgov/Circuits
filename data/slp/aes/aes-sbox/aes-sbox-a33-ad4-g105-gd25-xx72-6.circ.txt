@@ -1,0 +1,170 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-10-27T02:45:00Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-sbox-a33-ad4-g105-gd25-xx72-6 8 8
+
+## Circuit
+begin circuit aes-sbox-a33-ad4-g105-gd25-xx72-6
+
+  % Description: AES Sbox, compatible with NIST-FIPS 197
+  % Circuit-name syntax: <basename>-aA-adAD-gG-gdGD-xxX-Y
+  % A = #AND; AD = AND-depth; G = #Gates; GD = Gate-depth; X = #XOR + #XNOR; Y = #XNOR
+  % Tally of variables (113): 8 inputs; 8 outputs; 97 intermediates
+  % Tally of gates (105): 33 AND; 66 XOR; 6 XNOR
+  % Gate depth 25; AND depth 4
+  % Gates per gate level: 5 2 3 4 7 7 6 5 3 4 3 4 4 12 10 7 6 2 2 1 2 2 1 2 1
+  % AND gates per AND level: 9 2 4 18
+
+Inputs: x0:x7
+Outputs: y0:y7
+Internal: a1:a33 t1:t64
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XOR t1 x1 x2
+XOR t2 x2 x3
+XOR t3 x1 x4
+XOR t4 x0 x5
+XOR t5 x3 x5
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XOR t6 t2 t4
+XOR t7 x5 t3
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XOR t8 x6 t7
+XOR t9 x7 t6
+%%%%%%%%%%%% AND level 1 (subset 1 of 4)
+AND a1 x7 t7
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XOR t10 t3 t9
+XOR t11 t1 t9
+XOR t12 t8 t5
+XOR t13 a1 t4
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XOR t14 t2 t10
+XOR t15 t8 t11
+XOR t16 x0 t12
+XOR t17 t2 t12
+%%%%%%%%%%%% AND level 1 (subset 2 of 4)
+AND a2 t8 t10
+AND a3 t2 t11
+AND a4 t1 t12
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XOR t18 x7 t15
+XOR t19 t10 t16
+XOR t20 t13 t15
+XOR t21 a3 t5
+%%%%%%%%%%%% AND level 1 (subset 3 of 4)
+AND a5 t14 t15
+AND a6 x2 t16
+AND a7 t17 t9
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 7
+XOR t22 t13 a5
+XOR t23 a6 x4
+XOR t24 t21 a4
+XOR t25 a4 a7
+%%%%%%%%%%%% AND level 1 (subset 4 of 4)
+AND a8 x0 t18
+AND a9 t6 t19
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 8
+XOR t26 t20 a8
+XOR t27 a2 t23
+XOR t28 a9 t7
+XOR t29 t22 t23
+XOR t30 t22 t25
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 9
+XOR t31 t26 t27
+XOR t32 t26 t24
+XOR t33 t29 t28
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 10
+XOR t34 t31 t33
+XOR t35 t32 t30
+%%%%%%%%%%%% AND level 2
+AND a10 t31 t32
+AND a11 t33 t30
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 11
+XOR t36 a10 t33
+XOR t37 a10 t30
+XNOR t38 a10 a11
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 12
+%%%%%%%%%%%% AND level 3
+AND a12 t35 t36
+AND a13 t34 t37
+AND a14 t35 t38
+AND a15 t34 t38
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 13
+XOR t39 a12 t30
+XOR t40 a13 t33
+XOR t41 a14 t37
+XOR t42 a15 t36
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 14
+XOR t43 t39 t40
+XOR t44 t41 t42
+XOR t45 t41 t39
+XOR t46 t42 t40
+%%%%%%%%%%%% AND level 4 (subset 1 of 3)
+AND a16 t39 t8
+AND a17 t39 t10
+AND a18 t40 t2
+AND a19 t40 t11
+AND a20 t41 t6
+AND a21 t41 t19
+AND a22 t42 t17
+AND a23 t42 t9
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 15
+XOR t47 t44 t43
+XOR t48 a17 a18
+%%%%%%%%%%%% AND level 4 (subset 2 of 3)
+AND a24 t43 t14
+AND a25 t43 t15
+AND a26 t44 t7
+AND a27 t44 x7
+AND a28 t45 x2
+AND a29 t45 t16
+AND a30 t46 t1
+AND a31 t46 t12
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 16
+XOR t49 a25 a23
+XOR t50 a22 t48
+XOR t51 a25 a20
+XOR t52 a31 t48
+XOR t53 a27 a29
+%%%%%%%%%%%% AND level 4 (subset 3 of 3)
+AND a32 t47 x0
+AND a33 t47 t18
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 17
+XNOR y6 a29 t52
+XOR t54 a30 t49
+XOR t55 a19 t49
+XOR t56 a17 a32
+XOR t57 a28 t51
+XOR t58 a16 t51
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 18
+XOR t59 t52 t54
+XOR t60 t53 t57
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 19
+XNOR y7 t53 t59
+XOR t61 a26 t59
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 20
+XNOR t62 y7 t50
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 21
+XNOR y2 a21 t62
+XOR t63 a24 t62
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 22
+XOR y3 t56 t63
+XOR y5 t61 t63
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 23
+XOR t64 y3 t58
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 24
+XOR y0 t55 t64
+XOR y4 a33 t64
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 25
+XNOR y1 y0 t60
+end SLP
+end circuit

@@ -12,8 +12,9 @@ XX denotes the sum of the numbers of XOR and XNOR gates.
 | [circ](aes-invsbox-a28-ad4-g174-gd15-xx146-33.circ.txt) | <ins><strong>28</strong></ins> | <ins><strong>4</strong></ins> | 174 | 15 | 146 | 113 | 33 |
 | [circ](aes-invsbox-a28-ad5-g126-gd27-xx98-26.circ.txt) | <ins><strong>28</strong></ins> | 5 | 126 | 27 | 98 | 72 | 26 |
 | [circ](aes-invsbox-a28-ad5-g152-gd15-xx124-18.circ.txt) | <ins><strong>28</strong></ins> | 5 | 152 | 15 | 124 | 106 | 18 |
-| [circ](aes-invsbox-a32-ad5-g112-gd26-xx80-9.circ.txt) | 32 | 5 | <ins><strong>112</strong></ins> | 26 | 80 | 71 | 9 |
-| [circ](aes-invsbox-a34-ad4-g114-gd26-xx80-11.circ.txt) | 34 | <ins><strong>4</strong></ins> | 114 | 26 | 80 | 69 | 11 |
+| [circ](aes-invsbox-a32-ad5-g106-gd25-xx74-9.circ.txt) | 32 | 5 | <ins><strong>106</strong></ins> | 25 | 74 | 65 | 9 |
+| [circ](aes-invsbox-a33-ad4-g109-gd23-xx76-11.circ.txt) | 33 | <ins><strong>4</strong></ins> | 109 | 23 | 76 | 65 | 11 |
+| [circ](aes-invsbox-a33-ad4-g114-gd18-xx81-11.circ.txt) | 33 | <ins><strong>4</strong></ins> | 114 | 18 | 81 | 70 | 11 |
 | [circ](aes-invsbox-a34-ad4-g134-gd15-xx100-18.circ.txt) | 34 | <ins><strong>4</strong></ins> | 134 | 15 | 100 | 82 | 18 |
 | [circ](aes-invsbox-a34-ad4-g194-gd14-xx160-20.circ.txt) | 34 | <ins><strong>4</strong></ins> | 194 | <ins><strong>14</strong></ins> | 160 | 140 | 20 |
 

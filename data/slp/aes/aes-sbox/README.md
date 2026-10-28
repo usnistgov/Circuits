@@ -13,8 +13,11 @@ XX denotes the sum of the numbers of XOR and XNOR gates.
 | [circ](aes-sbox-a28-ad4-g177-gd14-xx149-24.circ.txt) | <ins><strong>28</strong></ins> | <ins><strong>4</strong></ins> | 177 | <ins><strong>14</strong></ins> | 149 | 125 | 24 |
 | [circ](aes-sbox-a28-ad5-g124-gd27-xx96-26.circ.txt) | <ins><strong>28</strong></ins> | 5 | 124 | 27 | 96 | 70 | 26 |
 | [circ](aes-sbox-a28-ad5-g150-gd15-xx122-23.circ.txt) | <ins><strong>28</strong></ins> | 5 | 150 | 15 | 122 | 99 | 23 |
-| [circ](aes-sbox-a32-ad5-g110-gd22-xx78-3.circ.txt) | 32 | 5 | <ins><strong>110</strong></ins> | 22 | 78 | 75 | 3 |
-| [circ](aes-sbox-a33-ad4-g110-gd20-xx77-4.circ.txt) | 33 | <ins><strong>4</strong></ins> | <ins><strong>110</strong></ins> | 20 | 77 | 73 | 4 |
+| [circ](aes-sbox-a32-ad5-g104-gd30-xx72-5.circ.txt) | 32 | 5 | <ins><strong>104</strong></ins> | 30 | 72 | 67 | 5 |
+| [circ](aes-sbox-a32-ad5-g105-gd26-xx73-5.circ.txt) | 32 | 5 | 105 | 26 | 73 | 68 | 5 |
+| [circ](aes-sbox-a32-ad5-g109-gd20-xx77-4.circ.txt) | 32 | 5 | 109 | 20 | 77 | 73 | 4 |
+| [circ](aes-sbox-a33-ad4-g105-gd25-xx72-6.circ.txt) | 33 | <ins><strong>4</strong></ins> | 105 | 25 | 72 | 66 | 6 |
+| [circ](aes-sbox-a33-ad4-g108-gd20-xx75-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 70 | 5 |
 | [circ](aes-sbox-a34-ad4-g124-gd15-xx90-4.circ.txt) | 34 | <ins><strong>4</strong></ins> | 124 | 15 | 90 | 86 | 4 |
 
 Note: The A28 sbox circuits listed in the table above are either (AD4/\{G154/GD15, G177/GD14\}, AD5\{G124/GD27,G150/GD15\}) contributions communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear optimization.
