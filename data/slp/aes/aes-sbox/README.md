@@ -1,27 +1,36 @@
 # AES S-box based on {AND,XOR,XNOR}
 
-The tables include selected circuits from two disjoint spaces: #AND ≤ 34 and #AND > 34.
+The tables include selected circuits from three disjoint spaces: #AND = 28, 32 ≤ #AND ≤ 34, and #AND > 34.
 
 XX denotes the sum of the numbers of XOR and XNOR gates.
 
-## S-box with #AND ≤ 34
+## S-box with #AND = 28
 
 | File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XX | #XOR | #XNOR |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](aes-sbox-a28-ad4-g131-gd32-xx103-47.circ.txt) | <ins><strong>28</strong></ins> | <ins><strong>4</strong></ins> | 131 | 32 | 103 | 56 | 47 |
-| [circ](aes-sbox-a28-ad4-g154-gd15-xx126-28.circ.txt) | <ins><strong>28</strong></ins> | <ins><strong>4</strong></ins> | 154 | 15 | 126 | 98 | 28 |
-| [circ](aes-sbox-a28-ad4-g177-gd14-xx149-24.circ.txt) | <ins><strong>28</strong></ins> | <ins><strong>4</strong></ins> | 177 | <ins><strong>14</strong></ins> | 149 | 125 | 24 |
-| [circ](aes-sbox-a28-ad5-g124-gd27-xx96-26.circ.txt) | <ins><strong>28</strong></ins> | 5 | 124 | 27 | 96 | 70 | 26 |
-| [circ](aes-sbox-a28-ad5-g150-gd15-xx122-23.circ.txt) | <ins><strong>28</strong></ins> | 5 | 150 | 15 | 122 | 99 | 23 |
-| [circ](aes-sbox-a32-ad5-g104-gd30-xx72-5.circ.txt) | 32 | 5 | <ins><strong>104</strong></ins> | 30 | 72 | 67 | 5 |
-| [circ](aes-sbox-a32-ad5-g105-gd26-xx73-5.circ.txt) | 32 | 5 | 105 | 26 | 73 | 68 | 5 |
-| [circ](aes-sbox-a32-ad5-g109-gd20-xx77-4.circ.txt) | 32 | 5 | 109 | 20 | 77 | 73 | 4 |
-| [circ](aes-sbox-a33-ad4-g105-gd25-xx72-6.circ.txt) | 33 | <ins><strong>4</strong></ins> | 105 | 25 | 72 | 66 | 6 |
-| [circ](aes-sbox-a33-ad4-g108-gd20-xx75-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 70 | 5 |
-| [circ](aes-sbox-a34-ad4-g124-gd15-xx90-4.circ.txt) | 34 | <ins><strong>4</strong></ins> | 124 | 15 | 90 | 86 | 4 |
+| [circ](aes-sbox-a28-ad4-g131-gd32-xx103-47.circ.txt) | 28 | <ins><strong>4</strong></ins> | 131 | 32 | 103 | 56 | 47 |
+| [circ](aes-sbox-a28-ad4-g141-gd16-xx113-27.circ.txt) | 28 | <ins><strong>4</strong></ins> | 141 | 16 | 113 | 86 | 27 |
+| [circ](aes-sbox-a28-ad4-g154-gd15-xx126-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 154 | 15 | 126 | 98 | 28 |
+| [circ](aes-sbox-a28-ad4-g177-gd14-xx149-24.circ.txt) | 28 | <ins><strong>4</strong></ins> | 177 | <ins><strong>14</strong></ins> | 149 | 125 | 24 |
+| [circ](aes-sbox-a28-ad5-g124-gd27-xx96-26.circ.txt) | 28 | 5 | <ins><strong>124</strong></ins> | 27 | 96 | 70 | 26 |
+| [circ](aes-sbox-a28-ad5-g128-gd20-xx100-27.circ.txt) | 28 | 5 | 128 | 20 | 100 | 73 | 27 |
+| [circ](aes-sbox-a28-ad5-g150-gd15-xx122-23.circ.txt) | 28 | 5 | 150 | 15 | 122 | 99 | 23 |
 
 Note: The A28 sbox circuits listed in the table above are either (AD4/\{G154/GD15, G177/GD14\}, AD5\{G124/GD27,G150/GD15\}) contributions communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear optimization.
 
+
+## S-box with 32 ≤ #AND ≤ 34
+
+| File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XX | #XOR | #XNOR |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| [circ](aes-sbox-a32-ad5-g104-gd30-xx72-5.circ.txt) | <ins><strong>32</strong></ins> | 5 | 104 | 30 | 72 | 67 | 5 |
+| [circ](aes-sbox-a32-ad5-g105-gd26-xx73-5.circ.txt) | <ins><strong>32</strong></ins> | 5 | 105 | 26 | 73 | 68 | 5 |
+| [circ](aes-sbox-a32-ad5-g109-gd20-xx77-4.circ.txt) | <ins><strong>32</strong></ins> | 5 | 109 | 20 | 77 | 73 | 4 |
+| [circ](aes-sbox-a32-ad5-g131-gd15-xx99-17.circ.txt) | <ins><strong>32</strong></ins> | 5 | 131 | <ins><strong>15</strong></ins> | 99 | 82 | 17 |
+| [circ](aes-sbox-a32-ad7-g103-gd32-xx71-10.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>103</strong></ins> | 32 | 71 | 61 | 10 |
+| [circ](aes-sbox-a33-ad4-g105-gd25-xx72-6.circ.txt) | 33 | <ins><strong>4</strong></ins> | 105 | 25 | 72 | 66 | 6 |
+| [circ](aes-sbox-a33-ad4-g108-gd20-xx75-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 70 | 5 |
+| [circ](aes-sbox-a33-ad4-g116-gd15-xx83-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 116 | <ins><strong>15</strong></ins> | 83 | 76 | 7 |
 
 ## S-box with #AND > 34
 
