@@ -36,9 +36,10 @@ Example circuits for the AES S-box (8-bit to 8-bit function).
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-sbox/aes-sbox-a28-ad4-g131-gd32-xx103-47.circ.txt) | 28 | <ins><strong>4</strong></ins> | 131 | 32 | 103 | 56 | 47 |
+| [circ](./aes-sbox/aes-sbox-a28-ad4-g131-gd31-xx103-43.circ.txt) | 28 | <ins><strong>4</strong></ins> | 131 | 31 | 103 | 60 | 43 |
+| [circ](./aes-sbox/aes-sbox-a28-ad4-g134-gd20-xx106-41.circ.txt) | 28 | <ins><strong>4</strong></ins> | 134 | 20 | 106 | 65 | 41 |
 | [circ](./aes-sbox/aes-sbox-a28-ad4-g141-gd16-xx113-27.circ.txt) | 28 | <ins><strong>4</strong></ins> | 141 | 16 | 113 | 86 | 27 |
-| [circ](./aes-sbox/aes-sbox-a28-ad4-g154-gd15-xx126-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 154 | 15 | 126 | 98 | 28 |
+| [circ](./aes-sbox/aes-sbox-a28-ad4-g153-gd15-xx125-29.circ.txt) | 28 | <ins><strong>4</strong></ins> | 153 | 15 | 125 | 96 | 29 |
 | [circ](./aes-sbox/aes-sbox-a28-ad4-g177-gd14-xx149-24.circ.txt) | 28 | <ins><strong>4</strong></ins> | 177 | <ins><strong>14</strong></ins> | 149 | 125 | 24 |
 | [circ](./aes-sbox/aes-sbox-a28-ad5-g124-gd27-xx96-26.circ.txt) | 28 | 5 | <ins><strong>124</strong></ins> | 27 | 96 | 70 | 26 |
 | [circ](./aes-sbox/aes-sbox-a28-ad5-g128-gd20-xx100-27.circ.txt) | 28 | 5 | 128 | 20 | 100 | 73 | 27 |
@@ -50,10 +51,11 @@ Note: The A28 sbox circuits listed in the table above are either (AD4/\{G154/GD1
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
+| [circ](./aes-sbox/aes-sbox-a32-ad4-g137-gd18-xx105-7.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 137 | 18 | 105 | 98 | 7 |
 | [circ](./aes-sbox/aes-sbox-a32-ad5-g104-gd30-xx72-5.circ.txt) | <ins><strong>32</strong></ins> | 5 | 104 | 30 | 72 | 67 | 5 |
 | [circ](./aes-sbox/aes-sbox-a32-ad5-g105-gd26-xx73-5.circ.txt) | <ins><strong>32</strong></ins> | 5 | 105 | 26 | 73 | 68 | 5 |
 | [circ](./aes-sbox/aes-sbox-a32-ad5-g109-gd20-xx77-4.circ.txt) | <ins><strong>32</strong></ins> | 5 | 109 | 20 | 77 | 73 | 4 |
-| [circ](./aes-sbox/aes-sbox-a32-ad5-g131-gd15-xx99-17.circ.txt) | <ins><strong>32</strong></ins> | 5 | 131 | <ins><strong>15</strong></ins> | 99 | 82 | 17 |
+| [circ](./aes-sbox/aes-sbox-a32-ad5-g128-gd15-xx96-21.circ.txt) | <ins><strong>32</strong></ins> | 5 | 128 | <ins><strong>15</strong></ins> | 96 | 75 | 21 |
 | [circ](./aes-sbox/aes-sbox-a32-ad7-g103-gd32-xx71-10.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>103</strong></ins> | 32 | 71 | 61 | 10 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g105-gd25-xx72-6.circ.txt) | 33 | <ins><strong>4</strong></ins> | 105 | 25 | 72 | 66 | 6 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g108-gd20-xx75-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 70 | 5 |
@@ -84,9 +86,9 @@ Example circuits for the AES Inverse S-box (8-bit to 8-bit function).
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g141-gd31-xx113-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 141 | 31 | 113 | 85 | 28 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g149-gd19-xx121-26.circ.txt) | 28 | <ins><strong>4</strong></ins> | 149 | 19 | 121 | 95 | 26 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g171-gd15-xx143-32.circ.txt) | 28 | <ins><strong>4</strong></ins> | 171 | <ins><strong>15</strong></ins> | 143 | 111 | 32 |
+| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g140-gd30-xx112-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 140 | 30 | 112 | 84 | 28 |
+| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g147-gd19-xx119-26.circ.txt) | 28 | <ins><strong>4</strong></ins> | 147 | 19 | 119 | 93 | 26 |
+| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g167-gd15-xx139-31.circ.txt) | 28 | <ins><strong>4</strong></ins> | 167 | <ins><strong>15</strong></ins> | 139 | 108 | 31 |
 | [circ](./aes-invsbox/aes-invsbox-a28-ad5-g126-gd27-xx98-26.circ.txt) | 28 | 5 | <ins><strong>126</strong></ins> | 27 | 98 | 72 | 26 |
 | [circ](./aes-invsbox/aes-invsbox-a28-ad5-g131-gd20-xx103-29.circ.txt) | 28 | 5 | 131 | 20 | 103 | 74 | 29 |
 | [circ](./aes-invsbox/aes-invsbox-a28-ad5-g152-gd15-xx124-18.circ.txt) | 28 | 5 | 152 | <ins><strong>15</strong></ins> | 124 | 106 | 18 |
@@ -102,16 +104,16 @@ Note: The A28 invsbox circuits listed in the table above are either (AD5/\{G126/
 | [circ](./aes-invsbox/aes-invsbox-a32-ad5-g128-gd16-xx96-23.circ.txt) | <ins><strong>32</strong></ins> | 5 | 128 | 16 | 96 | 73 | 23 |
 | [circ](./aes-invsbox/aes-invsbox-a32-ad7-g105-gd27-xx73-14.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>105</strong></ins> | 27 | 73 | 59 | 14 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g107-gd21-xx74-10.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 21 | 74 | 64 | 10 |
-| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g122-gd15-xx89-8.circ.txt) | 33 | <ins><strong>4</strong></ins> | 122 | 15 | 89 | 81 | 8 |
-| [circ](./aes-invsbox/aes-invsbox-a34-ad4-g142-gd14-xx108-24.circ.txt) | 34 | <ins><strong>4</strong></ins> | 142 | <ins><strong>14</strong></ins> | 108 | 84 | 24 |
+| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g120-gd15-xx87-8.circ.txt) | 33 | <ins><strong>4</strong></ins> | 120 | 15 | 87 | 79 | 8 |
+| [circ](./aes-invsbox/aes-invsbox-a34-ad4-g139-gd14-xx105-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 139 | <ins><strong>14</strong></ins> | 105 | 82 | 23 |
 
 #### Inverse S-box with #AND > 34
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g152-gd26-xx117-31.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 152 | 26 | 117 | 86 | 31 |
-| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g164-gd20-xx129-28.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 164 | 20 | 129 | 101 | 28 |
-| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g179-gd15-xx144-25.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 179 | 15 | 144 | 119 | 25 |
+| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g149-gd26-xx114-32.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 149 | 26 | 114 | 82 | 32 |
+| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g155-gd20-xx120-29.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 155 | 20 | 120 | 91 | 29 |
+| [circ](./aes-invsbox/aes-invsbox-a35-ad3-g178-gd15-xx143-30.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 178 | 15 | 143 | 113 | 30 |
 | [circ](./aes-invsbox/aes-invsbox-a35-ad3-g190-gd14-xx155-27.circ.txt) | <ins><strong>35</strong></ins> | <ins><strong>3</strong></ins> | 190 | 14 | 155 | 128 | 27 |
 | [circ](./aes-invsbox/aes-invsbox-a36-ad4-g138-gd14-xx102-24.circ.txt) | 36 | 4 | <ins><strong>138</strong></ins> | 14 | 102 | 78 | 24 |
 | [circ](./aes-invsbox/aes-invsbox-a37-ad4-g157-gd13-xx120-19.circ.txt) | 37 | 4 | 157 | <ins><strong>13</strong></ins> | 120 | 101 | 19 |
@@ -156,12 +158,13 @@ Example circuits for AES Inverse MixColumns (32-bit to 32-bit linear function).
 | [circ](./aes-invmixcols/aes-invmixcols-xor106-depth6.circ.txt) | 6 | 106 |
 | [circ](./aes-invmixcols/aes-invmixcols-xor102-depth7.circ.txt) | 7 | 102 |
 | [circ](./aes-invmixcols/aes-invmixcols-xor96-depth8.circ.txt) | 8 | 96 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor95-depth9.circ.txt) | 9 | 95 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor94-depth10.circ.txt) | 10 | 94 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor93-depth12.circ.txt) | 12 | 93 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor92-depth13.circ.txt) | 13 | 92 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor91-depth15.circ.txt) | 15 | 91 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor90-depth20.circ.txt) | 20 | <ins><strong>90</strong></ins> |
+| [circ](./aes-invmixcols/aes-invmixcols-xor94-depth9.circ.txt) | 9 | 94 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor93-depth10.circ.txt) | 10 | 93 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor92-depth11.circ.txt) | 11 | 92 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor91-depth12.circ.txt) | 12 | 91 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor90-depth13.circ.txt) | 13 | 90 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor89-depth16.circ.txt) | 16 | 89 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor88-depth34.circ.txt) | 34 | <ins><strong>88</strong></ins> |
 
 
 </details>
@@ -215,7 +218,7 @@ The exemplified compilations may be using components that are no longer optimal,
 
 There are up to 4! = 24 tuple metrics corresponding to the possible orderings of (A, AD, G, GD). For succinctness, the tables consider only four tuple metrics (TM): (1) A-AD-G-GD, (2) AD-GD-G-A, (3) GD-G-AD-A, and (4) G-A-GD-AD.
 
-Note: In selected columns, values <ins><strong>underlined in bold</ins></strong> indicate the lowest displayed value.
+Note: In selected columns, values <ins><strong>underlined in bold</strong></ins> indicate the lowest displayed value.
 
 
 <details open>
