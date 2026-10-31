@@ -155,8 +155,8 @@ Example circuits for AES Inverse MixColumns (32-bit to 32-bit linear function).
 | File | Depth | #XOR |
 |---|---:|---:|
 | [circ](./aes-invmixcols/aes-invmixcols-xor119-depth5.circ.txt) | <ins><strong>5</strong></ins> | 119 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor106-depth6.circ.txt) | 6 | 106 |
-| [circ](./aes-invmixcols/aes-invmixcols-xor102-depth7.circ.txt) | 7 | 102 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor104-depth6.circ.txt) | 6 | 104 |
+| [circ](./aes-invmixcols/aes-invmixcols-xor99-depth7.circ.txt) | 7 | 99 |
 | [circ](./aes-invmixcols/aes-invmixcols-xor96-depth8.circ.txt) | 8 | 96 |
 | [circ](./aes-invmixcols/aes-invmixcols-xor94-depth9.circ.txt) | 9 | 94 |
 | [circ](./aes-invmixcols/aes-invmixcols-xor93-depth10.circ.txt) | 10 | 93 |
