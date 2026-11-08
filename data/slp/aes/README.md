@@ -10,7 +10,7 @@ Refer to NIST [ACVP](https://github.com/usnistgov/ACVP) for validation of AES im
 <details open>
 <summary><h2>Index of subfolders</h2></summary>
 
-- **Building blocks:** [aes-sbox](aes-sbox/README.md), [aes-invsbox](aes-invsbox/README.md), [aes-mixcols](aes-mixcols/README.md), [aes-invmixcols](aes-invmixcols/README.md).
+- **Building blocks:** [aes-sbox](aes-sbox/README.md), [aes-invsbox](aes-invsbox/README.md), [aes-sbox-sel](aes-sbox-sel/README.md), [aes-mixcols](aes-mixcols/README.md), [aes-invmixcols](aes-invmixcols/README.md).
 - **Folded circuits:** See [aes-fold1](aes-fold1/README.md), covering `keyexp`, `cipher`, `encipher`, `invcipher`, and `decipher` (with regard to AES-128, AES-192, and AES-256), without unfolding the building blocks.
 - **Flat circuits:** [KeyExpansion](aes-keyexp/README.md), [Cipher](aes-cipher/README.md), [Encipher](aes-encipher/README.md), [InvCipher](aes-invcipher/README.md), [Decipher](aes-decipher/README.md).
 
@@ -22,6 +22,7 @@ Refer to NIST [ACVP](https://github.com/usnistgov/ACVP) for validation of AES im
 **Building blocks:**
 - `sbox` (8-bit to 8-bit): implements `SBox()` from FIPS 197.
 - `invsbox` (8-bit to 8-bit): implements `InvSBox()` from FIPS 197.
+- `sbox-sel` (9-bit to 8-bit): the 1st bit selects `Sbox()` or `InvSBox()` to apply to the other 8 input bits.
 - `mixcols` (32-bit to 32-bit): implements `MixColumns()` from FIPS 197.
 - `invmixcols` (32-bit to 32-bit): implements `InvMixColumns()` from FIPS 197.
 
@@ -120,6 +121,37 @@ Note: The A28 invsbox circuits listed in the table above are either (AD5/\{G126/
 | [circ](./aes-invsbox/aes-invsbox-a37-ad4-g157-gd13-xx120-19.circ.txt) | 37 | 4 | 157 | <ins><strong>13</strong></ins> | 120 | 101 | 19 |
 
 Note: The A35/AD3 invsbox circuits listed in the table above were derived by linear transformation and optimization of A35/AD3 [sbox circuits](./aes-sbox/) (G139/GD31, G157/GD15, G183/GD13) externally contributed by Milad Nasr (@ Anthropic) on 2026-09-24.
+
+</details>
+<details open>
+<summary><h3>AES S-box Sel (with direction <em>sel</em>ection)</h3></summary>
+
+The aes-sbox-sel is a 9-bit to 8-bit vectorial Boolean function whose 1st bit (c) controls whether the other 8 input bits are transformed by [aes-sbox](./aes-sbox/) or [aes-invsbox](./aes-invsbox/).
+
+The following two tables list selected circuits from two categories: A36 and 40≤A≤41
+
+#### S-box Sel with #AND = 36
+
+| File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| [circ](./aes-sbox-sel/aes-sbox-sel-a36-ad6-g187-gd27-xx151-42.circ.txt) | 36 | 6 | <ins><strong>187</strong></ins> | 27 | 151 | 109 | 42 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a36-ad6-g191-gd26-xx155-31.circ.txt) | 36 | 6 | 191 | <ins><strong>26</strong></ins> | 155 | 124 | 31 |
+
+The listed aes-sbox-sel/A36 circuits were obtained from transformations to sbox/A28 circuits.
+
+#### S-box Sel with 40 ≤ #AND ≤ 41
+
+| File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| [circ](./aes-sbox-sel/aes-sbox-sel-a40-ad6-g184-gd23-xx144-10.circ.txt) | <ins><strong>40</strong></ins> | <ins><strong>6</strong></ins> | 184 | 23 | 144 | 134 | 10 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a40-ad6-g191-gd20-xx151-11.circ.txt) | <ins><strong>40</strong></ins> | <ins><strong>6</strong></ins> | 191 | <ins><strong>20</strong></ins> | 151 | 140 | 11 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a40-ad7-g153-gd28-xx113-6.circ.txt) | <ins><strong>40</strong></ins> | 7 | 153 | 28 | 113 | 107 | 6 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a40-ad7-g166-gd25-xx126-23.circ.txt) | <ins><strong>40</strong></ins> | 7 | 166 | 25 | 126 | 103 | 23 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a41-ad6-g151-gd24-xx110-10.circ.txt) | 41 | <ins><strong>6</strong></ins> | <ins><strong>151</strong></ins> | 24 | 110 | 100 | 10 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a41-ad6-g165-gd21-xx124-10.circ.txt) | 41 | <ins><strong>6</strong></ins> | 165 | 21 | 124 | 114 | 10 |
+| [circ](./aes-sbox-sel/aes-sbox-sel-a41-ad6-g173-gd20-xx132-10.circ.txt) | 41 | <ins><strong>6</strong></ins> | 173 | <ins><strong>20</strong></ins> | 132 | 122 | 10 |
+
+The listed aes-sbox-sel/A{40,41} circuits were obtained from transformations to sbox/A{32,33} circuits.
 
 </details>
 <details open>
