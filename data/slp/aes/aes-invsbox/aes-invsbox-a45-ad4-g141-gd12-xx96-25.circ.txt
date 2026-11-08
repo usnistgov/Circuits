@@ -1,0 +1,191 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-11-08T00:32:46.412Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invsbox-a45-ad4-g141-gd12-xx96-25 8 8
+
+## Circuit
+begin circuit aes-invsbox-a45-ad4-g141-gd12-xx96-25
+
+  % Description: AES Sbox Inverse, compatible with NIST-FIPS 197
+  % Circuit-name syntax: <basename>-aA-adAD-gG-gdGD-xxX-Y
+  % A = #AND; AD = AND-depth; G = #Gates; GD = Gate-depth; X = #XOR + #XNOR; Y = #XNOR
+  % Tally of variables (149): 8 inputs; 8 outputs; 133 intermediates
+  % Tally of gates (141): 45 AND; 71 XOR; 25 XNOR
+  % Gate depth 12; AND depth 4
+  % Gates per gate level: 9 19 21 8 6 5 8 4 20 17 16 8
+  % AND gates per AND level: 9 4 4 28
+
+Inputs: x0:x7
+Outputs: y0:y7
+Internal: a1:a45 t1:t88
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XOR t1 x0 x2
+XNOR t2 x2 x3
+XNOR t3 x5 x6
+XOR t4 x3 x7
+XOR t5 x2 x5
+XOR t6 x1 x4
+XOR t7 x5 x4
+XOR t8 x6 x2
+XNOR t9 x1 x0
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XNOR t10 t9 x6
+XOR t11 t1 x1
+XNOR t12 x5 t4
+XNOR t13 t4 t3
+XOR t14 t1 t4
+XNOR t15 t2 t3
+XOR t16 t2 x6
+XOR t17 x0 t2
+XNOR t18 t6 x6
+XNOR t19 t6 x0
+XOR t20 t6 x7
+XOR t21 t5 x1
+XOR t22 t5 x7
+XOR t23 x0 t7
+XNOR t24 x7 t2
+XOR t25 t7 t9
+XNOR t26 t5 t9
+%%%%%%%%%%%% AND level 1 (subset 1 of 2)
+AND a1 x1 t4
+AND a2 t2 x4
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XOR t27 t10 x4
+XNOR t28 a1 t15
+XOR t29 t10 a1
+XOR t30 a2 t1
+XNOR t31 t15 t11
+XOR t32 t20 t14
+XNOR t33 t15 t19
+XOR t34 t17 t22
+XOR t35 t13 t11
+XNOR t36 t20 t15
+XNOR t37 t20 x2
+XNOR t38 t20 x6
+XOR t39 t18 t15
+XNOR t40 x1 t17
+%%%%%%%%%%%% AND level 1 (subset 2 of 2)
+AND a3 t11 t13
+AND a4 t3 t14
+AND a5 x5 t17
+AND a6 t18 t15
+AND a7 t19 t16
+AND a8 t21 t12
+AND a9 t20 t22
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XOR t41 t14 t31
+XOR t42 t28 a4
+XOR t43 a3 a4
+XOR t44 t29 a5
+XOR t45 a6 a4
+XOR t46 a7 a3
+XOR t47 a2 a8
+XOR t48 t30 a9
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XNOR t49 t46 t44
+XOR t50 t45 t44
+XNOR t51 t46 t45
+XNOR t52 t47 t42
+XNOR t53 t43 t48
+XNOR t54 t45 t44
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XOR t55 t52 t53
+%%%%%%%%%%%% AND level 2
+AND a10 t54 t52
+AND a11 t51 t53
+AND a12 t53 t50
+AND a13 t50 t49
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 7
+XOR t56 t49 a11
+XOR t57 a12 a10
+XOR t58 a11 t55
+XNOR t59 t51 a12
+%%%%%%%%%%%% AND level 3
+AND a14 t49 a10
+AND a15 a11 t55
+AND a16 t55 a12
+AND a17 t55 a13
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 8
+XOR t60 t56 a14
+XOR t61 t57 a15
+XOR t62 t58 a16
+XNOR t63 t59 a17
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 9
+XOR t64 t60 t61
+XOR t65 t60 t62
+XOR t66 t60 t63
+XOR t67 t61 t63
+%%%%%%%%%%%% AND level 4 (subset 1 of 3)
+AND a18 t3 t61
+AND a19 t12 t60
+AND a20 x5 t62
+AND a21 t21 t62
+AND a22 t8 t63
+AND a23 t25 t60
+AND a24 t39 t62
+AND a25 t37 t62
+AND a26 t32 t61
+AND a27 t7 t60
+AND a28 t36 t60
+AND a29 t27 t62
+AND a30 t35 t62
+AND a31 t38 t61
+AND a32 t26 t61
+AND a33 t40 t60
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 10
+XOR t68 t64 t63
+XOR t69 a18 a19
+XOR t70 a22 a23
+XOR t71 a24 a19
+XOR t72 a25 a26
+XOR t73 a33 a32
+XOR t74 a28 a29
+XOR t75 a31 a24
+%%%%%%%%%%%% AND level 4 (subset 2 of 3)
+AND a34 t14 t66
+AND a35 t31 t66
+AND a36 t23 t66
+AND a37 t20 t65
+AND a38 t33 t66
+AND a39 t24 t64
+AND a40 t9 t66
+AND a41 t41 t65
+AND a42 t19 t67
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 11
+XOR t76 a20 t69
+XOR t77 a21 t70
+XOR t78 a33 a34
+XOR t79 a42 t71
+XOR t80 a27 a36
+XOR t81 a35 t72
+XOR t82 a29 a36
+XOR t83 a37 t73
+XOR t84 a35 t74
+XOR t85 a30 a39
+XOR t86 a38 a37
+XOR t87 a28 a40
+XOR t88 a41 t75
+%%%%%%%%%%%% AND level 4 (subset 3 of 3)
+AND a43 t2 t68
+AND a44 x4 t68
+AND a45 t34 t68
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 12
+XOR y0 a43 t76
+XOR y1 a44 t77
+XOR y2 t78 t79
+XOR y3 t80 t81
+XOR y4 t82 t83
+XOR y5 a45 t84
+XOR y6 t85 t86
+XOR y7 t87 t88
+end SLP
+end circuit
