@@ -34,7 +34,8 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 | [circ](aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
 | [circ](aes-invsbox-a33-ad4-g118-gd15-xx85-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 15 | 85 | 76 | 9 |
 | [circ](aes-invsbox-a33-ad4-g123-gd14-xx90-16.circ.txt) | 33 | <ins><strong>4</strong></ins> | 123 | 14 | 90 | 74 | 16 |
-| [circ](aes-invsbox-a36-ad4-g138-gd13-xx102-20.circ.txt) | 36 | <ins><strong>4</strong></ins> | 138 | <ins><strong>13</strong></ins> | 102 | 82 | 20 |
+| [circ](aes-invsbox-a34-ad4-g136-gd13-xx102-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 136 | <ins><strong>13</strong></ins> | 102 | 79 | 23 |
+| [circ](aes-invsbox-a35-ad4-g133-gd13-xx98-18.circ.txt) | 35 | <ins><strong>4</strong></ins> | 133 | <ins><strong>13</strong></ins> | 98 | 80 | 18 |
 
 ## Inverse S-box with #AND≤36/AD3
 
