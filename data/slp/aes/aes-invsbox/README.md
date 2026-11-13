@@ -34,8 +34,8 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 | [circ](aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
 | [circ](aes-invsbox-a33-ad4-g118-gd15-xx85-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 15 | 85 | 76 | 9 |
 | [circ](aes-invsbox-a33-ad4-g123-gd14-xx90-16.circ.txt) | 33 | <ins><strong>4</strong></ins> | 123 | 14 | 90 | 74 | 16 |
-| [circ](aes-invsbox-a34-ad4-g136-gd13-xx102-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 136 | <ins><strong>13</strong></ins> | 102 | 79 | 23 |
-| [circ](aes-invsbox-a35-ad4-g133-gd13-xx98-18.circ.txt) | 35 | <ins><strong>4</strong></ins> | 133 | <ins><strong>13</strong></ins> | 98 | 80 | 18 |
+| [circ](aes-invsbox-a34-ad4-g134-gd13-xx100-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 134 | <ins><strong>13</strong></ins> | 100 | 77 | 23 |
+| [circ](aes-invsbox-a35-ad4-g131-gd13-xx96-14.circ.txt) | 35 | <ins><strong>4</strong></ins> | 131 | <ins><strong>13</strong></ins> | 96 | 82 | 14 |
 
 ## Inverse S-box with #AND≤36/AD3
 
@@ -43,8 +43,7 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-invsbox-a35-ad3-g151-gd22-xx116-30.circ.txt) | 35 | 3 | <ins><strong>151</strong></ins> | 22 | 116 | 86 | 30 |
 | [circ](aes-invsbox-a35-ad3-g154-gd20-xx119-30.circ.txt) | 35 | 3 | 154 | 20 | 119 | 89 | 30 |
-| [circ](aes-invsbox-a35-ad3-g166-gd16-xx131-30.circ.txt) | 35 | 3 | 166 | 16 | 131 | 101 | 30 |
-| [circ](aes-invsbox-a35-ad3-g172-gd15-xx137-30.circ.txt) | 35 | 3 | 172 | <ins><strong>15</strong></ins> | 137 | 107 | 30 |
+| [circ](aes-invsbox-a35-ad3-g165-gd15-xx130-27.circ.txt) | 35 | 3 | 165 | <ins><strong>15</strong></ins> | 130 | 103 | 27 |
 
 Note: The A35/AD3 invsbox circuits listed in the table above were derived by linear transformation and optimization of A35/AD3 [sbox circuits](../aes-sbox/) (G139/GD31, G157/GD15, G183/GD13) externally contributed by Milad Nasr (@ Anthropic) on 2026-09-24.
 
