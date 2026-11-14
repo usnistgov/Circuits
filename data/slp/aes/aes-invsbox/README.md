@@ -8,7 +8,7 @@ Notation: XX = #XOR + #XNOR; XXN = XX + #NOT.
 
 | File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XX | #XOR | #XNOR |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](aes-invsbox-a28-ad4-g140-gd19-xx112-30.circ.txt) | 28 | <ins><strong>4</strong></ins> | 140 | 19 | 112 | 82 | 30 |
+| [circ](aes-invsbox-a28-ad4-g135-gd20-xx107-35.circ.txt) | 28 | <ins><strong>4</strong></ins> | 135 | 20 | 107 | 72 | 35 |
 | [circ](aes-invsbox-a28-ad4-g150-gd16-xx122-27.circ.txt) | 28 | <ins><strong>4</strong></ins> | 150 | 16 | 122 | 95 | 27 |
 | [circ](aes-invsbox-a28-ad4-g156-gd15-xx128-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 156 | <ins><strong>15</strong></ins> | 128 | 100 | 28 |
 | [circ](aes-invsbox-a28-ad5-g129-gd22-xx101-30.circ.txt) | 28 | 5 | <ins><strong>129</strong></ins> | 22 | 101 | 71 | 30 |
@@ -43,7 +43,7 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-invsbox-a35-ad3-g151-gd22-xx116-30.circ.txt) | 35 | 3 | <ins><strong>151</strong></ins> | 22 | 116 | 86 | 30 |
 | [circ](aes-invsbox-a35-ad3-g154-gd20-xx119-30.circ.txt) | 35 | 3 | 154 | 20 | 119 | 89 | 30 |
-| [circ](aes-invsbox-a35-ad3-g165-gd15-xx130-27.circ.txt) | 35 | 3 | 165 | <ins><strong>15</strong></ins> | 130 | 103 | 27 |
+| [circ](aes-invsbox-a35-ad3-g157-gd15-xx122-27.circ.txt) | 35 | 3 | 157 | <ins><strong>15</strong></ins> | 122 | 95 | 27 |
 
 Note: The A35/AD3 invsbox circuits listed in the table above were derived by linear transformation and optimization of A35/AD3 [sbox circuits](../aes-sbox/) (G139/GD31, G157/GD15, G183/GD13) externally contributed by Milad Nasr (@ Anthropic) on 2026-09-24.
 

@@ -31,8 +31,8 @@ Note: The A28 sbox circuits listed in the table above are either contributions (
 | [circ](aes-sbox-a33-ad4-g106-gd22-xx73-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 106 | 22 | 73 | 68 | 5 |
 | [circ](aes-sbox-a33-ad4-g108-gd20-xx75-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 70 | 5 |
 | [circ](aes-sbox-a33-ad4-g116-gd15-xx83-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 116 | 15 | 83 | 76 | 7 |
-| [circ](aes-sbox-a33-ad4-g127-gd14-xx94-23.circ.txt) | 33 | <ins><strong>4</strong></ins> | 127 | 14 | 94 | 71 | 23 |
-| [circ](aes-sbox-a34-ad4-g140-gd13-xx106-27.circ.txt) | 34 | <ins><strong>4</strong></ins> | 140 | <ins><strong>13</strong></ins> | 106 | 79 | 27 |
+| [circ](aes-sbox-a33-ad4-g125-gd14-xx92-18.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | 14 | 92 | 74 | 18 |
+| [circ](aes-sbox-a34-ad4-g139-gd13-xx105-22.circ.txt) | 34 | <ins><strong>4</strong></ins> | 139 | <ins><strong>13</strong></ins> | 105 | 83 | 22 |
 | [circ](aes-sbox-a35-ad4-g133-gd13-xx98-21.circ.txt) | 35 | <ins><strong>4</strong></ins> | 133 | <ins><strong>13</strong></ins> | 98 | 77 | 21 |
 
 ## S-box with #AND≤36/AD3
