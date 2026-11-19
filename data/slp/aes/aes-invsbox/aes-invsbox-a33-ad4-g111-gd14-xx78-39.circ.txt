@@ -1,0 +1,163 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-11-18T16:50:00Z
+  % Contributed by: we* (PROOFER + @mizopl)
+  % Source: aes-invsbox-a33-ad4-g111-gd14-xx78-39.circ.txt (sha256:aa18325ecb46)
+  % Repository: https://github.com/mizopl/we-star/tree/main/solutions/nist-aes-circuit-records
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invsbox-a33-ad4-g111-gd14-xx78-39 8 8
+
+## Circuit
+begin circuit aes-invsbox-a33-ad4-g111-gd14-xx78-39
+
+  % Description: AES Sbox Inverse, compatible with NIST-FIPS 197
+  % Circuit-name syntax: <basename>-aA-adAD-gG-gdGD-xxX-Y
+  % A = #AND; AD = AND-depth; G = #Gates; GD = Gate-depth; X = #XOR + #XNOR; Y = #XNOR
+  % Tally of variables (119): 8 inputs; 8 outputs; 103 intermediates
+  % Tally of gates (111): 33 AND; 39 XOR; 39 XNOR
+  % Gate depth 14; AND depth 4
+  % Gates per gate level: 10 12 11 6 4 4 4 4 5 13 13 11 8 6
+  % AND gates per AND level: 9 2 4 18
+
+Inputs: x0:x7
+Outputs: y0:y7
+Internal: a1:a33 t1:t70
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XNOR t1 x2 x3
+XOR t2 x3 x4
+XOR t3 x2 x7
+XNOR t4 x0 x1
+XNOR t5 x1 x7
+XNOR t6 x3 x7
+XOR t7 x0 x3
+XOR t8 x0 x4
+XOR t9 x6 x7
+XNOR t10 x5 x6
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XNOR t11 x6 t3
+XNOR t12 x2 t4
+XOR t13 x5 t3
+XNOR t14 x3 t5
+XOR t15 t2 t4
+XOR t16 x5 t6
+XOR t17 t8 t9
+XOR t18 t6 t10
+%%%%%%%%%%%% AND level 1 (subset 1 of 2)
+AND a1 t1 t2
+AND a2 t3 t7
+AND a3 t9 t10
+AND a4 t6 t8
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XNOR t19 x6 a1
+XOR t20 t12 a2
+XNOR t21 a2 t8
+XNOR t22 t5 a3
+XNOR t23 t13 a4
+XNOR t24 x6 t14
+%%%%%%%%%%%% AND level 1 (subset 2 of 2)
+AND a5 t11 t12
+AND a6 t4 t13
+AND a7 x6 t14
+AND a8 t15 t16
+AND a9 t17 t18
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XNOR t25 t19 a5
+XOR t26 a6 a7
+XNOR t27 a8 t20
+XOR t28 a9 t21
+XNOR t29 a7 t22
+XOR t30 a5 t23
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XNOR t31 t25 t26
+XNOR t32 t26 t27
+XOR t33 t28 t29
+XOR t34 t29 t30
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XOR t35 t31 t32
+XOR t36 t33 t34
+%%%%%%%%%%%% AND level 2
+AND a10 t32 t33
+AND a11 t31 t34
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 7
+XNOR t37 a10 a11
+XNOR t38 t32 a11
+XNOR t39 t33 a10
+XNOR t40 t32 a10
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 8
+%%%%%%%%%%%% AND level 3
+AND a12 t35 t37
+AND a13 t31 t39
+AND a14 t40 t36
+AND a15 t38 t36
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 9
+XNOR t41 a12 t38
+XOR t42 a12 a13
+XOR t43 a11 a14
+XOR t44 t34 a15
+XNOR t45 t38 a13
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 10
+XOR t46 t43 t44
+XOR t47 t42 t44
+XOR t48 t43 t45
+%%%%%%%%%%%% AND level 4 (subset 1 of 3)
+AND a16 t6 t41
+AND a17 t10 t42
+AND a18 t1 t43
+AND a19 t16 t44
+AND a20 t2 t43
+AND a21 t15 t44
+AND a22 t17 t41
+AND a23 t9 t45
+AND a24 t18 t45
+AND a25 t8 t42
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 11
+XOR t49 a16 a17
+XNOR t50 a18 a19
+XOR t51 t41 t46
+XNOR t52 a20 a21
+XOR t53 a22 a23
+XOR t54 a16 a24
+XOR t55 a23 a25
+%%%%%%%%%%%% AND level 4 (subset 2 of 3)
+AND a26 t3 t47
+AND a27 t7 t47
+AND a28 t11 t48
+AND a29 t12 t48
+AND a30 t13 t46
+AND a31 t4 t46
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 12
+XNOR y0 t49 t50
+XOR t56 t50 a26
+XOR t57 t52 t53
+XNOR t58 t52 a27
+XOR t59 t54 a28
+XNOR t60 t55 a29
+XOR t61 a19 a30
+XOR t62 a21 a31
+XNOR t63 t54 a29
+%%%%%%%%%%%% AND level 4 (subset 3 of 3)
+AND a32 t24 t51
+AND a33 t14 t51
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 13
+XOR t64 a32 t56
+XNOR t65 t57 a33
+XNOR t66 t56 a33
+XNOR t67 y0 a33
+XOR t68 t58 t59
+XOR t69 t60 t61
+XNOR t70 t62 t63
+XOR y7 t55 t62
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 14
+XNOR y1 t64 t65
+XOR y2 t66 t58
+XNOR y3 t67 t68
+XNOR y4 t65 t69
+XNOR y5 t64 t70
+XNOR y6 t68 t69
+end SLP
+end circuit
