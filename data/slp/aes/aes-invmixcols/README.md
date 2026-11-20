@@ -4,9 +4,9 @@ Circuits that implement the AES InvMixColumns() linear transformation.
 
 | File | Depth | #XOR |
 |---|---:|---:|
-| [circ](aes-invmixcols-xor119-depth5.circ.txt) | <ins><strong>5</strong></ins> | 119 |
-| [circ](aes-invmixcols-xor104-depth6.circ.txt) | 6 | 104 |
-| [circ](aes-invmixcols-xor99-depth7.circ.txt) | 7 | 99 |
+| [circ](aes-invmixcols-xor118-depth5.circ.txt) | <ins><strong>5</strong></ins> | 118 |
+| [circ](aes-invmixcols-xor103-depth6.circ.txt) | 6 | 103 |
+| [circ](aes-invmixcols-xor98-depth7.circ.txt) | 7 | 98 |
 | [circ](aes-invmixcols-xor96-depth8.circ.txt) | 8 | 96 |
 | [circ](aes-invmixcols-xor94-depth9.circ.txt) | 9 | 94 |
 | [circ](aes-invmixcols-xor93-depth10.circ.txt) | 10 | 93 |
