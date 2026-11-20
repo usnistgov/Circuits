@@ -13,4 +13,4 @@ Circuits that implement the AES InvMixColumns() linear transformation.
 | [circ](aes-invmixcols-xor91-depth11.circ.txt) | 11 | 91 |
 | [circ](aes-invmixcols-xor90-depth12.circ.txt) | 12 | 90 |
 | [circ](aes-invmixcols-xor89-depth14.circ.txt) | 14 | 89 |
-| [circ](aes-invmixcols-xor88-depth34.circ.txt) | 34 | <ins><strong>88</strong></ins> |
+| [circ](aes-invmixcols-xor88-depth16.circ.txt) | 16 | <ins><strong>88</strong></ins> |
