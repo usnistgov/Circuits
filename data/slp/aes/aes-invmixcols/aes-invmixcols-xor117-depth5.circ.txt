@@ -1,0 +1,147 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-11-20T04:30:32.635Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invmixcols-xor117-depth5 32 32
+
+## Circuit
+begin circuit aes-invmixcols-xor117-depth5
+
+  % Description: AES Inverse MixColumns, compatible with NIST-FIPS 197
+  % Interface: x_(8b+r) and y_(8b+r) are bit r (LSB=0) of byte b, b=0:3
+  % Byte matrix: [0e 0b 0d 09; 09 0e 0b 0d; 0d 09 0e 0b; 0b 0d 09 0e]
+  % Tally of variables (149): 32 inputs; 32 outputs; 85 intermediates
+  % Tally of gates (117): 117 XOR
+  % Gate depth 5
+  % Gates per gate level: 23 18 19 25 32
+
+Inputs: x0:x31
+Outputs: y0:y31
+Internal: t1:t85
+GateSyntax: GateName Output Inputs
+
+begin SLP
+XOR t1 x31 x23
+XOR t2 x30 x14
+XOR t3 x15 x23
+XOR t4 x12 x28
+XOR t5 x11 x19
+XOR t6 x9 x25
+XOR t7 x8 x9
+XOR t8 x8 x24
+XOR t9 x7 x15
+XOR t10 x6 x22
+XOR t11 x13 x5
+XOR t12 x21 x29
+XOR t13 x20 x4
+XOR t14 x6 x21
+XOR t15 x3 x19
+XOR t16 x3 x27
+XOR t17 x10 x2
+XOR t18 x18 x26
+XOR t19 x4 x28
+XOR t20 x2 x26
+XOR t21 x1 x17
+XOR t22 x0 x16
+XOR t23 x17 x25
+XOR t24 t2 t3
+XOR t25 x16 t7
+XOR t26 t9 t1
+XOR t27 t10 t1
+XOR t28 t11 t12
+XOR t29 x5 t4
+XOR t30 t13 t14
+XOR t31 t16 t5
+XOR t32 x29 t9
+XOR t33 t17 t18
+XOR t34 t15 t19
+XOR t35 t6 t20
+XOR t36 t21 t17
+XOR t37 x12 t13
+XOR t38 x12 t16
+XOR t39 t22 t8
+XOR t40 x27 t15
+XOR t41 t22 t23
+XOR t42 t27 t24
+XOR t43 t28 t24
+XOR t44 t28 t27
+XOR t45 x14 t29
+XOR t46 x7 t30
+XOR t47 x22 t30
+XOR t48 t31 t32
+XOR t49 t2 t30
+XOR t50 t33 t34
+XOR t51 t29 t24
+XOR t52 t36 t35
+XOR t53 t5 t37
+XOR t54 t26 t38
+XOR t55 t5 t36
+XOR t56 t21 t25
+XOR t57 x27 t39
+XOR t58 t39 t26
+XOR t59 t33 t40
+XOR t60 x18 t41
+XOR t61 x24 t43
+XOR t62 t45 t46
+XOR t63 t48 t45
+XOR t64 t48 t49
+XOR t65 t50 t43
+XOR t66 t50 t51
+XOR t67 t35 t43
+XOR t68 t52 t53
+XOR t69 t52 t54
+XOR t70 t44 t55
+XOR t71 x0 t44
+XOR t72 t58 t56
+XOR t73 t58 t59
+XOR t74 t41 t43
+XOR t75 t42 t60
+XOR t76 t10 t48
+XOR t77 t13 t44
+XOR t78 t31 t57
+XOR t79 t36 t58
+XOR t80 t1 t47
+XOR t81 t2 t44
+XOR t82 t48 t47
+XOR t83 t4 t44
+XOR t84 t35 t58
+XOR t85 t6 t56
+XOR y31 t43 t62
+XOR y30 t27 t63
+XOR y29 t65 t76
+XOR y28 t69 t77
+XOR y27 t67 t78
+XOR y26 t75 t79
+XOR y25 t44 t72
+XOR y24 t58 t61
+XOR y23 t42 t62
+XOR y22 t1 t64
+XOR y21 t65 t80
+XOR y20 t69 t65
+XOR y19 t73 t70
+XOR y18 t33 t75
+XOR y17 t74 t72
+XOR y16 t8 t71
+XOR y15 t44 t62
+XOR y14 t63 t81
+XOR y13 t66 t82
+XOR y12 t68 t83
+XOR y11 t73 t67
+XOR y10 t75 t84
+XOR y9 t44 t85
+XOR y8 t22 t61
+XOR y7 t26 t62
+XOR y6 t44 t64
+XOR y5 t44 t66
+XOR y4 t68 t65
+XOR y3 t57 t70
+XOR y2 t52 t75
+XOR y1 t25 t74
+XOR y0 t58 t71
+end SLP
+end circuit

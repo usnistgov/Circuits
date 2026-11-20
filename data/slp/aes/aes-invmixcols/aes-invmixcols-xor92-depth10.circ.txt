@@ -1,0 +1,122 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-11-20T02:03:38.313Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invmixcols-xor92-depth10 32 32
+
+## Circuit
+begin circuit aes-invmixcols-xor92-depth10
+
+  % Description: AES Inverse MixColumns, compatible with NIST-FIPS 197
+  % Interface: x_(8b+r) and y_(8b+r) are bit r (LSB=0) of byte b, b=0:3
+  % Byte matrix: [0e 0b 0d 09; 09 0e 0b 0d; 0d 09 0e 0b; 0b 0d 09 0e]
+  % Tally of variables (124): 32 inputs; 32 outputs; 60 intermediates
+  % Tally of gates (92): 92 XOR
+  % Gate depth 10
+  % Gates per gate level: 15 9 6 6 7 8 10 10 9 12
+
+Inputs: x0:x31
+Outputs: y0:y31
+Internal: t1:t60
+GateSyntax: GateName Output Inputs
+
+begin SLP
+XOR t1 x29 x21
+XOR t2 x30 x14
+XOR t3 x12 x20
+XOR t4 x27 x11
+XOR t5 x17 x9
+XOR t6 x24 x8
+XOR t7 x7 x23
+XOR t8 x15 x31
+XOR t9 x15 x23
+XOR t10 x3 x19
+XOR t11 x13 x21
+XOR t12 x18 x2
+XOR t13 x3 x11
+XOR t14 x0 x16
+XOR t15 x1 x9
+XOR t16 x28 t3
+XOR t17 x25 t5
+XOR t18 x16 t6
+XOR t19 t7 t8
+XOR t20 x6 t2
+XOR t21 t6 t5
+XOR t22 x5 t1
+XOR t23 t4 t10
+XOR t24 x26 t12
+XOR t25 x22 t20
+XOR t26 x13 t22
+XOR t27 t19 t23
+XOR t28 x10 t24
+XOR t29 x1 t17
+XOR t30 t14 t19
+XOR t31 t7 t25
+XOR t32 t2 t26
+XOR t33 x20 t27
+XOR t34 t4 t28
+XOR t35 t12 t29
+XOR t36 t15 t30
+XOR t37 t21 t31
+XOR t38 t9 t32
+XOR t39 t16 t33
+XOR t40 x4 t33
+XOR t41 t3 t34
+XOR t42 t13 t35
+XOR t43 t31 t36
+XOR t44 t31 t38
+XOR t45 x8 t38
+XOR t46 t11 t39
+XOR t47 t1 t40
+XOR t48 t31 t41
+XOR y10 t24 t37
+XOR t49 t38 t42
+XOR t50 x2 t43
+XOR y0 t18 t44
+XOR t51 x14 t46
+XOR y22 t20 t47
+XOR y13 t22 t48
+XOR y4 t16 t49
+XOR t52 t50 y10
+XOR y2 t28 t50
+XOR t53 x0 t45
+XOR y24 t30 t45
+XOR t54 t26 t47
+XOR y14 t25 t51
+XOR t55 y22 t51
+XOR y21 t46 y13
+XOR y20 t40 y4
+XOR t56 x19 t52
+XOR y18 t35 y2
+XOR y1 t17 t53
+XOR y16 t30 y0
+XOR y8 t18 t53
+XOR y5 y13 t54
+XOR y30 t32 y14
+XOR t57 x31 t55
+XOR y12 t48 y20
+XOR t58 t49 t56
+XOR t59 t44 t56
+XOR t60 t37 y1
+XOR y29 t47 y21
+XOR y26 t52 y18
+XOR y9 t43 y1
+XOR y31 t19 t57
+XOR y28 t39 y12
+XOR y27 t19 t58
+XOR y25 t29 t60
+XOR y23 t44 t57
+XOR y19 t27 t59
+XOR y17 t43 t60
+XOR y15 t31 t57
+XOR y11 t34 t58
+XOR y7 t38 t57
+XOR y6 t55 y30
+XOR y3 t34 t59
+end SLP
+end circuit
