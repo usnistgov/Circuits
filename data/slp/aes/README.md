@@ -58,7 +58,7 @@ Note: The A28 sbox circuits listed in the table above are either contributions (
 | [circ](./aes-sbox/aes-sbox-a32-ad4-g141-gd14-xx109-24.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 141 | 14 | 109 | 85 | 24 |
 | [circ](./aes-sbox/aes-sbox-a32-ad4-g149-gd13-xx117-41.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 149 | <ins><strong>13</strong></ins> | 117 | 76 | 41 |
 | [circ](./aes-sbox/aes-sbox-a32-ad5-g108-gd20-xx76-3.circ.txt) | <ins><strong>32</strong></ins> | 5 | 108 | 20 | 76 | 73 | 3 |
-| [circ](./aes-sbox/aes-sbox-a32-ad5-g118-gd16-xx86-28.circ.txt) | <ins><strong>32</strong></ins> | 5 | 118 | 16 | 86 | 58 | 28 |
+| [circ](./aes-sbox/aes-sbox-a32-ad5-g121-gd15-xx89-27.circ.txt) | <ins><strong>32</strong></ins> | 5 | 121 | 15 | 89 | 62 | 27 |
 | [circ](./aes-sbox/aes-sbox-a32-ad7-g103-gd32-xx71-10.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>103</strong></ins> | 32 | 71 | 61 | 10 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g107-gd20-xx74-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 20 | 74 | 69 | 5 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g115-gd15-xx82-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 75 | 7 |
@@ -123,10 +123,9 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 | [circ](./aes-invsbox/aes-invsbox-a32-ad7-g105-gd27-xx73-14.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>105</strong></ins> | 27 | 73 | 59 | 14 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g107-gd21-xx74-10.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 21 | 74 | 64 | 10 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
-| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g118-gd15-xx85-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 15 | 85 | 76 | 9 |
-| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g123-gd14-xx90-16.circ.txt) | 33 | <ins><strong>4</strong></ins> | 123 | 14 | 90 | 74 | 16 |
-| [circ](./aes-invsbox/aes-invsbox-a34-ad4-g134-gd13-xx100-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 134 | <ins><strong>13</strong></ins> | 100 | 77 | 23 |
-| [circ](./aes-invsbox/aes-invsbox-a35-ad4-g131-gd13-xx96-14.circ.txt) | 35 | <ins><strong>4</strong></ins> | 131 | <ins><strong>13</strong></ins> | 96 | 82 | 14 |
+| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g117-gd15-xx84-35.circ.txt) | 33 | <ins><strong>4</strong></ins> | 117 | 15 | 84 | 49 | 35 |
+| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g118-gd14-xx85-29.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 14 | 85 | 56 | 29 |
+| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g125-gd13-xx92-44.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | <ins><strong>13</strong></ins> | 92 | 48 | 44 |
 
 #### Inverse S-box with #AND≤36/AD3
 
@@ -142,7 +141,7 @@ Note: The A35/AD3 invsbox circuits listed in the table above were derived by lin
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XXN<br>(*x*+*x'*+*n*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) | #NOT<br>(*n*) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-invsbox/aes-invsbox-a45-ad4-g141-gd12-xx96-25.circ.txt) | 45 | 4 | <ins><strong>141</strong></ins> | 12 | 96 | 71 | 25 | 0 |
+| [circ](./aes-invsbox/aes-invsbox-a36-ad4-g135-gd12-xx99-34.circ.txt) | 36 | 4 | <ins><strong>135</strong></ins> | 12 | 99 | 65 | 34 | 0 |
 | [circ](./aes-invsbox/aes-invsbox-a55-ad4-g148-gd10-xxn93-26-2.circ.txt) | 55 | 4 | 148 | <ins><strong>10</strong></ins> | 93 | 65 | 26 | 2 |
 
 

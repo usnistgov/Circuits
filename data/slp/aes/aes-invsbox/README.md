@@ -32,10 +32,9 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 | [circ](aes-invsbox-a32-ad7-g105-gd27-xx73-14.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>105</strong></ins> | 27 | 73 | 59 | 14 |
 | [circ](aes-invsbox-a33-ad4-g107-gd21-xx74-10.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 21 | 74 | 64 | 10 |
 | [circ](aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
-| [circ](aes-invsbox-a33-ad4-g118-gd15-xx85-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 15 | 85 | 76 | 9 |
-| [circ](aes-invsbox-a33-ad4-g123-gd14-xx90-16.circ.txt) | 33 | <ins><strong>4</strong></ins> | 123 | 14 | 90 | 74 | 16 |
-| [circ](aes-invsbox-a34-ad4-g134-gd13-xx100-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 134 | <ins><strong>13</strong></ins> | 100 | 77 | 23 |
-| [circ](aes-invsbox-a35-ad4-g131-gd13-xx96-14.circ.txt) | 35 | <ins><strong>4</strong></ins> | 131 | <ins><strong>13</strong></ins> | 96 | 82 | 14 |
+| [circ](aes-invsbox-a33-ad4-g117-gd15-xx84-35.circ.txt) | 33 | <ins><strong>4</strong></ins> | 117 | 15 | 84 | 49 | 35 |
+| [circ](aes-invsbox-a33-ad4-g118-gd14-xx85-29.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 14 | 85 | 56 | 29 |
+| [circ](aes-invsbox-a33-ad4-g125-gd13-xx92-44.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | <ins><strong>13</strong></ins> | 92 | 48 | 44 |
 
 ## Inverse S-box with #AND≤36/AD3
 
@@ -51,6 +50,6 @@ Note: The A35/AD3 invsbox circuits listed in the table above were derived by lin
 
 | File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XXN | #XOR | #XNOR | #NOT |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [circ](aes-invsbox-a45-ad4-g141-gd12-xx96-25.circ.txt) | 45 | 4 | <ins><strong>141</strong></ins> | 12 | 96 | 71 | 25 | 0 |
+| [circ](aes-invsbox-a36-ad4-g135-gd12-xx99-34.circ.txt) | 36 | 4 | <ins><strong>135</strong></ins> | 12 | 99 | 65 | 34 | 0 |
 | [circ](aes-invsbox-a55-ad4-g148-gd10-xxn93-26-2.circ.txt) | 55 | 4 | 148 | <ins><strong>10</strong></ins> | 93 | 65 | 26 | 2 |
 
