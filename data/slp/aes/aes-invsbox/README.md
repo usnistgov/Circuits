@@ -24,16 +24,15 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-invsbox-a32-ad4-g117-gd21-xx85-10.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 117 | 21 | 85 | 75 | 10 |
 | [circ](aes-invsbox-a32-ad4-g119-gd20-xx87-10.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 119 | 20 | 87 | 77 | 10 |
-| [circ](aes-invsbox-a32-ad4-g128-gd16-xx96-11.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 128 | 16 | 96 | 85 | 11 |
-| [circ](aes-invsbox-a32-ad4-g135-gd15-xx103-11.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 135 | 15 | 103 | 92 | 11 |
+| [circ](aes-invsbox-a32-ad4-g124-gd15-xx92-37.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 124 | 15 | 92 | 55 | 37 |
+| [circ](aes-invsbox-a32-ad4-g131-gd14-xx99-36.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 131 | 14 | 99 | 63 | 36 |
 | [circ](aes-invsbox-a32-ad5-g107-gd23-xx75-6.circ.txt) | <ins><strong>32</strong></ins> | 5 | 107 | 23 | 75 | 69 | 6 |
 | [circ](aes-invsbox-a32-ad5-g110-gd20-xx78-7.circ.txt) | <ins><strong>32</strong></ins> | 5 | 110 | 20 | 78 | 71 | 7 |
-| [circ](aes-invsbox-a32-ad5-g125-gd15-xx93-21.circ.txt) | <ins><strong>32</strong></ins> | 5 | 125 | 15 | 93 | 72 | 21 |
 | [circ](aes-invsbox-a32-ad7-g105-gd27-xx73-14.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>105</strong></ins> | 27 | 73 | 59 | 14 |
 | [circ](aes-invsbox-a33-ad4-g107-gd21-xx74-10.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 21 | 74 | 64 | 10 |
 | [circ](aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
-| [circ](aes-invsbox-a33-ad4-g117-gd15-xx84-35.circ.txt) | 33 | <ins><strong>4</strong></ins> | 117 | 15 | 84 | 49 | 35 |
-| [circ](aes-invsbox-a33-ad4-g118-gd14-xx85-29.circ.txt) | 33 | <ins><strong>4</strong></ins> | 118 | 14 | 85 | 56 | 29 |
+| [circ](aes-invsbox-a33-ad4-g115-gd15-xx82-37.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 45 | 37 |
+| [circ](aes-invsbox-a33-ad4-g117-gd14-xx84-24.circ.txt) | 33 | <ins><strong>4</strong></ins> | 117 | 14 | 84 | 60 | 24 |
 | [circ](aes-invsbox-a33-ad4-g125-gd13-xx92-44.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | <ins><strong>13</strong></ins> | 92 | 48 | 44 |
 
 ## Inverse S-box with #AND≤36/AD3

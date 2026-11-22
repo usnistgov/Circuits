@@ -1,0 +1,184 @@
+%NCFF-0.1-2026 (NIST Circuit File Format)
+
+## File source
+  % Timestamp (UTC): 2026-11-22T07:54:58.818Z
+  % Compiled by: NIST circuit complexity team
+  % Webpage: https://csrc.nist.gov/projects/circuit-complexity
+  % Repository: https://github.com/usnistgov/Circuits/
+
+## Index of circuits (circuitName numOutputs numInputs)
+  % aes-invsbox-a32-ad4-g131-gd14-xx99-36 8 8
+
+## Circuit
+begin circuit aes-invsbox-a32-ad4-g131-gd14-xx99-36
+
+  % Description: AES Sbox Inverse, compatible with NIST-FIPS 197
+  % Circuit-name syntax: <basename>-aA-adAD-gG-gdGD-xxX-Y
+  % A = #AND; AD = AND-depth; G = #Gates; GD = Gate-depth; X = #XOR + #XNOR; Y = #XNOR
+  % Tally of variables (139): 8 inputs; 8 outputs; 123 intermediates
+  % Tally of gates (131): 32 AND; 63 XOR; 36 XNOR
+  % Gate depth 14; AND depth 4
+  % Gates per gate level: 11 13 13 9 5 3 4 5 7 13 15 14 11 8
+  % AND gates per AND level: 9 2 4 17
+
+Inputs: x0:x7
+Outputs: y0:y7
+Internal: a1:a32 t1:t91
+GateSyntax: GateName Output Inputs
+
+begin SLP
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 1
+XOR t1 x0 x1
+XOR t2 x3 x7
+XOR t3 x1 x2
+XOR t4 x2 x7
+XNOR t5 x3 x5
+XOR t6 x3 x4
+XNOR t7 x2 x6
+XOR t8 x6 x7
+XNOR t9 x0 x3
+XNOR t10 x5 x6
+XOR t11 x0 x4
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 2
+XNOR t12 x4 t3
+XNOR t13 x6 t4
+XNOR t14 t6 t8
+XNOR t15 t3 t9
+XNOR t16 x4 t4
+XNOR t17 t1 t6
+XOR t18 t5 t7
+XOR t19 t1 t9
+XNOR t20 t8 t11
+XOR t21 t8 t11
+XOR t22 x0 t10
+%%%%%%%%%%%% AND level 1 (subset 1 of 2)
+AND a1 t1 t2
+AND a2 t5 t6
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 3
+XNOR t23 x1 a1
+XOR t24 t15 a2
+XOR t25 t8 t18
+XOR t26 t11 t15
+XOR t27 t9 t16
+XOR t28 x0 t18
+%%%%%%%%%%%% AND level 1 (subset 2 of 2)
+AND a3 t12 t13
+AND a4 t7 t14
+AND a5 t8 t16
+AND a6 t10 t17
+AND a7 t11 t18
+AND a8 x6 t19
+AND a9 x5 t20
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 4
+XNOR t29 t23 a3
+XNOR t30 a2 a4
+XOR t31 t24 a5
+XOR t32 a6 a7
+XOR t33 a6 a8
+XNOR t34 a1 a9
+XNOR t35 x2 t25
+XOR t36 x3 t25
+XOR t37 t22 t26
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 5
+XOR t38 t29 t30
+XOR t39 t31 t32
+XOR t40 t30 t33
+XNOR t41 t29 t33
+XOR t42 t32 t34
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 6
+XOR t43 t39 t42
+%%%%%%%%%%%% AND level 2
+AND a10 t38 t39
+AND a11 t41 t42
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 7
+XNOR t44 a10 a11
+XOR t45 t43 a10
+XNOR t46 t39 a11
+%%%%%%%%%%%% AND level 3 (subset 1 of 2)
+AND a12 t42 a10
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 8
+XNOR t47 t46 a12
+XOR t48 t15 t44
+%%%%%%%%%%%% AND level 3 (subset 2 of 2)
+AND a13 t40 t44
+AND a14 t40 t45
+AND a15 t43 t46
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 9
+XOR t49 a10 a13
+XNOR t50 t41 a14
+XNOR t51 t44 a15
+XOR t52 t19 t47
+XOR t53 t27 t48
+XOR t54 t13 t47
+XOR t55 a3 t47
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 10
+XOR t56 t49 t50
+XOR t57 t49 t51
+XOR t58 t47 t50
+XOR t59 x6 t51
+XNOR t60 t12 t52
+XOR t61 t47 t51
+XOR t62 t4 t52
+XOR t63 t12 t51
+%%%%%%%%%%%% AND level 4 (subset 1 of 3)
+AND a16 x5 t49
+AND a17 t21 t50
+AND a18 t27 t50
+AND a19 t11 t49
+AND a20 t47 t53
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 11
+XOR t64 a8 a17
+XOR t65 t57 t58
+XNOR t66 a16 a18
+XNOR t67 t47 a19
+XOR t68 t55 a18
+%%%%%%%%%%%% AND level 4 (subset 2 of 3)
+AND a21 t25 t56
+AND a22 t8 t56
+AND a23 t35 t57
+AND a24 t36 t58
+AND a25 t52 t59
+AND a26 t26 t58
+AND a27 t60 t61
+AND a28 t51 t62
+AND a29 t54 t63
+AND a30 t37 t57
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 12
+XOR t69 a21 a22
+XNOR t70 a23 a24
+XNOR t71 t64 a25
+XOR t72 t66 a27
+XNOR t73 a19 t66
+XOR t74 a20 a27
+XNOR t75 t67 a28
+XOR t76 a21 a29
+XOR t77 t68 a28
+XNOR t78 a26 a30
+XOR t79 a17 a30
+XOR t80 a20 a24
+%%%%%%%%%%%% AND level 4 (subset 3 of 3)
+AND a31 t22 t65
+AND a32 t28 t65
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 13
+XNOR t81 t69 t70
+XNOR t82 t71 a31
+XNOR t83 a26 t72
+XNOR t84 t70 t74
+XNOR t85 t71 t75
+XOR t86 t76 t77
+XOR t87 t70 t78
+XOR t88 a22 t79
+XOR t89 t73 a31
+XOR t90 t79 a32
+XNOR t91 t71 t80
+%%%%%%%%%%%%%%%%%%%%%%%% Gate level 14
+XOR y0 a16 t81
+XOR y1 t82 t83
+XOR y2 t73 t84
+XOR y3 t84 t85
+XOR y4 t86 t87
+XOR y5 t84 t86
+XOR y6 t88 t89
+XOR y7 t90 t91
+end SLP
+end circuit

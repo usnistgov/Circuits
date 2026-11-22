@@ -24,10 +24,10 @@ Note: The A28 sbox circuits listed in the table above are either contributions (
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-sbox-a32-ad4-g117-gd19-xx85-6.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 117 | 19 | 85 | 79 | 6 |
 | [circ](aes-sbox-a32-ad4-g127-gd15-xx95-7.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 127 | 15 | 95 | 88 | 7 |
-| [circ](aes-sbox-a32-ad4-g141-gd14-xx109-24.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 141 | 14 | 109 | 85 | 24 |
+| [circ](aes-sbox-a32-ad4-g132-gd14-xx100-26.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 132 | 14 | 100 | 74 | 26 |
 | [circ](aes-sbox-a32-ad4-g149-gd13-xx117-41.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 149 | <ins><strong>13</strong></ins> | 117 | 76 | 41 |
 | [circ](aes-sbox-a32-ad5-g108-gd20-xx76-3.circ.txt) | <ins><strong>32</strong></ins> | 5 | 108 | 20 | 76 | 73 | 3 |
-| [circ](aes-sbox-a32-ad5-g121-gd15-xx89-27.circ.txt) | <ins><strong>32</strong></ins> | 5 | 121 | 15 | 89 | 62 | 27 |
+| [circ](aes-sbox-a32-ad5-g119-gd15-xx87-33.circ.txt) | <ins><strong>32</strong></ins> | 5 | 119 | 15 | 87 | 54 | 33 |
 | [circ](aes-sbox-a32-ad7-g103-gd32-xx71-10.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>103</strong></ins> | 32 | 71 | 61 | 10 |
 | [circ](aes-sbox-a33-ad4-g107-gd20-xx74-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 20 | 74 | 69 | 5 |
 | [circ](aes-sbox-a33-ad4-g115-gd15-xx82-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 75 | 7 |
