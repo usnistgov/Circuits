@@ -32,7 +32,8 @@ Note: The A28 sbox circuits listed in the table above are either contributions (
 | [circ](aes-sbox-a33-ad4-g107-gd20-xx74-5.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 20 | 74 | 69 | 5 |
 | [circ](aes-sbox-a33-ad4-g115-gd15-xx82-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 75 | 7 |
 | [circ](aes-sbox-a33-ad4-g119-gd14-xx86-25.circ.txt) | 33 | <ins><strong>4</strong></ins> | 119 | 14 | 86 | 61 | 25 |
-| [circ](aes-sbox-a33-ad4-g125-gd13-xx92-29.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | <ins><strong>13</strong></ins> | 92 | 63 | 29 |
+| [circ](aes-sbox-a33-ad4-g124-gd13-xx91-46.circ.txt) | 33 | <ins><strong>4</strong></ins> | 124 | <ins><strong>13</strong></ins> | 91 | 45 | 46 |
+| [circ](aes-sbox-a35-ad4-g123-gd13-xx88-32.circ.txt) | 35 | <ins><strong>4</strong></ins> | 123 | <ins><strong>13</strong></ins> | 88 | 56 | 32 |
 
 ## S-box with #AND≤36/AD3
 
@@ -51,7 +52,9 @@ Note: The A35/AD3 sbox circuits listed in the table above are either (G157/GD15,
 
 | File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XXN | #XOR | #XNOR | #NOT |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [circ](aes-sbox-a36-ad4-g135-gd12-xx99-40.circ.txt) | 36 | 4 | <ins><strong>135</strong></ins> | 12 | 99 | 59 | 40 | 0 |
+| [circ](aes-sbox-a35-ad4-g136-gd12-xx101-33.circ.txt) | 35 | 4 | 136 | 12 | 101 | 68 | 33 | 0 |
+| [circ](aes-sbox-a36-ad4-g132-gd12-xx96-32.circ.txt) | 36 | 4 | 132 | 12 | 96 | 64 | 32 | 0 |
+| [circ](aes-sbox-a37-ad4-g128-gd12-xx91-29.circ.txt) | 37 | 4 | <ins><strong>128</strong></ins> | 12 | 91 | 62 | 29 | 0 |
 | [circ](aes-sbox-a48-ad4-g144-gd11-xx96-34.circ.txt) | 48 | 4 | 144 | 11 | 96 | 62 | 34 | 0 |
 | [circ](aes-sbox-a59-ad4-g159-gd10-xxn100-30-3.circ.txt) | 59 | 4 | 159 | <ins><strong>10</strong></ins> | 100 | 67 | 30 | 3 |
 
