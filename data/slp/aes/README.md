@@ -2,9 +2,7 @@
 
 Boolean circuits (straight-line programs) related to the *Advanced Encryption Standard* (AES).
 
-This page is maintained by the NIST [Circuit Complexity program](https://csrc.nist.gov/projects/circuit-complexity), for educational and research purposes.
-Refer to NIST [ACVP](https://github.com/usnistgov/ACVP) for validation of AES implementations aimed for production.
-
+This repository is maintained by the <strong>NIST [Circuit Complexity program](https://csrc.nist.gov/projects/circuit-complexity)</strong>, for educational and research purposes. The repository is currently not accepting external contributions (see [explanation](#updates) at the bottom of this page). Refer to NIST [ACVP](https://github.com/usnistgov/ACVP) for validation of AES implementations aimed for production. 
 
 
 <details open>
@@ -26,35 +24,33 @@ Refer to NIST [ACVP](https://github.com/usnistgov/ACVP) for validation of AES im
 - `mixcols` (32-bit to 32-bit): implements `MixColumns()` from FIPS 197.
 - `invmixcols` (32-bit to 32-bit): implements `InvMixColumns()` from FIPS 197.
 
-Recently added circuits were obtained with optimization techniques developed with assistance from AI. With additional computation, most of these circuits can likely be improved in some way. The circuits can be easily verified as correct based on input/output behavior.
+Recently added circuits were obtained via request to large language models. With additional computation, most of these circuits can likely be improved in some way. The circuits can be easily verified as correct based on input/output behavior.
 
 <details open>
 <summary><h3>AES S-box</h3></summary>
 
-The AES S-box is an 8-bit to 8-bit function. The following tables list [selected circuits](./show.md) into four categories: A28, A≤36/AD≥4, A≤36/AD3, GD≤12.
+The AES S-box is an 8-bit to 8-bit function. The following tables list [selected circuits](./show.md) into four categories: A28, A≤36/AD≥4, A≤35/AD3, GD≤12.
 
 Notation: XX = #XOR + #XNOR; XXN = XX + #NOT.
 
-#### S-box with #AND = 28
+#### S-box with A=28
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-sbox/aes-sbox-a28-ad4-g132-gd22-xx104-40.circ.txt) | 28 | <ins><strong>4</strong></ins> | 132 | 22 | 104 | 64 | 40 |
 | [circ](./aes-sbox/aes-sbox-a28-ad4-g134-gd20-xx106-41.circ.txt) | 28 | <ins><strong>4</strong></ins> | 134 | 20 | 106 | 65 | 41 |
 | [circ](./aes-sbox/aes-sbox-a28-ad4-g141-gd16-xx113-27.circ.txt) | 28 | <ins><strong>4</strong></ins> | 141 | 16 | 113 | 86 | 27 |
-| [circ](./aes-sbox/aes-sbox-a28-ad4-g153-gd15-xx125-29.circ.txt) | 28 | <ins><strong>4</strong></ins> | 153 | 15 | 125 | 96 | 29 |
-| [circ](./aes-sbox/aes-sbox-a28-ad4-g176-gd14-xx148-25.circ.txt) | 28 | <ins><strong>4</strong></ins> | 176 | <ins><strong>14</strong></ins> | 148 | 123 | 25 |
+| [circ](./aes-sbox/aes-sbox-a28-ad4-g153-gd15-xx125-29.circ.txt) | 28 | <ins><strong>4</strong></ins> | 153 | <ins><strong>15</strong></ins> | 125 | 96 | 29 |
 | [circ](./aes-sbox/aes-sbox-a28-ad5-g128-gd20-xx100-27.circ.txt) | 28 | 5 | <ins><strong>128</strong></ins> | 20 | 100 | 73 | 27 |
-| [circ](./aes-sbox/aes-sbox-a28-ad5-g150-gd15-xx122-23.circ.txt) | 28 | 5 | 150 | 15 | 122 | 99 | 23 |
+| [circ](./aes-sbox/aes-sbox-a28-ad5-g150-gd15-xx122-23.circ.txt) | 28 | 5 | 150 | <ins><strong>15</strong></ins> | 122 | 99 | 23 |
 
 Note: The A28 sbox circuits listed in the table above are either contributions (e.g., AD4/{G141/GD16}, AD5/{G128/GD20,G150/GD15}) communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear optimization.
 
-#### S-box with #AND≤36/AD≥4
+#### S-box with A≤36/AD≥4
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](./aes-sbox/aes-sbox-a32-ad4-g117-gd19-xx85-6.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 117 | 19 | 85 | 79 | 6 |
-| [circ](./aes-sbox/aes-sbox-a32-ad4-g127-gd15-xx95-7.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 127 | 15 | 95 | 88 | 7 |
+| [circ](./aes-sbox/aes-sbox-a32-ad4-g126-gd15-xx94-7.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 126 | 15 | 94 | 87 | 7 |
 | [circ](./aes-sbox/aes-sbox-a32-ad4-g132-gd14-xx100-26.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 132 | 14 | 100 | 74 | 26 |
 | [circ](./aes-sbox/aes-sbox-a32-ad4-g149-gd13-xx117-41.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 149 | <ins><strong>13</strong></ins> | 117 | 76 | 41 |
 | [circ](./aes-sbox/aes-sbox-a32-ad5-g108-gd20-xx76-3.circ.txt) | <ins><strong>32</strong></ins> | 5 | 108 | 20 | 76 | 73 | 3 |
@@ -64,29 +60,27 @@ Note: The A28 sbox circuits listed in the table above are either contributions (
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g115-gd15-xx82-7.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 75 | 7 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g119-gd14-xx86-25.circ.txt) | 33 | <ins><strong>4</strong></ins> | 119 | 14 | 86 | 61 | 25 |
 | [circ](./aes-sbox/aes-sbox-a33-ad4-g124-gd13-xx91-46.circ.txt) | 33 | <ins><strong>4</strong></ins> | 124 | <ins><strong>13</strong></ins> | 91 | 45 | 46 |
-| [circ](./aes-sbox/aes-sbox-a35-ad4-g123-gd13-xx88-32.circ.txt) | 35 | <ins><strong>4</strong></ins> | 123 | <ins><strong>13</strong></ins> | 88 | 56 | 32 |
+| [circ](./aes-sbox/aes-sbox-a34-ad4-g121-gd13-xx87-23.circ.txt) | 34 | <ins><strong>4</strong></ins> | 121 | <ins><strong>13</strong></ins> | 87 | 64 | 23 |
 
-#### S-box with #AND≤36/AD3
+#### S-box with A≤35/AD3
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](./aes-sbox/aes-sbox-a35-ad3-g139-gd27-xx104-38.circ.txt) | 35 | 3 | <ins><strong>139</strong></ins> | 27 | 104 | 66 | 38 |
 | [circ](./aes-sbox/aes-sbox-a35-ad3-g141-gd25-xx106-37.circ.txt) | 35 | 3 | 141 | 25 | 106 | 69 | 37 |
 | [circ](./aes-sbox/aes-sbox-a35-ad3-g147-gd20-xx112-36.circ.txt) | 35 | 3 | 147 | 20 | 112 | 76 | 36 |
-| [circ](./aes-sbox/aes-sbox-a35-ad3-g157-gd15-xx122-31.circ.txt) | 35 | 3 | 157 | 15 | 122 | 91 | 31 |
-| [circ](./aes-sbox/aes-sbox-a35-ad3-g172-gd14-xx137-30.circ.txt) | 35 | 3 | 172 | 14 | 137 | 107 | 30 |
-| [circ](./aes-sbox/aes-sbox-a35-ad3-g183-gd13-xx148-29.circ.txt) | 35 | 3 | 183 | <ins><strong>13</strong></ins> | 148 | 119 | 29 |
+| [circ](./aes-sbox/aes-sbox-a35-ad3-g157-gd15-xx122-31.circ.txt) | 35 | 3 | 157 | <ins><strong>15</strong></ins> | 122 | 91 | 31 |
 
-Note: The A35/AD3 sbox circuits listed in the table above are either (G157/GD15, G183/GD13) contributions communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear optimization.
+Note: The A35/AD3 sbox circuits listed in the table above are either contributions (e.g., G157/GD15) communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via further optimization.
 
 #### S-box with GD≤12
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XXN<br>(*x*+*x'*+*n*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) | #NOT<br>(*n*) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-sbox/aes-sbox-a35-ad4-g136-gd12-xx101-33.circ.txt) | 35 | 4 | 136 | 12 | 101 | 68 | 33 | 0 |
-| [circ](./aes-sbox/aes-sbox-a36-ad4-g132-gd12-xx96-32.circ.txt) | 36 | 4 | 132 | 12 | 96 | 64 | 32 | 0 |
-| [circ](./aes-sbox/aes-sbox-a37-ad4-g128-gd12-xx91-29.circ.txt) | 37 | 4 | <ins><strong>128</strong></ins> | 12 | 91 | 62 | 29 | 0 |
-| [circ](./aes-sbox/aes-sbox-a48-ad4-g144-gd11-xx96-34.circ.txt) | 48 | 4 | 144 | 11 | 96 | 62 | 34 | 0 |
+| [circ](./aes-sbox/aes-sbox-a35-ad4-g134-gd12-xx99-28.circ.txt) | 35 | 4 | 134 | 12 | 99 | 71 | 28 | 0 |
+| [circ](./aes-sbox/aes-sbox-a36-ad4-g129-gd12-xx93-21.circ.txt) | 36 | 4 | 129 | 12 | 93 | 72 | 21 | 0 |
+| [circ](./aes-sbox/aes-sbox-a37-ad4-g127-gd12-xx90-32.circ.txt) | 37 | 4 | <ins><strong>127</strong></ins> | 12 | 90 | 58 | 32 | 0 |
+| [circ](./aes-sbox/aes-sbox-a48-ad4-g142-gd11-xx94-29.circ.txt) | 48 | 4 | 142 | 11 | 94 | 65 | 29 | 0 |
 | [circ](./aes-sbox/aes-sbox-a59-ad4-g159-gd10-xxn100-30-3.circ.txt) | 59 | 4 | 159 | <ins><strong>10</strong></ins> | 100 | 67 | 30 | 3 |
 
 
@@ -94,43 +88,39 @@ Note: The A35/AD3 sbox circuits listed in the table above are either (G157/GD15,
 <details open>
 <summary><h3>AES Inverse S-box</h3></summary>
 
-The AES S-box is an 8-bit to 8-bit function. The following tables list [selected circuits](./show.md) into four categories: A28, A≤36/AD≥4, A≤36/AD3, GD≤12.
+The AES S-box is an 8-bit to 8-bit function. The following tables list [selected circuits](./show.md) into four categories: A28, A≤36/AD≥4, A≤35/AD3, GD≤12.
 
 Notation: XX = #XOR + #XNOR; XXN = XX + #NOT.
 
-#### Inverse S-box with #AND = 28
+#### Inverse S-box with A=28
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](./aes-invsbox/aes-invsbox-a28-ad4-g135-gd20-xx107-35.circ.txt) | 28 | <ins><strong>4</strong></ins> | 135 | 20 | 107 | 72 | 35 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad4-g150-gd16-xx122-27.circ.txt) | 28 | <ins><strong>4</strong></ins> | 150 | 16 | 122 | 95 | 27 |
 | [circ](./aes-invsbox/aes-invsbox-a28-ad4-g156-gd15-xx128-28.circ.txt) | 28 | <ins><strong>4</strong></ins> | 156 | <ins><strong>15</strong></ins> | 128 | 100 | 28 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad5-g129-gd22-xx101-30.circ.txt) | 28 | 5 | <ins><strong>129</strong></ins> | 22 | 101 | 71 | 30 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad5-g131-gd20-xx103-29.circ.txt) | 28 | 5 | 131 | 20 | 103 | 74 | 29 |
-| [circ](./aes-invsbox/aes-invsbox-a28-ad5-g147-gd16-xx119-25.circ.txt) | 28 | 5 | 147 | 16 | 119 | 94 | 25 |
+| [circ](./aes-invsbox/aes-invsbox-a28-ad5-g131-gd20-xx103-29.circ.txt) | 28 | 5 | <ins><strong>131</strong></ins> | 20 | 103 | 74 | 29 |
 | [circ](./aes-invsbox/aes-invsbox-a28-ad5-g152-gd15-xx124-18.circ.txt) | 28 | 5 | 152 | <ins><strong>15</strong></ins> | 124 | 106 | 18 |
 
-Note: The A28 invsbox circuits listed in the table above are either contributions (e.g., AD5/{G152/GD15}) communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via linear transformation and optimization of contributed A28 [sbox circuits](./aes-sbox/) or invsbox circuits.
+Note: The A28 invsbox circuits listed in the table above are either contributions (e.g., AD5/{G152/GD15}) communicated by Milad Nasr (@ Anthropic) on 2026-09-24, or were derived therefrom via further optimization of contributed A28 [sbox circuits](./aes-sbox/) or invsbox circuits.
 
-#### Inverse S-box with #AND≤36/AD≥4
+#### Inverse S-box with A≤36/AD≥4
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
 | [circ](./aes-invsbox/aes-invsbox-a32-ad4-g117-gd21-xx85-10.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 117 | 21 | 85 | 75 | 10 |
 | [circ](./aes-invsbox/aes-invsbox-a32-ad4-g119-gd20-xx87-10.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 119 | 20 | 87 | 77 | 10 |
-| [circ](./aes-invsbox/aes-invsbox-a32-ad4-g124-gd15-xx92-37.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 124 | 15 | 92 | 55 | 37 |
-| [circ](./aes-invsbox/aes-invsbox-a32-ad4-g131-gd14-xx99-36.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 131 | 14 | 99 | 63 | 36 |
-| [circ](./aes-invsbox/aes-invsbox-a32-ad5-g107-gd23-xx75-6.circ.txt) | <ins><strong>32</strong></ins> | 5 | 107 | 23 | 75 | 69 | 6 |
+| [circ](./aes-invsbox/aes-invsbox-a32-ad4-g123-gd15-xx91-21.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 123 | 15 | 91 | 70 | 21 |
+| [circ](./aes-invsbox/aes-invsbox-a32-ad4-g125-gd14-xx93-21.circ.txt) | <ins><strong>32</strong></ins> | <ins><strong>4</strong></ins> | 125 | 14 | 93 | 72 | 21 |
 | [circ](./aes-invsbox/aes-invsbox-a32-ad5-g110-gd20-xx78-7.circ.txt) | <ins><strong>32</strong></ins> | 5 | 110 | 20 | 78 | 71 | 7 |
-| [circ](./aes-invsbox/aes-invsbox-a32-ad5-g121-gd15-xx89-21.circ.txt) | <ins><strong>32</strong></ins> | 5 | 121 | 15 | 89 | 68 | 21 |
+| [circ](./aes-invsbox/aes-invsbox-a32-ad5-g119-gd15-xx87-27.circ.txt) | <ins><strong>32</strong></ins> | 5 | 119 | 15 | 87 | 60 | 27 |
 | [circ](./aes-invsbox/aes-invsbox-a32-ad7-g105-gd27-xx73-14.circ.txt) | <ins><strong>32</strong></ins> | 7 | <ins><strong>105</strong></ins> | 27 | 73 | 59 | 14 |
-| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g107-gd21-xx74-10.circ.txt) | 33 | <ins><strong>4</strong></ins> | 107 | 21 | 74 | 64 | 10 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g108-gd20-xx75-9.circ.txt) | 33 | <ins><strong>4</strong></ins> | 108 | 20 | 75 | 66 | 9 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g115-gd15-xx82-37.circ.txt) | 33 | <ins><strong>4</strong></ins> | 115 | 15 | 82 | 45 | 37 |
 | [circ](./aes-invsbox/aes-invsbox-a33-ad4-g117-gd14-xx84-24.circ.txt) | 33 | <ins><strong>4</strong></ins> | 117 | 14 | 84 | 60 | 24 |
-| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g125-gd13-xx92-44.circ.txt) | 33 | <ins><strong>4</strong></ins> | 125 | <ins><strong>13</strong></ins> | 92 | 48 | 44 |
+| [circ](./aes-invsbox/aes-invsbox-a33-ad4-g123-gd13-xx90-34.circ.txt) | 33 | <ins><strong>4</strong></ins> | 123 | <ins><strong>13</strong></ins> | 90 | 56 | 34 |
+| [circ](./aes-invsbox/aes-invsbox-a34-ad4-g119-gd13-xx85-17.circ.txt) | 34 | <ins><strong>4</strong></ins> | 119 | <ins><strong>13</strong></ins> | 85 | 68 | 17 |
 
-#### Inverse S-box with #AND≤36/AD3
+#### Inverse S-box with A≤35/AD3
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -138,15 +128,15 @@ Note: The A28 invsbox circuits listed in the table above are either contribution
 | [circ](./aes-invsbox/aes-invsbox-a35-ad3-g154-gd20-xx119-30.circ.txt) | 35 | 3 | 154 | 20 | 119 | 89 | 30 |
 | [circ](./aes-invsbox/aes-invsbox-a35-ad3-g157-gd15-xx122-27.circ.txt) | 35 | 3 | 157 | <ins><strong>15</strong></ins> | 122 | 95 | 27 |
 
-Note: The A35/AD3 invsbox circuits listed in the table above were derived by linear transformation and optimization of A35/AD3 [sbox circuits](./aes-sbox/) (G139/GD31, G157/GD15, G183/GD13) externally contributed by Milad Nasr (@ Anthropic) on 2026-09-24.
+Note: The A35/AD3 invsbox circuits listed in the table above were derived by optimization of A35/AD3 [sbox circuits](./aes-sbox/) externally contributed by Milad Nasr (@ Anthropic) on 2026-09-24.
 
 #### Inverse S-box with GD≤12
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XXN<br>(*x*+*x'*+*n*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) | #NOT<br>(*n*) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [circ](./aes-invsbox/aes-invsbox-a35-ad4-g140-gd12-xx105-40.circ.txt) | 35 | 4 | 140 | 12 | 105 | 65 | 40 | 0 |
-| [circ](./aes-invsbox/aes-invsbox-a36-ad4-g135-gd12-xx99-34.circ.txt) | 36 | 4 | 135 | 12 | 99 | 65 | 34 | 0 |
-| [circ](./aes-invsbox/aes-invsbox-a37-ad4-g133-gd12-xx96-27.circ.txt) | 37 | 4 | <ins><strong>133</strong></ins> | 12 | 96 | 69 | 27 | 0 |
+| [circ](./aes-invsbox/aes-invsbox-a36-ad4-g133-gd12-xx97-31.circ.txt) | 36 | 4 | 133 | 12 | 97 | 66 | 31 | 0 |
+| [circ](./aes-invsbox/aes-invsbox-a39-ad4-g127-gd12-xx88-25.circ.txt) | 39 | 4 | <ins><strong>127</strong></ins> | 12 | 88 | 63 | 25 | 0 |
+| [circ](./aes-invsbox/aes-invsbox-a48-ad4-g139-gd11-xx91-22.circ.txt) | 48 | 4 | 139 | 11 | 91 | 69 | 22 | 0 |
 | [circ](./aes-invsbox/aes-invsbox-a55-ad4-g148-gd10-xxn93-26-2.circ.txt) | 55 | 4 | 148 | <ins><strong>10</strong></ins> | 93 | 65 | 26 | 2 |
 
 
@@ -158,7 +148,7 @@ The aes-sbox-sel is a 9-bit to 8-bit vectorial Boolean function whose 1st bit (c
 
 The following two tables list selected circuits from two categories: A36 and 40≤A≤41
 
-#### S-box Sel with #AND = 36
+#### S-box Sel with A=36
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -167,7 +157,7 @@ The following two tables list selected circuits from two categories: A36 and 40�
 
 The listed aes-sbox-sel/A36 circuits were obtained from transformations to sbox/A28 circuits.
 
-#### S-box Sel with 40 ≤ #AND ≤ 41
+#### S-box Sel with 40 ≤A≤41
 
 | File | #AND<br>(*A*) | AND<br>depth | #Gates<br>(*G*) | Gate<br>depth | XX<br>(*x*+*x'*) | #XOR<br>(*x*) | #XNOR<br>(*x'*) |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -284,7 +274,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-128 KeyExpansion: Flat circuits</h3></summary>
 
-#### KeyExpansion using Sbox with #AND<=34
+#### KeyExpansion using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -294,7 +284,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### KeyExpansion using Sbox with #AND>34
+#### KeyExpansion using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -308,7 +298,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-128 Cipher: Flat circuits</h3></summary>
 
-#### Cipher using Sbox with #AND<=34
+#### Cipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -318,7 +308,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Cipher using Sbox with #AND>34
+#### Cipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -331,7 +321,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-128 Encipher: Flat circuits</h3></summary>
 
-#### Encipher using Sbox with #AND<=34
+#### Encipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -341,7 +331,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Encipher using Sbox with #AND>34
+#### Encipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -354,7 +344,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-128 InvCipher: Flat circuits</h3></summary>
 
-#### InvCipher using InvSbox with #AND<=34
+#### InvCipher using InvSbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -364,7 +354,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### InvCipher using InvSbox with #AND>34
+#### InvCipher using InvSbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -376,7 +366,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-128 Decipher: Flat circuits</h3></summary>
 
-#### Decipher using [Inv]Sbox with #AND<=34
+#### Decipher using [Inv]Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -386,7 +376,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Decipher using [Inv]Sbox with #AND>34
+#### Decipher using [Inv]Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -399,7 +389,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-192 KeyExpansion: Flat circuits</h3></summary>
 
-#### KeyExpansion using Sbox with #AND<=34
+#### KeyExpansion using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -409,7 +399,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### KeyExpansion using Sbox with #AND>34
+#### KeyExpansion using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -423,7 +413,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-192 Cipher: Flat circuits</h3></summary>
 
-#### Cipher using Sbox with #AND<=34
+#### Cipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -433,7 +423,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Cipher using Sbox with #AND>34
+#### Cipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -446,7 +436,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-192 Encipher: Flat circuits</h3></summary>
 
-#### Encipher using Sbox with #AND<=34
+#### Encipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -456,7 +446,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Encipher using Sbox with #AND>34
+#### Encipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -469,7 +459,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-192 InvCipher: Flat circuits</h3></summary>
 
-#### InvCipher using InvSbox with #AND<=34
+#### InvCipher using InvSbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -479,7 +469,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### InvCipher using InvSbox with #AND>34
+#### InvCipher using InvSbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -491,7 +481,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-192 Decipher: Flat circuits</h3></summary>
 
-#### Decipher using [Inv]Sbox with #AND<=34
+#### Decipher using [Inv]Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -501,7 +491,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Decipher using [Inv]Sbox with #AND>34
+#### Decipher using [Inv]Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -514,7 +504,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-256 KeyExpansion: Flat circuits</h3></summary>
 
-#### KeyExpansion using Sbox with #AND<=34
+#### KeyExpansion using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -524,7 +514,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### KeyExpansion using Sbox with #AND>34
+#### KeyExpansion using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | ---: |
@@ -538,7 +528,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-256 Cipher: Flat circuits</h3></summary>
 
-#### Cipher using Sbox with #AND<=34
+#### Cipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -548,7 +538,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Cipher using Sbox with #AND>34
+#### Cipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -561,7 +551,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-256 Encipher: Flat circuits</h3></summary>
 
-#### Encipher using Sbox with #AND<=34
+#### Encipher using Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -571,7 +561,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Encipher using Sbox with #AND>34
+#### Encipher using Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -584,7 +574,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-256 InvCipher: Flat circuits</h3></summary>
 
-#### InvCipher using InvSbox with #AND<=34
+#### InvCipher using InvSbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -594,7 +584,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### InvCipher using InvSbox with #AND>34
+#### InvCipher using InvSbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | ---: |
@@ -606,7 +596,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 <details open>
 <summary><h3>AES-256 Decipher: Flat circuits</h3></summary>
 
-#### Decipher using [Inv]Sbox with #AND<=34
+#### Decipher using [Inv]Sbox with A<=34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -616,7 +606,7 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 
-#### Decipher using [Inv]Sbox with #AND>34
+#### Decipher using [Inv]Sbox with A>34
 
 | File | \|k\| | A | AD | G | GD | XX | Sbox | Inv<br>Sbox | Inv<br>MixCols | TM |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- | --- | --- | ---: |
@@ -626,3 +616,11 @@ Note: In selected columns, values <ins><strong>underlined in bold</strong></ins>
 \|k\| = key size; A = #AND; AD = AND depth; G = #Gates; GD = gate depth; XX = #XOR + #XNOR; Fwd = Forward; Inv = Inverse; TM = tuple metric: 1 = A-AD-G-GD; 2 = AD-GD-G-A; 3 = GD-G-AD-A; 4 = G-A-GD-AD.
 </details>
 </details>
+
+<a name="updates"></a><strong></strong>
+
+### On updates
+
+The circuits posted since 2026 were obtained via search with reasoning models based on large language models. In this recent paradigm, discovering new circuits under specified metric constraints has become possible upon simple request and use of computation. Thus, most of the currently listed results are likely supersedable, as the models improve and more computation is devoted to optimization.
+
+We may occasionally upload newly obtained circuits. However, in the current paradigm, we do not currently plan to accept external contributions into the repository. Yet, the Circuit Complexity [webpage at CSRC](https://csrc.nist.gov/Projects/circuit-complexity/list-of-circuits) may temporarily list simple links to external repositories with related results.
