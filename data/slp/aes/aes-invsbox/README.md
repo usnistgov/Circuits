@@ -47,7 +47,7 @@ Note: The A35/AD3 invsbox circuits listed in the table above were derived by opt
 | File | #AND<br>(A) | AND<br>depth | #Gates<br>(G) | Gate<br>depth | XXN | #XOR | #XNOR | #NOT |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-invsbox-a36-ad4-g133-gd12-xx97-31.circ.txt) | 36 | 4 | 133 | 12 | 97 | 66 | 31 | 0 |
-| [circ](aes-invsbox-a39-ad4-g127-gd12-xx88-25.circ.txt) | 39 | 4 | <ins><strong>127</strong></ins> | 12 | 88 | 63 | 25 | 0 |
-| [circ](aes-invsbox-a48-ad4-g139-gd11-xx91-22.circ.txt) | 48 | 4 | 139 | 11 | 91 | 69 | 22 | 0 |
+| [circ](aes-invsbox-a39-ad4-g125-gd12-xx86-21.circ.txt) | 39 | 4 | <ins><strong>125</strong></ins> | 12 | 86 | 65 | 21 | 0 |
+| [circ](aes-invsbox-a46-ad4-g136-gd11-xxn90-27-2.circ.txt) | 46 | 4 | 136 | 11 | 90 | 61 | 27 | 2 |
 | [circ](aes-invsbox-a55-ad4-g148-gd10-xxn93-26-2.circ.txt) | 55 | 4 | 148 | <ins><strong>10</strong></ins> | 93 | 65 | 26 | 2 |
 

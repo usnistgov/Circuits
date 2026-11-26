@@ -50,7 +50,7 @@ Note: The A35/AD3 sbox circuits listed in the table above are either contributio
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | [circ](aes-sbox-a35-ad4-g134-gd12-xx99-28.circ.txt) | 35 | 4 | 134 | 12 | 99 | 71 | 28 | 0 |
 | [circ](aes-sbox-a36-ad4-g129-gd12-xx93-21.circ.txt) | 36 | 4 | 129 | 12 | 93 | 72 | 21 | 0 |
-| [circ](aes-sbox-a37-ad4-g127-gd12-xx90-32.circ.txt) | 37 | 4 | <ins><strong>127</strong></ins> | 12 | 90 | 58 | 32 | 0 |
-| [circ](aes-sbox-a48-ad4-g142-gd11-xx94-29.circ.txt) | 48 | 4 | 142 | 11 | 94 | 65 | 29 | 0 |
+| [circ](aes-sbox-a39-ad4-g126-gd12-xx87-23.circ.txt) | 39 | 4 | <ins><strong>126</strong></ins> | 12 | 87 | 64 | 23 | 0 |
+| [circ](aes-sbox-a48-ad4-g141-gd11-xx93-20.circ.txt) | 48 | 4 | 141 | 11 | 93 | 73 | 20 | 0 |
 | [circ](aes-sbox-a59-ad4-g159-gd10-xxn100-30-3.circ.txt) | 59 | 4 | 159 | <ins><strong>10</strong></ins> | 100 | 67 | 30 | 3 |
 
